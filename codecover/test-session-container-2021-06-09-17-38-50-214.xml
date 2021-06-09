@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1623226644902" TestSessionContainerId="a32ff930-fc33-45fe-af08-9c6c1b682437" version="1.0">
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1623253129908" TestSessionContainerId="182f5e88-c7cc-4973-bd97-d444f498df3a" version="1.0">
 <SrcFileList>
 <SrcFile Content="import java.util.ArrayList; &#13;&#10;&#13;&#10;public class Colonia {&#13;&#10;&#13;&#10;&#9;private String name;&#13;&#10;&#9;private int yobQueen;&#13;&#10;&#9;private int qualityQueen;&#13;&#10;&#9;private int totHoney;&#13;&#10;&#9;private ArrayList&lt;Report&gt; reportList;&#13;&#10;&#9;&#13;&#10;&#9;public Colonia() {&#13;&#10;&#9;&#9;name=&quot;&quot;;&#13;&#10;&#9;&#9;yobQueen=2015;&#13;&#10;&#9;&#9;qualityQueen=1;&#13;&#10;&#9;&#9;totHoney=0;&#13;&#10;&#9;&#9;reportList = new ArrayList&lt;Report&gt;();&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;public Colonia(String n, int yq, int qq, int th, ArrayList&lt;Report&gt; rl) {&#13;&#10;&#9;&#9;name=n;&#13;&#10;&#9;&#9;yobQueen=yq;&#13;&#10;&#9;&#9;qualityQueen=qq;&#13;&#10;&#9;&#9;totHoney=th;&#13;&#10;&#9;&#9;reportList = rl;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;public void setName(String n) {&#13;&#10;&#9;&#9;name = n;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;public void setYobQueen(int yq) {&#13;&#10;&#9;&#9;yobQueen = yq;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;public void setQualQueen(int qq) {&#13;&#10;&#9;&#9;qualityQueen = qq;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;public void increaseTotalHoney(int th) {&#13;&#10;&#9;&#9;totHoney += th;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;public void addReport(Report report) {&#13;&#10;&#9;&#9;reportList.add(report);&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;public String getName() {&#13;&#10;&#9;&#9;return name;&#13;&#10;&#9;}&#13;&#10;&#9;public int getYobQueen() {&#13;&#10;&#9;&#9;return yobQueen;&#13;&#10;&#9;}&#13;&#10;&#9;public int getQualQueen() {&#13;&#10;&#9;&#9;return qualityQueen;&#13;&#10;&#9;}&#13;&#10;&#9;public int getTotalHoney() {&#13;&#10;&#9;&#9;return totHoney;&#13;&#10;&#9;}&#13;&#10;&#9;public ArrayList&lt;Report&gt; getReports() {&#13;&#10;&#9;&#9;return reportList;&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" Filename="Colonia.java" Intrnl_Id="1"/>
 <SrcFile Content="import java.util.Calendar;&#13;&#10;import java.util.Date;&#13;&#10;&#13;&#10;public class Report {&#13;&#10;&#9;private Date reportDate; // Identificativo report&#13;&#10;&#9;private int broodFrames; // Numero favi con covata (indicativo di crescita) &#13;&#10;&#9;private int honeyFrames; // Numero favi con miele nella cassa (indicativo di richiesta melari)&#13;&#10;&#9;private int beeFrames;&#9;// Numero favi con api (indicativo di affollamento)&#13;&#10;&#9;private Boolean seenQueen; // Mancanza della regina &#13;&#10;&#9;private Boolean swarmCells; // Presenza cupolino (indicativo di sciamatura)&#13;&#10;&#9;private int numSupers; // Numero di melari presenti&#13;&#10;&#9;private float percTopSuper; // Percentuale utilizzo ULTIMO melario (tra 0 ed 1)&#13;&#10;&#9;&#13;&#10;&#9;public Report() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;reportDate = new Date();&#13;&#10;&#9;&#9;reportDate = cal.getTime();&#13;&#10;&#9;&#9;broodFrames=0;&#13;&#10;&#9;&#9;honeyFrames=0;&#13;&#10;&#9;&#9;beeFrames=0;&#13;&#10;&#9;&#9;seenQueen=false;&#13;&#10;&#9;&#9;swarmCells=false;&#13;&#10;&#9;&#9;numSupers=0;&#13;&#10;&#9;&#9;percTopSuper=0;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;public Report(Date d, int bf, int hf, int bef, Boolean sq, Boolean sc, int ns, float pts) {&#13;&#10;&#9;&#9;reportDate = d;&#13;&#10;&#9;&#9;broodFrames=bf;&#13;&#10;&#9;&#9;honeyFrames=hf;&#13;&#10;&#9;&#9;beeFrames=bef;&#13;&#10;&#9;&#9;seenQueen=sq;&#13;&#10;&#9;&#9;swarmCells=sc;&#13;&#10;&#9;&#9;numSupers=ns;&#13;&#10;&#9;&#9;percTopSuper=pts;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;public void setDate(Date d) {&#13;&#10;&#9;&#9;reportDate = d;&#13;&#10;&#9;}&#13;&#10;&#9;public void setBroodFrames(int bf) {&#13;&#10;&#9;&#9;broodFrames = bf;&#13;&#10;&#9;}&#13;&#10;&#9;public void setHoneyFrames(int hf) {&#13;&#10;&#9;&#9;honeyFrames = hf;&#13;&#10;&#9;}&#13;&#10;&#9;public void setBeeFrames(int bef) {&#13;&#10;&#9;&#9;beeFrames = bef;&#13;&#10;&#9;}&#13;&#10;&#9;public void setSeenQueen(Boolean sq) {&#13;&#10;&#9;&#9;seenQueen = sq;&#13;&#10;&#9;}&#13;&#10;&#9;public void setSwarmCells(Boolean sc) {&#13;&#10;&#9;&#9;swarmCells = sc;&#13;&#10;&#9;}&#13;&#10;&#9;public void setNumSupers(int ns) {&#13;&#10;&#9;&#9;numSupers = ns;&#13;&#10;&#9;}&#13;&#10;&#9;public void setPercTopSuper(float pts) {&#13;&#10;&#9;&#9;percTopSuper = pts;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;&#13;&#10;&#9;public Date getDate() {&#13;&#10;&#9;&#9;return reportDate;&#13;&#10;&#9;}&#13;&#10;&#9;public int getBroodFrames() {&#13;&#10;&#9;&#9;return broodFrames;&#13;&#10;&#9;}&#13;&#10;&#9;public int getHoneyFrames() {&#13;&#10;&#9;&#9;return honeyFrames;&#13;&#10;&#9;}&#13;&#10;&#9;public int getBeeFrames() {&#13;&#10;&#9;&#9;return beeFrames;&#13;&#10;&#9;}&#13;&#10;&#9;public Boolean getSeenQueen() {&#13;&#10;&#9;&#9;return seenQueen;&#13;&#10;&#9;}&#13;&#10;&#9;public Boolean getSwarmCells() {&#13;&#10;&#9;&#9;return swarmCells;&#13;&#10;&#9;}&#13;&#10;&#9;public int getNumSupers() {&#13;&#10;&#9;&#9;return numSupers;&#13;&#10;&#9;}&#13;&#10;&#9;public float getPercTopSuper() {&#13;&#10;&#9;&#9;return percTopSuper;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;// Ritorna un valore tra 0 e 5 rappresentante il rischio di sciamatura&#13;&#10;&#9;public int swarmRisk() {&#13;&#10;&#9;&#9;int risk = 0;&#13;&#10;&#9;&#9;if (broodFrames &gt; 9)&#13;&#10;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;if (swarmCells)&#13;&#10;&#9;&#9;&#9;risk+=2;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;if (beeFrames &gt; 10 &amp;&amp; numSupers==0)&#13;&#10;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;if (honeyFrames &gt; 4)&#13;&#10;&#9;&#9;&#9;if (numSupers == 0)&#13;&#10;&#9;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;else if (percTopSuper &gt;= 0.8)&#13;&#10;&#9;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;&#9;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;return risk;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;// Ritorna un valore tra 0 e 5 rappresentante il rischio di denutrimento&#13;&#10;&#9;public int starvingRisk() {&#13;&#10;&#9;&#9;int risk = 0;&#13;&#10;&#9;&#9;if (honeyFrames &lt; 2) {&#13;&#10;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;if (numSupers == 0)&#13;&#10;&#9;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;else {&#13;&#10;&#9;&#9;&#9;&#9;if (beeFrames &gt; 9)&#13;&#10;&#9;&#9;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;&#9;if (broodFrames &gt; 10)&#13;&#10;&#9;&#9;&#9;&#9;&#9;risk+=2;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;return risk;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//Ritorna un boolean rappresentante la necessità di aggiungere un melario&#13;&#10;&#9;public Boolean needsSuper() {&#13;&#10;&#9;&#9;if ( honeyFrames &gt; 3)&#13;&#10;&#9;&#9;&#9;if (numSupers == 0)&#13;&#10;&#9;&#9;&#9;&#9;return true;&#13;&#10;&#9;&#9;&#9;else if (numSupers &lt; 2 &amp;&amp; percTopSuper &gt;= 0.8)&#13;&#10;&#9;&#9;&#9;&#9;return true;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;return false;&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" Filename="Report.java" Intrnl_Id="2"/>
 <SrcFile Content="import java.util.ArrayList;&#13;&#10;import java.util.Scanner;&#13;&#10;import java.io.File;&#13;&#10;import java.io.FileNotFoundException;&#13;&#10;&#13;&#10;public class main {&#13;&#10;&#9;&#13;&#10;&#9;public static void main(String[] args) {&#13;&#10;&#9;&#9;// TODO Auto-generated method stub&#13;&#10;&#9;&#9;ArrayList&lt;Colonia&gt; listaColonie = new ArrayList&lt;Colonia&gt;();&#13;&#10;&#9;&#9;String nomeFile = &quot;colonie.txt&quot;;&#13;&#10;&#9;&#9;//ArrayList&lt;String&gt; &#13;&#10;&#9;&#9;importFile(nomeFile,listaColonie);&#13;&#10;&#13;&#10;&#9;&#9; System.out.println(listaColonie.get(0).getName());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;public static void importFile (String nomeFile, ArrayList&lt;Colonia&gt; lc) {&#13;&#10;&#9;&#9;try {&#13;&#10;&#9;&#9;&#9;File myFile = new File(nomeFile);&#13;&#10;&#9;&#9;&#9;Scanner myReader = new Scanner(myFile);&#13;&#10;&#9;&#9;&#9;while (myReader.hasNextLine()) {&#13;&#10;&#9;&#9;&#9;    String colony = myReader.nextLine();&#13;&#10;&#9;&#9;&#9;    String delim = &quot;[|]+&quot;;&#13;&#10;&#9;&#9;&#9;    String[] colonyData = colony.split(delim);&#13;&#10;&#9;&#9;&#9;    Colonia c = new Colonia();&#13;&#10;&#9;&#9;&#9;    c.setName(colonyData[0]);&#13;&#10;&#9;&#9;&#9;    c.setYobQueen(Integer.parseInt(colonyData[1]));&#13;&#10;&#9;&#9;&#9;    c.setQualQueen(Integer.parseInt(colonyData[2]));&#13;&#10;&#9;&#9;&#9;    c.increaseTotalHoney(Integer.parseInt(colonyData[3]));&#13;&#10;&#9;&#9;&#9;    &#13;&#10;&#9;&#9;&#9;    lc.add(c);&#13;&#10;&#9;&#9;    }&#13;&#10;&#9;&#9;    myReader.close();&#13;&#10;&#9;&#9; } catch (FileNotFoundException e) {&#13;&#10;&#9;&#9;&#9; System.out.println(&quot;An error occurred.&quot;);&#13;&#10;&#9;&#9;&#9; e.printStackTrace();&#13;&#10;&#9;&#9; }&#13;&#10;&#9;}&#13;&#10;&#13;&#10;}&#13;&#10;" Filename="main.java" Intrnl_Id="3"/>
 <SrcFile Content="import static org.junit.Assert.*;&#13;&#10;&#13;&#10;import java.util.ArrayList;&#13;&#10;import java.util.Arrays;&#13;&#10;import java.util.Collection;&#13;&#10;&#13;&#10;import org.junit.Test;&#13;&#10;import org.junit.runner.RunWith;&#13;&#10;import org.junit.runners.Parameterized;&#13;&#10;import org.junit.runners.Parameterized.Parameters;&#13;&#10;&#13;&#10;@RunWith(Parameterized.class)&#13;&#10;public class ColoniaTest {&#13;&#10;&#9;Colonia colony;&#13;&#10;&#9;private int inputIncrease;&#13;&#10;&#9;private int expectedResult;&#13;&#10;&#9;&#13;&#10;&#9;&#13;&#10;&#9;@Parameters&#13;&#10;&#9;public static Collection&lt;Object[]&gt; creaParametri() {&#13;&#10;&#9;&#9;return Arrays.asList(new Object[][] {&#13;&#10;&#9;&#9;&#9;{50,150},&#13;&#10;&#9;&#9;&#9;{100,200},&#13;&#10;&#9;&#9;&#9;{-100,100},&#13;&#10;&#9;&#9;});&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;public ColoniaTest(int p1, int p2) {&#13;&#10;&#9;&#9;colony = new Colonia(&quot;aa01&quot;, 2020, 4, 100, new ArrayList&lt;Report&gt;());&#13;&#10;&#9;&#9;inputIncrease = p1;&#13;&#10;&#9;&#9;expectedResult = p2;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testIncreaseHoney() {&#13;&#10;&#9;&#9;colony.increaseTotalHoney(inputIncrease);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;assertEquals(expectedResult,colony.getTotalHoney());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;}&#13;&#10;" Filename="ColoniaTest.java" Intrnl_Id="4"/>
-<SrcFile Content="import static org.junit.Assert.*;&#13;&#10;&#13;&#10;import java.util.Calendar;&#13;&#10;&#13;&#10;import org.junit.Test;&#13;&#10;&#13;&#10;public class ReportTest {&#13;&#10;&#9;Report highSwarmRisk, medSwarmRisk, lowSwarmRisk, needsSuper1, needsSuper2, highStarveRisk, lowStarveRisk;&#13;&#10;&#9;Report bonus;&#13;&#10;&#9;&#13;&#10;&#9;public ReportTest() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;highSwarmRisk = new Report(cal.getTime(),10,5,11,true,true,0,0);&#13;&#10;&#9;&#9;medSwarmRisk = new Report(cal.getTime(),10,5,8,true,true,1,(float)0.5);&#13;&#10;&#9;&#9;lowSwarmRisk = new Report(cal.getTime(),9,5,10,true,false,0,0);&#13;&#10;&#9;&#9;needsSuper1 = new Report(cal.getTime(),7,5,8,true,true,1,(float)0.9); &#13;&#10;&#9;&#9;needsSuper2 = new Report(cal.getTime(),9,4,10,true,false,0,0); &#13;&#10;&#9;&#9;highStarveRisk = new Report(cal.getTime(),11,2,10,true,true,1,(float)0.9); &#13;&#10;&#9;&#9;lowStarveRisk = new Report(cal.getTime(),9,4,10,true,false,0,0); &#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testConstructor() {&#13;&#10;&#9;&#9;assertNotNull(highSwarmRisk);&#13;&#10;&#9;&#9;assertNotNull(medSwarmRisk);&#13;&#10;&#9;&#9;assertNotNull(lowSwarmRisk);&#13;&#10;&#9;&#9;assertNull(bonus);&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testConstruction() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;Report testRep = new Report();&#13;&#10;&#9;&#9;int broodFrames = 8;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;testRep.setDate(cal.getTime());&#13;&#10;&#9;&#9;testRep.setBroodFrames(broodFrames);&#13;&#10;&#9;&#9;testRep.setHoneyFrames(2);&#13;&#10;&#9;&#9;testRep.setBeeFrames(10);&#13;&#10;&#9;&#9;testRep.setSeenQueen(false);&#13;&#10;&#9;&#9;testRep.setSwarmCells(true);&#13;&#10;&#9;&#9;testRep.setNumSupers(1);&#13;&#10;&#9;&#9;testRep.setPercTopSuper((float)0.9);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;assertEquals(2, testRep.getHoneyFrames());&#13;&#10;&#9;&#9;assertEquals(10, testRep.getBeeFrames());&#13;&#10;&#9;&#9;assertEquals(1, testRep.getNumSupers());&#9;&#13;&#10;&#9;&#9;assertTrue(!testRep.getSeenQueen());&#9;&#13;&#10;&#9;&#9;assertTrue(testRep.getSwarmCells());&#13;&#10;&#9;    assertSame(broodFrames, testRep.getBroodFrames());&#13;&#10;&#9;&#9;assertTrue(testRep.getPercTopSuper() == 0.9);&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSwarmPositive() {&#13;&#10;&#9;&#9;assertTrue(highSwarmRisk.swarmRisk()==5);&#13;&#10;&#9;&#9;assertTrue(medSwarmRisk.swarmRisk()==3);&#13;&#10;&#9;&#9;assertTrue(lowSwarmRisk.swarmRisk()==0);&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testStarvePositive() {&#13;&#10;&#9;&#9;assertEquals(5,highStarveRisk.starvingRisk());&#13;&#10;&#9;&#9;assertEquals(0,lowStarveRisk.starvingRisk());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSuperPositive() {&#13;&#10;&#9;&#9;assertTrue(needsSuper1.needsSuper());&#13;&#10;&#9;&#9;assertTrue(needsSuper2.needsSuper());&#13;&#10;&#9;&#9;assertTrue(needsSuper2.needsSuper());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSuperPercentage() {&#13;&#10;&#9;&#9;highSwarmRisk.setPercTopSuper((float)0.5);&#13;&#10;&#9;&#9;if (highSwarmRisk.getNumSupers() == 0 &amp;&amp; highSwarmRisk.getPercTopSuper() &gt; 0)&#13;&#10;&#9;&#9;&#9;fail();&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" Filename="ReportTest.java" Intrnl_Id="5"/>
+<SrcFile Content="import static org.junit.Assert.*;&#13;&#10;&#13;&#10;import java.util.Calendar;&#13;&#10;&#13;&#10;import org.junit.Test;&#13;&#10;&#13;&#10;public class ReportTest {&#13;&#10;&#9;Report highSwarmRisk, medSwarmRisk, lowSwarmRisk, needsSuper1, needsSuper2, highStarveRisk, lowStarveRisk;&#13;&#10;&#9;Report bonus;&#13;&#10;&#9;&#13;&#10;&#9;public ReportTest() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;highSwarmRisk = new Report(cal.getTime(),10,5,11,true,true,0,0);&#13;&#10;&#9;&#9;medSwarmRisk = new Report(cal.getTime(),10,5,8,true,true,1,(float)0.5);&#13;&#10;&#9;&#9;lowSwarmRisk = new Report(cal.getTime(),9,5,10,true,false,0,0);&#13;&#10;&#9;&#9;needsSuper1 = new Report(cal.getTime(),7,5,8,true,true,1,(float)0.9); &#13;&#10;&#9;&#9;needsSuper2 = new Report(cal.getTime(),9,4,10,true,false,0,0); &#13;&#10;&#9;&#9;highStarveRisk = new Report(cal.getTime(),11,2,10,true,true,1,(float)0.9); &#13;&#10;&#9;&#9;lowStarveRisk = new Report(cal.getTime(),9,4,10,true,false,0,0); &#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testConstructor() {&#13;&#10;&#9;&#9;assertNotNull(highSwarmRisk);&#13;&#10;&#9;&#9;assertNotNull(medSwarmRisk);&#13;&#10;&#9;&#9;assertNotNull(lowSwarmRisk);&#13;&#10;&#9;&#9;assertNull(bonus);&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testConstruction() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;Report testRep = new Report();&#13;&#10;&#9;&#9;int broodFrames = 8;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;testRep.setDate(cal.getTime());&#13;&#10;&#9;&#9;testRep.setBroodFrames(broodFrames);&#13;&#10;&#9;&#9;testRep.setHoneyFrames(2);&#13;&#10;&#9;&#9;testRep.setBeeFrames(10);&#13;&#10;&#9;&#9;testRep.setSeenQueen(false);&#13;&#10;&#9;&#9;testRep.setSwarmCells(true);&#13;&#10;&#9;&#9;testRep.setNumSupers(1);&#13;&#10;&#9;&#9;testRep.setPercTopSuper((float)0.9);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;assertEquals(2, testRep.getHoneyFrames());&#13;&#10;&#9;&#9;assertEquals(10, testRep.getBeeFrames());&#13;&#10;&#9;&#9;assertEquals(1, testRep.getNumSupers());&#9;&#13;&#10;&#9;&#9;assertTrue(!testRep.getSeenQueen());&#9;&#13;&#10;&#9;&#9;assertTrue(testRep.getSwarmCells());&#13;&#10;&#9;    assertSame(broodFrames, testRep.getBroodFrames());&#13;&#10;&#9;&#9;assertTrue(testRep.getPercTopSuper() == 0.9);&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSwarm() {&#13;&#10;&#9;&#9;assertTrue(highSwarmRisk.swarmRisk()==5);&#13;&#10;&#9;&#9;assertTrue(medSwarmRisk.swarmRisk()==3);&#13;&#10;&#9;&#9;assertTrue(lowSwarmRisk.swarmRisk()==0);&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testStarve() {&#13;&#10;&#9;&#9;assertEquals(5,highStarveRisk.starvingRisk());&#13;&#10;&#9;&#9;assertEquals(0,lowStarveRisk.starvingRisk());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSuper() {&#13;&#10;&#9;&#9;assertTrue(needsSuper1.needsSuper());&#13;&#10;&#9;&#9;assertTrue(needsSuper2.needsSuper());&#13;&#10;&#9;&#9;assertTrue(needsSuper2.needsSuper());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSuperPercentage() {&#13;&#10;&#9;&#9;highSwarmRisk.setPercTopSuper((float)0.5);&#13;&#10;&#9;&#9;if (highSwarmRisk.getNumSupers() == 0 &amp;&amp; highSwarmRisk.getPercTopSuper() &gt; 0)&#13;&#10;&#9;&#9;&#9;fail();&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSwarmMCDC() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;Report reportMcdc = new Report(cal.getTime(),3,2,4,true,false,0,0);&#13;&#10;&#9;&#9;assertEquals(0, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// 4 Possibili condizioni che possono incrementare il rischio di sciamatura&#13;&#10;&#9;&#9;// Condizione 1: favi di covata &gt;9 (incrementa di 1)&#13;&#10;&#9;&#9;reportMcdc.setBroodFrames(10);&#13;&#10;&#9;&#9;assertEquals(1, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// Condizione 2: presenza di celle di sciamatura (incr. 2)&#13;&#10;&#9;&#9;reportMcdc.setSwarmCells(true);&#13;&#10;&#9;&#9;assertEquals(3, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// Condizione 3: favi d'api &gt;10 senza melari (incr. 1)&#13;&#10;&#9;&#9;reportMcdc.setBeeFrames(11);&#13;&#10;&#9;&#9;assertEquals(3, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;reportMcdc.setNumSupers(1);&#13;&#10;&#9;&#9;assertEquals(4, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;// Condizione 4.1: favi di miele &gt; 4 con almeno un melario, riempimento &lt;0.8)&#13;&#10;&#9;&#9;reportMcdc.setHoneyFrames(5);&#13;&#10;&#9;&#9;assertEquals(4, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// Condizione 4.2: favi di miele &gt; 4 con almeno un melario, riempimento &gt;=0.8)&#13;&#10;&#9;&#9;reportMcdc.setPercTopSuper((float)0.8);&#13;&#10;&#9;&#9;assertEquals(5, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// Condizione 4.3: favi di miele &gt; 4 senza melari&#13;&#10;&#9;&#9;reportMcdc.setNumSupers(0);&#13;&#10;&#9;&#9;reportMcdc.setPercTopSuper(0);&#13;&#10;&#9;&#9;assertEquals(5, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" Filename="ReportTest.java" Intrnl_Id="5"/>
 </SrcFileList>
 <CritList>
 <CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
@@ -30,14 +30,14 @@
 <HierarchyLvl HierarchyLvlId="52" HierarchyLvlTypeId="9" Intrnl_Id="10" Name="default package">
 <Header/>
 <LocList/>
-<HierarchyLvl HierarchyLvlId="14" HierarchyLvlTypeId="8" Intrnl_Id="11" Name="Colonia">
+<HierarchyLvl HierarchyLvlId="13" HierarchyLvlTypeId="8" Intrnl_Id="11" Name="Colonia">
 <Header>
 <Loc EndOffset="52" SrcFileId="1" StartOffset="32"/>
 </Header>
 <LocList>
 <Loc EndOffset="1104" SrcFileId="1" StartOffset="32"/>
 </LocList>
-<HierarchyLvl HierarchyLvlId="2" HierarchyLvlTypeId="7" Intrnl_Id="12" Name="Colonia">
+<HierarchyLvl HierarchyLvlId="1" HierarchyLvlTypeId="7" Intrnl_Id="12" Name="Colonia">
 <Header>
 <Loc EndOffset="217" SrcFileId="1" StartOffset="201"/>
 </Header>
@@ -79,7 +79,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="3" HierarchyLvlTypeId="7" Intrnl_Id="19" Name="Colonia">
+<HierarchyLvl HierarchyLvlId="2" HierarchyLvlTypeId="7" Intrnl_Id="19" Name="Colonia">
 <Header>
 <Loc EndOffset="404" SrcFileId="1" StartOffset="334"/>
 </Header>
@@ -121,7 +121,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="4" HierarchyLvlTypeId="7" Intrnl_Id="26" Name="setName">
+<HierarchyLvl HierarchyLvlId="3" HierarchyLvlTypeId="7" Intrnl_Id="26" Name="setName">
 <Header>
 <Loc EndOffset="528" SrcFileId="1" StartOffset="499"/>
 </Header>
@@ -139,7 +139,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="5" HierarchyLvlTypeId="7" Intrnl_Id="29" Name="setYobQueen">
+<HierarchyLvl HierarchyLvlId="4" HierarchyLvlTypeId="7" Intrnl_Id="29" Name="setYobQueen">
 <Header>
 <Loc EndOffset="583" SrcFileId="1" StartOffset="552"/>
 </Header>
@@ -157,7 +157,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="6" HierarchyLvlTypeId="7" Intrnl_Id="32" Name="setQualQueen">
+<HierarchyLvl HierarchyLvlId="5" HierarchyLvlTypeId="7" Intrnl_Id="32" Name="setQualQueen">
 <Header>
 <Loc EndOffset="644" SrcFileId="1" StartOffset="612"/>
 </Header>
@@ -175,7 +175,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="7" HierarchyLvlTypeId="7" Intrnl_Id="35" Name="increaseTotalHoney">
+<HierarchyLvl HierarchyLvlId="6" HierarchyLvlTypeId="7" Intrnl_Id="35" Name="increaseTotalHoney">
 <Header>
 <Loc EndOffset="715" SrcFileId="1" StartOffset="677"/>
 </Header>
@@ -193,7 +193,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="8" HierarchyLvlTypeId="7" Intrnl_Id="38" Name="addReport">
+<HierarchyLvl HierarchyLvlId="7" HierarchyLvlTypeId="7" Intrnl_Id="38" Name="addReport">
 <Header>
 <Loc EndOffset="781" SrcFileId="1" StartOffset="745"/>
 </Header>
@@ -211,7 +211,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="9" HierarchyLvlTypeId="7" Intrnl_Id="41" Name="getName">
+<HierarchyLvl HierarchyLvlId="8" HierarchyLvlTypeId="7" Intrnl_Id="41" Name="getName">
 <Header>
 <Loc EndOffset="845" SrcFileId="1" StartOffset="822"/>
 </Header>
@@ -229,7 +229,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="10" HierarchyLvlTypeId="7" Intrnl_Id="44" Name="getYobQueen">
+<HierarchyLvl HierarchyLvlId="9" HierarchyLvlTypeId="7" Intrnl_Id="44" Name="getYobQueen">
 <Header>
 <Loc EndOffset="894" SrcFileId="1" StartOffset="870"/>
 </Header>
@@ -247,7 +247,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="11" HierarchyLvlTypeId="7" Intrnl_Id="47" Name="getQualQueen">
+<HierarchyLvl HierarchyLvlId="10" HierarchyLvlTypeId="7" Intrnl_Id="47" Name="getQualQueen">
 <Header>
 <Loc EndOffset="948" SrcFileId="1" StartOffset="923"/>
 </Header>
@@ -265,7 +265,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="12" HierarchyLvlTypeId="7" Intrnl_Id="50" Name="getTotalHoney">
+<HierarchyLvl HierarchyLvlId="11" HierarchyLvlTypeId="7" Intrnl_Id="50" Name="getTotalHoney">
 <Header>
 <Loc EndOffset="1007" SrcFileId="1" StartOffset="981"/>
 </Header>
@@ -283,7 +283,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="13" HierarchyLvlTypeId="7" Intrnl_Id="53" Name="getReports">
+<HierarchyLvl HierarchyLvlId="12" HierarchyLvlTypeId="7" Intrnl_Id="53" Name="getReports">
 <Header>
 <Loc EndOffset="1073" SrcFileId="1" StartOffset="1036"/>
 </Header>
@@ -302,14 +302,14 @@
 </StmntSeq>
 </HierarchyLvl>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="36" HierarchyLvlTypeId="8" Intrnl_Id="56" Name="Report">
+<HierarchyLvl HierarchyLvlId="35" HierarchyLvlTypeId="8" Intrnl_Id="56" Name="Report">
 <Header>
 <Loc EndOffset="73" SrcFileId="2" StartOffset="54"/>
 </Header>
 <LocList>
 <Loc EndOffset="3143" SrcFileId="2" StartOffset="54"/>
 </LocList>
-<HierarchyLvl HierarchyLvlId="15" HierarchyLvlTypeId="7" Intrnl_Id="57" Name="Report">
+<HierarchyLvl HierarchyLvlId="14" HierarchyLvlTypeId="7" Intrnl_Id="57" Name="Report">
 <Header>
 <Loc EndOffset="670" SrcFileId="2" StartOffset="655"/>
 </Header>
@@ -387,7 +387,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="16" HierarchyLvlTypeId="7" Intrnl_Id="70" Name="Report">
+<HierarchyLvl HierarchyLvlId="15" HierarchyLvlTypeId="7" Intrnl_Id="70" Name="Report">
 <Header>
 <Loc EndOffset="1022" SrcFileId="2" StartOffset="933"/>
 </Header>
@@ -447,7 +447,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="17" HierarchyLvlTypeId="7" Intrnl_Id="80" Name="setDate">
+<HierarchyLvl HierarchyLvlId="16" HierarchyLvlTypeId="7" Intrnl_Id="80" Name="setDate">
 <Header>
 <Loc EndOffset="1209" SrcFileId="2" StartOffset="1182"/>
 </Header>
@@ -465,7 +465,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="18" HierarchyLvlTypeId="7" Intrnl_Id="83" Name="setBroodFrames">
+<HierarchyLvl HierarchyLvlId="17" HierarchyLvlTypeId="7" Intrnl_Id="83" Name="setBroodFrames">
 <Header>
 <Loc EndOffset="1271" SrcFileId="2" StartOffset="1237"/>
 </Header>
@@ -483,7 +483,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="19" HierarchyLvlTypeId="7" Intrnl_Id="86" Name="setHoneyFrames">
+<HierarchyLvl HierarchyLvlId="18" HierarchyLvlTypeId="7" Intrnl_Id="86" Name="setHoneyFrames">
 <Header>
 <Loc EndOffset="1335" SrcFileId="2" StartOffset="1301"/>
 </Header>
@@ -501,7 +501,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="20" HierarchyLvlTypeId="7" Intrnl_Id="89" Name="setBeeFrames">
+<HierarchyLvl HierarchyLvlId="19" HierarchyLvlTypeId="7" Intrnl_Id="89" Name="setBeeFrames">
 <Header>
 <Loc EndOffset="1398" SrcFileId="2" StartOffset="1365"/>
 </Header>
@@ -519,7 +519,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="21" HierarchyLvlTypeId="7" Intrnl_Id="92" Name="setSeenQueen">
+<HierarchyLvl HierarchyLvlId="20" HierarchyLvlTypeId="7" Intrnl_Id="92" Name="setSeenQueen">
 <Header>
 <Loc EndOffset="1463" SrcFileId="2" StartOffset="1427"/>
 </Header>
@@ -537,7 +537,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="22" HierarchyLvlTypeId="7" Intrnl_Id="95" Name="setSwarmCells">
+<HierarchyLvl HierarchyLvlId="21" HierarchyLvlTypeId="7" Intrnl_Id="95" Name="setSwarmCells">
 <Header>
 <Loc EndOffset="1528" SrcFileId="2" StartOffset="1491"/>
 </Header>
@@ -555,7 +555,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="23" HierarchyLvlTypeId="7" Intrnl_Id="98" Name="setNumSupers">
+<HierarchyLvl HierarchyLvlId="22" HierarchyLvlTypeId="7" Intrnl_Id="98" Name="setNumSupers">
 <Header>
 <Loc EndOffset="1589" SrcFileId="2" StartOffset="1557"/>
 </Header>
@@ -573,7 +573,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="24" HierarchyLvlTypeId="7" Intrnl_Id="101" Name="setPercTopSuper">
+<HierarchyLvl HierarchyLvlId="23" HierarchyLvlTypeId="7" Intrnl_Id="101" Name="setPercTopSuper">
 <Header>
 <Loc EndOffset="1655" SrcFileId="2" StartOffset="1617"/>
 </Header>
@@ -591,7 +591,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="25" HierarchyLvlTypeId="7" Intrnl_Id="104" Name="getDate">
+<HierarchyLvl HierarchyLvlId="24" HierarchyLvlTypeId="7" Intrnl_Id="104" Name="getDate">
 <Header>
 <Loc EndOffset="1714" SrcFileId="2" StartOffset="1693"/>
 </Header>
@@ -609,7 +609,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="26" HierarchyLvlTypeId="7" Intrnl_Id="107" Name="getBroodFrames">
+<HierarchyLvl HierarchyLvlId="25" HierarchyLvlTypeId="7" Intrnl_Id="107" Name="getBroodFrames">
 <Header>
 <Loc EndOffset="1772" SrcFileId="2" StartOffset="1745"/>
 </Header>
@@ -627,7 +627,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="27" HierarchyLvlTypeId="7" Intrnl_Id="110" Name="getHoneyFrames">
+<HierarchyLvl HierarchyLvlId="26" HierarchyLvlTypeId="7" Intrnl_Id="110" Name="getHoneyFrames">
 <Header>
 <Loc EndOffset="1831" SrcFileId="2" StartOffset="1804"/>
 </Header>
@@ -645,7 +645,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="28" HierarchyLvlTypeId="7" Intrnl_Id="113" Name="getBeeFrames">
+<HierarchyLvl HierarchyLvlId="27" HierarchyLvlTypeId="7" Intrnl_Id="113" Name="getBeeFrames">
 <Header>
 <Loc EndOffset="1888" SrcFileId="2" StartOffset="1863"/>
 </Header>
@@ -663,7 +663,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="29" HierarchyLvlTypeId="7" Intrnl_Id="116" Name="getSeenQueen">
+<HierarchyLvl HierarchyLvlId="28" HierarchyLvlTypeId="7" Intrnl_Id="116" Name="getSeenQueen">
 <Header>
 <Loc EndOffset="1947" SrcFileId="2" StartOffset="1918"/>
 </Header>
@@ -681,7 +681,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="30" HierarchyLvlTypeId="7" Intrnl_Id="119" Name="getSwarmCells">
+<HierarchyLvl HierarchyLvlId="29" HierarchyLvlTypeId="7" Intrnl_Id="119" Name="getSwarmCells">
 <Header>
 <Loc EndOffset="2007" SrcFileId="2" StartOffset="1977"/>
 </Header>
@@ -699,7 +699,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="31" HierarchyLvlTypeId="7" Intrnl_Id="122" Name="getNumSupers">
+<HierarchyLvl HierarchyLvlId="30" HierarchyLvlTypeId="7" Intrnl_Id="122" Name="getNumSupers">
 <Header>
 <Loc EndOffset="2063" SrcFileId="2" StartOffset="2038"/>
 </Header>
@@ -717,7 +717,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="32" HierarchyLvlTypeId="7" Intrnl_Id="125" Name="getPercTopSuper">
+<HierarchyLvl HierarchyLvlId="31" HierarchyLvlTypeId="7" Intrnl_Id="125" Name="getPercTopSuper">
 <Header>
 <Loc EndOffset="2123" SrcFileId="2" StartOffset="2093"/>
 </Header>
@@ -735,7 +735,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="33" HierarchyLvlTypeId="7" Intrnl_Id="128" Name="swarmRisk">
+<HierarchyLvl HierarchyLvlId="32" HierarchyLvlTypeId="7" Intrnl_Id="128" Name="swarmRisk">
 <Header>
 <Loc EndOffset="2254" SrcFileId="2" StartOffset="2232"/>
 </Header>
@@ -990,7 +990,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="34" HierarchyLvlTypeId="7" Intrnl_Id="181" Name="starvingRisk">
+<HierarchyLvl HierarchyLvlId="33" HierarchyLvlTypeId="7" Intrnl_Id="181" Name="starvingRisk">
 <Header>
 <Loc EndOffset="2648" SrcFileId="2" StartOffset="2623"/>
 </Header>
@@ -1167,7 +1167,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="35" HierarchyLvlTypeId="7" Intrnl_Id="217" Name="needsSuper">
+<HierarchyLvl HierarchyLvlId="34" HierarchyLvlTypeId="7" Intrnl_Id="217" Name="needsSuper">
 <Header>
 <Loc EndOffset="2977" SrcFileId="2" StartOffset="2950"/>
 </Header>
@@ -1306,14 +1306,14 @@
 </StmntSeq>
 </HierarchyLvl>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="39" HierarchyLvlTypeId="8" Intrnl_Id="245" Name="main">
+<HierarchyLvl HierarchyLvlId="38" HierarchyLvlTypeId="8" Intrnl_Id="245" Name="main">
 <Header>
 <Loc EndOffset="136" SrcFileId="3" StartOffset="119"/>
 </Header>
 <LocList>
 <Loc EndOffset="1212" SrcFileId="3" StartOffset="119"/>
 </LocList>
-<HierarchyLvl HierarchyLvlId="37" HierarchyLvlTypeId="7" Intrnl_Id="246" Name="main">
+<HierarchyLvl HierarchyLvlId="36" HierarchyLvlTypeId="7" Intrnl_Id="246" Name="main">
 <Header>
 <Loc EndOffset="182" SrcFileId="3" StartOffset="144"/>
 </Header>
@@ -1349,7 +1349,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="38" HierarchyLvlTypeId="7" Intrnl_Id="252" Name="importFile">
+<HierarchyLvl HierarchyLvlId="37" HierarchyLvlTypeId="7" Intrnl_Id="252" Name="importFile">
 <Header>
 <Loc EndOffset="520" SrcFileId="3" StartOffset="450"/>
 </Header>
@@ -1490,14 +1490,14 @@
 </StmntSeq>
 </HierarchyLvl>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="43" HierarchyLvlTypeId="8" Intrnl_Id="277" Name="ColoniaTest">
+<HierarchyLvl HierarchyLvlId="42" HierarchyLvlTypeId="8" Intrnl_Id="277" Name="ColoniaTest">
 <Header>
 <Loc EndOffset="332" SrcFileId="4" StartOffset="277"/>
 </Header>
 <LocList>
 <Loc EndOffset="910" SrcFileId="4" StartOffset="277"/>
 </LocList>
-<HierarchyLvl HierarchyLvlId="40" HierarchyLvlTypeId="7" Intrnl_Id="278" Name="creaParametri">
+<HierarchyLvl HierarchyLvlId="39" HierarchyLvlTypeId="7" Intrnl_Id="278" Name="creaParametri">
 <Header>
 <Loc EndOffset="484" SrcFileId="4" StartOffset="420"/>
 </Header>
@@ -1515,7 +1515,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="41" HierarchyLvlTypeId="7" Intrnl_Id="281" Name="ColoniaTest">
+<HierarchyLvl HierarchyLvlId="40" HierarchyLvlTypeId="7" Intrnl_Id="281" Name="ColoniaTest">
 <Header>
 <Loc EndOffset="623" SrcFileId="4" StartOffset="589"/>
 </Header>
@@ -1545,7 +1545,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="42" HierarchyLvlTypeId="7" Intrnl_Id="286" Name="testIncreaseHoney">
+<HierarchyLvl HierarchyLvlId="41" HierarchyLvlTypeId="7" Intrnl_Id="286" Name="testIncreaseHoney">
 <Header>
 <Loc EndOffset="793" SrcFileId="4" StartOffset="754"/>
 </Header>
@@ -1575,9 +1575,9 @@
 <Loc EndOffset="116" SrcFileId="5" StartOffset="93"/>
 </Header>
 <LocList>
-<Loc EndOffset="2480" SrcFileId="5" StartOffset="93"/>
+<Loc EndOffset="3746" SrcFileId="5" StartOffset="93"/>
 </LocList>
-<HierarchyLvl HierarchyLvlId="44" HierarchyLvlTypeId="7" Intrnl_Id="291" Name="ReportTest">
+<HierarchyLvl HierarchyLvlId="43" HierarchyLvlTypeId="7" Intrnl_Id="291" Name="ReportTest">
 <Header>
 <Loc EndOffset="268" SrcFileId="5" StartOffset="249"/>
 </Header>
@@ -1643,7 +1643,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="45" HierarchyLvlTypeId="7" Intrnl_Id="302" Name="testConstructor">
+<HierarchyLvl HierarchyLvlId="44" HierarchyLvlTypeId="7" Intrnl_Id="302" Name="testConstructor">
 <Header>
 <Loc EndOffset="880" SrcFileId="5" StartOffset="843"/>
 </Header>
@@ -1679,7 +1679,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="46" HierarchyLvlTypeId="7" Intrnl_Id="308" Name="testConstruction">
+<HierarchyLvl HierarchyLvlId="45" HierarchyLvlTypeId="7" Intrnl_Id="308" Name="testConstruction">
 <Header>
 <Loc EndOffset="1049" SrcFileId="5" StartOffset="1011"/>
 </Header>
@@ -1805,120 +1805,120 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="47" HierarchyLvlTypeId="7" Intrnl_Id="329" Name="testSwarmPositive">
+<HierarchyLvl HierarchyLvlId="46" HierarchyLvlTypeId="7" Intrnl_Id="329" Name="testSwarm">
 <Header>
-<Loc EndOffset="1822" SrcFileId="5" StartOffset="1783"/>
+<Loc EndOffset="1814" SrcFileId="5" StartOffset="1783"/>
 </Header>
 <LocList>
-<Loc EndOffset="1961" SrcFileId="5" StartOffset="1783"/>
+<Loc EndOffset="1953" SrcFileId="5" StartOffset="1783"/>
 </LocList>
 <StmntSeq Intrnl_Id="330">
 <LocList>
-<Loc EndOffset="1869" SrcFileId="5" StartOffset="1828"/>
-<Loc EndOffset="1913" SrcFileId="5" StartOffset="1873"/>
-<Loc EndOffset="1957" SrcFileId="5" StartOffset="1917"/>
+<Loc EndOffset="1861" SrcFileId="5" StartOffset="1820"/>
+<Loc EndOffset="1905" SrcFileId="5" StartOffset="1865"/>
+<Loc EndOffset="1949" SrcFileId="5" StartOffset="1909"/>
 </LocList>
 <BasicStmnt CovItemId="S33" CovItemPrefix="ReportTest.java" Intrnl_Id="331">
 <LocList>
-<Loc EndOffset="1869" SrcFileId="5" StartOffset="1828"/>
+<Loc EndOffset="1861" SrcFileId="5" StartOffset="1820"/>
 </LocList>
 </BasicStmnt>
 <BasicStmnt CovItemId="S34" CovItemPrefix="ReportTest.java" Intrnl_Id="332">
 <LocList>
-<Loc EndOffset="1913" SrcFileId="5" StartOffset="1873"/>
+<Loc EndOffset="1905" SrcFileId="5" StartOffset="1865"/>
 </LocList>
 </BasicStmnt>
 <BasicStmnt CovItemId="S35" CovItemPrefix="ReportTest.java" Intrnl_Id="333">
 <LocList>
-<Loc EndOffset="1957" SrcFileId="5" StartOffset="1917"/>
+<Loc EndOffset="1949" SrcFileId="5" StartOffset="1909"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="48" HierarchyLvlTypeId="7" Intrnl_Id="334" Name="testStarvePositive">
+<HierarchyLvl HierarchyLvlId="47" HierarchyLvlTypeId="7" Intrnl_Id="334" Name="testStarve">
 <Header>
-<Loc EndOffset="2006" SrcFileId="5" StartOffset="1966"/>
+<Loc EndOffset="1990" SrcFileId="5" StartOffset="1958"/>
 </Header>
 <LocList>
-<Loc EndOffset="2111" SrcFileId="5" StartOffset="1966"/>
+<Loc EndOffset="2095" SrcFileId="5" StartOffset="1958"/>
 </LocList>
 <StmntSeq Intrnl_Id="335">
 <LocList>
-<Loc EndOffset="2058" SrcFileId="5" StartOffset="2012"/>
-<Loc EndOffset="2107" SrcFileId="5" StartOffset="2062"/>
+<Loc EndOffset="2042" SrcFileId="5" StartOffset="1996"/>
+<Loc EndOffset="2091" SrcFileId="5" StartOffset="2046"/>
 </LocList>
 <BasicStmnt CovItemId="S36" CovItemPrefix="ReportTest.java" Intrnl_Id="336">
 <LocList>
-<Loc EndOffset="2058" SrcFileId="5" StartOffset="2012"/>
+<Loc EndOffset="2042" SrcFileId="5" StartOffset="1996"/>
 </LocList>
 </BasicStmnt>
 <BasicStmnt CovItemId="S37" CovItemPrefix="ReportTest.java" Intrnl_Id="337">
 <LocList>
-<Loc EndOffset="2107" SrcFileId="5" StartOffset="2062"/>
+<Loc EndOffset="2091" SrcFileId="5" StartOffset="2046"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="49" HierarchyLvlTypeId="7" Intrnl_Id="338" Name="testSuperPositive">
+<HierarchyLvl HierarchyLvlId="48" HierarchyLvlTypeId="7" Intrnl_Id="338" Name="testSuper">
 <Header>
-<Loc EndOffset="2156" SrcFileId="5" StartOffset="2117"/>
+<Loc EndOffset="2132" SrcFileId="5" StartOffset="2101"/>
 </Header>
 <LocList>
-<Loc EndOffset="2285" SrcFileId="5" StartOffset="2117"/>
+<Loc EndOffset="2261" SrcFileId="5" StartOffset="2101"/>
 </LocList>
 <StmntSeq Intrnl_Id="339">
 <LocList>
-<Loc EndOffset="2199" SrcFileId="5" StartOffset="2162"/>
-<Loc EndOffset="2240" SrcFileId="5" StartOffset="2203"/>
-<Loc EndOffset="2281" SrcFileId="5" StartOffset="2244"/>
+<Loc EndOffset="2175" SrcFileId="5" StartOffset="2138"/>
+<Loc EndOffset="2216" SrcFileId="5" StartOffset="2179"/>
+<Loc EndOffset="2257" SrcFileId="5" StartOffset="2220"/>
 </LocList>
 <BasicStmnt CovItemId="S38" CovItemPrefix="ReportTest.java" Intrnl_Id="340">
 <LocList>
-<Loc EndOffset="2199" SrcFileId="5" StartOffset="2162"/>
+<Loc EndOffset="2175" SrcFileId="5" StartOffset="2138"/>
 </LocList>
 </BasicStmnt>
 <BasicStmnt CovItemId="S39" CovItemPrefix="ReportTest.java" Intrnl_Id="341">
 <LocList>
-<Loc EndOffset="2240" SrcFileId="5" StartOffset="2203"/>
+<Loc EndOffset="2216" SrcFileId="5" StartOffset="2179"/>
 </LocList>
 </BasicStmnt>
 <BasicStmnt CovItemId="S40" CovItemPrefix="ReportTest.java" Intrnl_Id="342">
 <LocList>
-<Loc EndOffset="2281" SrcFileId="5" StartOffset="2244"/>
+<Loc EndOffset="2257" SrcFileId="5" StartOffset="2220"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="50" HierarchyLvlTypeId="7" Intrnl_Id="343" Name="testSuperPercentage">
+<HierarchyLvl HierarchyLvlId="49" HierarchyLvlTypeId="7" Intrnl_Id="343" Name="testSuperPercentage">
 <Header>
-<Loc EndOffset="2332" SrcFileId="5" StartOffset="2291"/>
+<Loc EndOffset="2308" SrcFileId="5" StartOffset="2267"/>
 </Header>
 <LocList>
-<Loc EndOffset="2477" SrcFileId="5" StartOffset="2291"/>
+<Loc EndOffset="2453" SrcFileId="5" StartOffset="2267"/>
 </LocList>
 <StmntSeq Intrnl_Id="344">
 <LocList>
-<Loc EndOffset="2380" SrcFileId="5" StartOffset="2338"/>
-<Loc EndOffset="2473" SrcFileId="5" StartOffset="2384"/>
+<Loc EndOffset="2356" SrcFileId="5" StartOffset="2314"/>
+<Loc EndOffset="2449" SrcFileId="5" StartOffset="2360"/>
 </LocList>
 <BasicStmnt CovItemId="S41" CovItemPrefix="ReportTest.java" Intrnl_Id="345">
 <LocList>
-<Loc EndOffset="2380" SrcFileId="5" StartOffset="2338"/>
+<Loc EndOffset="2356" SrcFileId="5" StartOffset="2314"/>
 </LocList>
 </BasicStmnt>
 <CondStmnt CovItemId="S42" CovItemPrefix="ReportTest.java" Intrnl_Id="346">
 <Branch CovItemId="B1" CovItemPrefix="ReportTest.java" Implct="false" Intrnl_Id="347">
 <Cond/>
 <LocList>
-<Loc EndOffset="2473" SrcFileId="5" StartOffset="2466"/>
+<Loc EndOffset="2449" SrcFileId="5" StartOffset="2442"/>
 </LocList>
 <StmntSeq Intrnl_Id="348">
 <LocList>
-<Loc EndOffset="2473" SrcFileId="5" StartOffset="2466"/>
+<Loc EndOffset="2449" SrcFileId="5" StartOffset="2442"/>
 </LocList>
 <BasicStmnt CovItemId="S43" CovItemPrefix="ReportTest.java" Intrnl_Id="349">
 <LocList>
-<Loc EndOffset="2473" SrcFileId="5" StartOffset="2466"/>
+<Loc EndOffset="2449" SrcFileId="5" StartOffset="2442"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
@@ -1930,291 +1930,157 @@
 <LocList/>
 </StmntSeq>
 </Branch>
-<Keyword EndOffset="2386" SrcFileId="5" StartOffset="2384"/>
+<Keyword EndOffset="2362" SrcFileId="5" StartOffset="2360"/>
 <LocList>
-<Loc EndOffset="2473" SrcFileId="5" StartOffset="2384"/>
+<Loc EndOffset="2449" SrcFileId="5" StartOffset="2360"/>
 </LocList>
 <RootTerm CovItemId="C1" CovItemPrefix="ReportTest.java" Intrnl_Id="352">
 <OpTerm BooleanOpId="6" Intrnl_Id="353">
 <BasicBoolTerm Intrnl_Id="354">
 <LocList>
-<Loc EndOffset="2421" SrcFileId="5" StartOffset="2388"/>
+<Loc EndOffset="2397" SrcFileId="5" StartOffset="2364"/>
 </LocList>
 </BasicBoolTerm>
 <BasicBoolTerm Intrnl_Id="355">
 <LocList>
-<Loc EndOffset="2460" SrcFileId="5" StartOffset="2425"/>
+<Loc EndOffset="2436" SrcFileId="5" StartOffset="2401"/>
 </LocList>
 </BasicBoolTerm>
 <LocList>
-<Loc EndOffset="2424" SrcFileId="5" StartOffset="2422"/>
+<Loc EndOffset="2400" SrcFileId="5" StartOffset="2398"/>
 </LocList>
 </OpTerm>
 </RootTerm>
 </CondStmnt>
 </StmntSeq>
 </HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="50" HierarchyLvlTypeId="7" Intrnl_Id="356" Name="testSwarmMCDC">
+<Header>
+<Loc EndOffset="2494" SrcFileId="5" StartOffset="2459"/>
+</Header>
+<LocList>
+<Loc EndOffset="3743" SrcFileId="5" StartOffset="2459"/>
+</LocList>
+<StmntSeq Intrnl_Id="357">
+<LocList>
+<Loc EndOffset="2538" SrcFileId="5" StartOffset="2500"/>
+<Loc EndOffset="2560" SrcFileId="5" StartOffset="2542"/>
+<Loc EndOffset="2631" SrcFileId="5" StartOffset="2564"/>
+<Loc EndOffset="2675" SrcFileId="5" StartOffset="2635"/>
+<Loc EndOffset="2844" SrcFileId="5" StartOffset="2814"/>
+<Loc EndOffset="2888" SrcFileId="5" StartOffset="2848"/>
+<Loc EndOffset="2985" SrcFileId="5" StartOffset="2954"/>
+<Loc EndOffset="3029" SrcFileId="5" StartOffset="2989"/>
+<Loc EndOffset="3119" SrcFileId="5" StartOffset="3091"/>
+<Loc EndOffset="3163" SrcFileId="5" StartOffset="3123"/>
+<Loc EndOffset="3194" SrcFileId="5" StartOffset="3167"/>
+<Loc EndOffset="3238" SrcFileId="5" StartOffset="3198"/>
+<Loc EndOffset="3356" SrcFileId="5" StartOffset="3327"/>
+<Loc EndOffset="3400" SrcFileId="5" StartOffset="3360"/>
+<Loc EndOffset="3525" SrcFileId="5" StartOffset="3486"/>
+<Loc EndOffset="3569" SrcFileId="5" StartOffset="3529"/>
+<Loc EndOffset="3653" SrcFileId="5" StartOffset="3626"/>
+<Loc EndOffset="3687" SrcFileId="5" StartOffset="3657"/>
+<Loc EndOffset="3731" SrcFileId="5" StartOffset="3691"/>
+</LocList>
+<BasicStmnt CovItemId="S44" CovItemPrefix="ReportTest.java" Intrnl_Id="358">
+<LocList>
+<Loc EndOffset="2538" SrcFileId="5" StartOffset="2500"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S45" CovItemPrefix="ReportTest.java" Intrnl_Id="359">
+<LocList>
+<Loc EndOffset="2560" SrcFileId="5" StartOffset="2542"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S46" CovItemPrefix="ReportTest.java" Intrnl_Id="360">
+<LocList>
+<Loc EndOffset="2631" SrcFileId="5" StartOffset="2564"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S47" CovItemPrefix="ReportTest.java" Intrnl_Id="361">
+<LocList>
+<Loc EndOffset="2675" SrcFileId="5" StartOffset="2635"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S48" CovItemPrefix="ReportTest.java" Intrnl_Id="362">
+<LocList>
+<Loc EndOffset="2844" SrcFileId="5" StartOffset="2814"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S49" CovItemPrefix="ReportTest.java" Intrnl_Id="363">
+<LocList>
+<Loc EndOffset="2888" SrcFileId="5" StartOffset="2848"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S50" CovItemPrefix="ReportTest.java" Intrnl_Id="364">
+<LocList>
+<Loc EndOffset="2985" SrcFileId="5" StartOffset="2954"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S51" CovItemPrefix="ReportTest.java" Intrnl_Id="365">
+<LocList>
+<Loc EndOffset="3029" SrcFileId="5" StartOffset="2989"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S52" CovItemPrefix="ReportTest.java" Intrnl_Id="366">
+<LocList>
+<Loc EndOffset="3119" SrcFileId="5" StartOffset="3091"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S53" CovItemPrefix="ReportTest.java" Intrnl_Id="367">
+<LocList>
+<Loc EndOffset="3163" SrcFileId="5" StartOffset="3123"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S54" CovItemPrefix="ReportTest.java" Intrnl_Id="368">
+<LocList>
+<Loc EndOffset="3194" SrcFileId="5" StartOffset="3167"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S55" CovItemPrefix="ReportTest.java" Intrnl_Id="369">
+<LocList>
+<Loc EndOffset="3238" SrcFileId="5" StartOffset="3198"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S56" CovItemPrefix="ReportTest.java" Intrnl_Id="370">
+<LocList>
+<Loc EndOffset="3356" SrcFileId="5" StartOffset="3327"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S57" CovItemPrefix="ReportTest.java" Intrnl_Id="371">
+<LocList>
+<Loc EndOffset="3400" SrcFileId="5" StartOffset="3360"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S58" CovItemPrefix="ReportTest.java" Intrnl_Id="372">
+<LocList>
+<Loc EndOffset="3525" SrcFileId="5" StartOffset="3486"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S59" CovItemPrefix="ReportTest.java" Intrnl_Id="373">
+<LocList>
+<Loc EndOffset="3569" SrcFileId="5" StartOffset="3529"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S60" CovItemPrefix="ReportTest.java" Intrnl_Id="374">
+<LocList>
+<Loc EndOffset="3653" SrcFileId="5" StartOffset="3626"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S61" CovItemPrefix="ReportTest.java" Intrnl_Id="375">
+<LocList>
+<Loc EndOffset="3687" SrcFileId="5" StartOffset="3657"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S62" CovItemPrefix="ReportTest.java" Intrnl_Id="376">
+<LocList>
+<Loc EndOffset="3731" SrcFileId="5" StartOffset="3691"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
 </HierarchyLvl>
 </HierarchyLvl>
 </MASTRoot>
-<TestSession Comment="" Date="1623226674934" Name="9-giu-2021 10.17.54">
-<TestCase Comment="Failure&#10;java.lang.AssertionError&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:86)&#13;&#10;&#9;at org.junit.Assert.assertTrue(Assert.java:41)&#13;&#10;&#9;at org.junit.Assert.assertTrue(Assert.java:52)&#13;&#10;&#9;at ReportTest.testSwarmPositive(ReportTest.java:101)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:498)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1623226674787" Name="ReportTest:testSwarmPositive">
-<CovList>
-<CovPrefix CovItemPrefix="Report.java">
-<Cov CovItemId="B1" Value="2"/>
-<Cov CovItemId="B10" Value="1"/>
-<Cov CovItemId="B12" Value="1"/>
-<Cov CovItemId="B2" Value="1"/>
-<Cov CovItemId="B3" Value="2"/>
-<Cov CovItemId="B4" Value="1"/>
-<Cov CovItemId="B5" Value="1"/>
-<Cov CovItemId="B6" Value="2"/>
-<Cov CovItemId="B7" Value="3"/>
-<Cov CovItemId="B9" Value="2"/>
-<Cov CovItemId="S36" Value="3"/>
-<Cov CovItemId="S37" Value="3"/>
-<Cov CovItemId="S38" Value="2"/>
-<Cov CovItemId="S39" Value="3"/>
-<Cov CovItemId="S40" Value="2"/>
-<Cov CovItemId="S41" Value="3"/>
-<Cov CovItemId="S42" Value="1"/>
-<Cov CovItemId="S43" Value="3"/>
-<Cov CovItemId="S44" Value="3"/>
-<Cov CovItemId="S45" Value="2"/>
-<Cov CovItemId="S46" Value="1"/>
-<Cov CovItemId="S48" Value="3"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="ReportTest.java">
-<Cov CovItemId="S33" Value="1"/>
-<Cov CovItemId="S34" Value="1"/>
-<Cov CovItemId="S35" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList>
-<AssgnmntPrefix RootTermCovItemPrefix="Report.java">
-<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-<MapEntry BoolAssgnmnt="1" Value="2"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C2">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-<MapEntry BoolAssgnmnt="1" Value="2"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C3">
-<MapEntry BoolAssgnmnt="02" Value="2"/>
-<MapEntry BoolAssgnmnt="11" Value="1"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C4">
-<MapEntry BoolAssgnmnt="1" Value="3"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C5">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-<MapEntry BoolAssgnmnt="1" Value="2"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C6">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-</AssgnmntListEntry>
-</AssgnmntPrefix>
-</AssgnmntList>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<TestCase Comment="Failure&#10;java.lang.AssertionError: expected:&lt;5&gt; but was:&lt;0&gt;&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:88)&#13;&#10;&#9;at org.junit.Assert.failNotEquals(Assert.java:834)&#13;&#10;&#9;at org.junit.Assert.assertEquals(Assert.java:645)&#13;&#10;&#9;at org.junit.Assert.assertEquals(Assert.java:631)&#13;&#10;&#9;at ReportTest.testStarvePositive(ReportTest.java:107)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:498)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1623226674802" Name="ReportTest:testStarvePositive">
-<CovList>
-<CovPrefix CovItemPrefix="Report.java">
-<Cov CovItemId="B14" Value="1"/>
-<Cov CovItemId="S49" Value="1"/>
-<Cov CovItemId="S50" Value="1"/>
-<Cov CovItemId="S58" Value="1"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="ReportTest.java">
-<Cov CovItemId="S36" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList>
-<AssgnmntPrefix RootTermCovItemPrefix="Report.java">
-<AssgnmntListEntry Length="1" RootTermCovItemId="C7">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-</AssgnmntListEntry>
-</AssgnmntPrefix>
-</AssgnmntList>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<TestCase Comment="Failure&#10;java.lang.AssertionError&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:86)&#13;&#10;&#9;at org.junit.Assert.assertTrue(Assert.java:41)&#13;&#10;&#9;at org.junit.Assert.assertTrue(Assert.java:52)&#13;&#10;&#9;at ReportTest.testConstruction(ReportTest.java:89)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:498)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1623226674802" Name="ReportTest:testConstruction">
-<CovList>
-<CovPrefix CovItemPrefix="Report.java">
-<Cov CovItemId="S1" Value="1"/>
-<Cov CovItemId="S10" Value="1"/>
-<Cov CovItemId="S11" Value="1"/>
-<Cov CovItemId="S2" Value="1"/>
-<Cov CovItemId="S20" Value="1"/>
-<Cov CovItemId="S21" Value="1"/>
-<Cov CovItemId="S22" Value="1"/>
-<Cov CovItemId="S23" Value="1"/>
-<Cov CovItemId="S24" Value="1"/>
-<Cov CovItemId="S25" Value="1"/>
-<Cov CovItemId="S26" Value="1"/>
-<Cov CovItemId="S27" Value="1"/>
-<Cov CovItemId="S29" Value="1"/>
-<Cov CovItemId="S3" Value="1"/>
-<Cov CovItemId="S30" Value="1"/>
-<Cov CovItemId="S31" Value="1"/>
-<Cov CovItemId="S32" Value="1"/>
-<Cov CovItemId="S33" Value="1"/>
-<Cov CovItemId="S34" Value="1"/>
-<Cov CovItemId="S35" Value="1"/>
-<Cov CovItemId="S4" Value="1"/>
-<Cov CovItemId="S5" Value="1"/>
-<Cov CovItemId="S6" Value="1"/>
-<Cov CovItemId="S7" Value="1"/>
-<Cov CovItemId="S8" Value="1"/>
-<Cov CovItemId="S9" Value="1"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="ReportTest.java">
-<Cov CovItemId="S14" Value="1"/>
-<Cov CovItemId="S15" Value="1"/>
-<Cov CovItemId="S16" Value="1"/>
-<Cov CovItemId="S17" Value="1"/>
-<Cov CovItemId="S18" Value="1"/>
-<Cov CovItemId="S19" Value="1"/>
-<Cov CovItemId="S20" Value="1"/>
-<Cov CovItemId="S21" Value="1"/>
-<Cov CovItemId="S22" Value="1"/>
-<Cov CovItemId="S23" Value="1"/>
-<Cov CovItemId="S24" Value="1"/>
-<Cov CovItemId="S25" Value="1"/>
-<Cov CovItemId="S26" Value="1"/>
-<Cov CovItemId="S27" Value="1"/>
-<Cov CovItemId="S28" Value="1"/>
-<Cov CovItemId="S29" Value="1"/>
-<Cov CovItemId="S30" Value="1"/>
-<Cov CovItemId="S31" Value="1"/>
-<Cov CovItemId="S32" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList/>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<TestCase Comment="" Date="1623226674802" Name="ReportTest:testSuperPositive">
-<CovList>
-<CovPrefix CovItemPrefix="Report.java">
-<Cov CovItemId="B21" Value="3"/>
-<Cov CovItemId="B23" Value="2"/>
-<Cov CovItemId="B24" Value="1"/>
-<Cov CovItemId="B25" Value="1"/>
-<Cov CovItemId="S59" Value="3"/>
-<Cov CovItemId="S60" Value="3"/>
-<Cov CovItemId="S61" Value="2"/>
-<Cov CovItemId="S62" Value="1"/>
-<Cov CovItemId="S63" Value="1"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="ReportTest.java">
-<Cov CovItemId="S38" Value="1"/>
-<Cov CovItemId="S39" Value="1"/>
-<Cov CovItemId="S40" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList>
-<AssgnmntPrefix RootTermCovItemPrefix="Report.java">
-<AssgnmntListEntry Length="1" RootTermCovItemId="C11">
-<MapEntry BoolAssgnmnt="1" Value="3"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C12">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-<MapEntry BoolAssgnmnt="1" Value="2"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C13">
-<MapEntry BoolAssgnmnt="11" Value="1"/>
-</AssgnmntListEntry>
-</AssgnmntPrefix>
-</AssgnmntList>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<TestCase Comment="" Date="1623226674802" Name="ReportTest:testConstructor">
-<CovList>
-<CovPrefix CovItemPrefix="ReportTest.java">
-<Cov CovItemId="S10" Value="1"/>
-<Cov CovItemId="S11" Value="1"/>
-<Cov CovItemId="S12" Value="1"/>
-<Cov CovItemId="S13" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList/>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<TestCase Comment="Failure&#10;java.lang.AssertionError&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:86)&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:95)&#13;&#10;&#9;at ReportTest.testSuperPercentage(ReportTest.java:139)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:498)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1623226674802" Name="ReportTest:testSuperPercentage">
-<CovList>
-<CovPrefix CovItemPrefix="Report.java">
-<Cov CovItemId="S27" Value="1"/>
-<Cov CovItemId="S34" Value="1"/>
-<Cov CovItemId="S35" Value="1"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="ReportTest.java">
-<Cov CovItemId="B1" Value="1"/>
-<Cov CovItemId="S41" Value="1"/>
-<Cov CovItemId="S42" Value="1"/>
-<Cov CovItemId="S43" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList>
-<AssgnmntPrefix RootTermCovItemPrefix="ReportTest.java">
-<AssgnmntListEntry Length="2" RootTermCovItemId="C1">
-<MapEntry BoolAssgnmnt="11" Value="1"/>
-</AssgnmntListEntry>
-</AssgnmntPrefix>
-</AssgnmntList>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<TestCase Comment="" Date="1623226674818" Name="ColoniaTest:testIncreaseHoney[0]">
-<CovList>
-<CovPrefix CovItemPrefix="Colonia.java">
-<Cov CovItemId="S14" Value="1"/>
-<Cov CovItemId="S19" Value="1"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="ColoniaTest.java">
-<Cov CovItemId="S5" Value="1"/>
-<Cov CovItemId="S6" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList/>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<TestCase Comment="" Date="1623226674818" Name="ColoniaTest:testIncreaseHoney[1]">
-<CovList>
-<CovPrefix CovItemPrefix="Colonia.java">
-<Cov CovItemId="S14" Value="1"/>
-<Cov CovItemId="S19" Value="1"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="ColoniaTest.java">
-<Cov CovItemId="S5" Value="1"/>
-<Cov CovItemId="S6" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList/>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<TestCase Comment="Failure&#10;java.lang.AssertionError: expected:&lt;100&gt; but was:&lt;0&gt;&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:88)&#13;&#10;&#9;at org.junit.Assert.failNotEquals(Assert.java:834)&#13;&#10;&#9;at org.junit.Assert.assertEquals(Assert.java:645)&#13;&#10;&#9;at org.junit.Assert.assertEquals(Assert.java:631)&#13;&#10;&#9;at ColoniaTest.testIncreaseHoney(ColoniaTest.java:48)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:498)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;&#10;&#9;at org.junit.runners.Suite.runChild(Suite.java:128)&#13;&#10;&#9;at org.junit.runners.Suite.runChild(Suite.java:27)&#13;&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1623226674818" Name="ColoniaTest:testIncreaseHoney[2]">
-<CovList>
-<CovPrefix CovItemPrefix="Colonia.java">
-<Cov CovItemId="S14" Value="1"/>
-<Cov CovItemId="S19" Value="1"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="ColoniaTest.java">
-<Cov CovItemId="S5" Value="1"/>
-<Cov CovItemId="S6" Value="1"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList/>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<MetaDataList/>
-</TestSession>
 </TestSessionContainer>
