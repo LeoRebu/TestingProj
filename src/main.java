@@ -36,7 +36,7 @@ public class Main {
 	 * 
 	 * Params:
 	 *  nomeFile: stringa contenente la path del file di testo contenente le colonie
-	 *  listColonie: collection dove inserire le colonie. Deve essere già inizializzata
+	 *  listColonie: collection dove inserire le colonie. Deve essere gia' inizializzata
 	 */
 	//@ requires listColonie!=null;
 	public static void importFile (final String nomeFile, ArrayList<Colonia> listColonie) {

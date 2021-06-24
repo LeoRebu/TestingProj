@@ -8,7 +8,7 @@ import java.util.Date;
  *  starvingRisk:
  *  	Ritorna un valore tra 0 e 5 rappresentante il rischio di denutrimento
  *  needsSuper:
- *  	Ritorna un boolean rappresentante la necessità di aggiungere un melario
+ *  	Ritorna un boolean rappresentante la necessita' di aggiungere un melario
  */
 public class Report {
 	private /*@ spec_public*/ Date reportDate; // Identificativo report
@@ -228,7 +228,7 @@ public class Report {
 		return risk;
 	}
 	
-	//Ritorna un boolean rappresentante la necessità di aggiungere un melario
+	//Ritorna un boolean rappresentante la necessita' di aggiungere un melario
 	
 	//@ requires honeyFrames > 3;
 	//@ ensures \result == true || \result == false;
@@ -239,7 +239,7 @@ public class Report {
 				return true;
 			}
 			else if (numSupers < 3 && percTopSuper >= 0.8) {
-				assert numSupers>0 && numSupers<3 && percTopSuper>=0.8 : " Errore necessità melari";
+				assert numSupers>0 && numSupers<3 && percTopSuper>=0.8 : " Errore necessita' melari";
 				return true;
 			}
 		

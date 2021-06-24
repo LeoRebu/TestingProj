@@ -1,0 +1,3136 @@
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1624550639997" TestSessionContainerId="fff21805-ffbc-4136-bab1-751fc3d9235d" version="1.0">
+<SrcFileList>
+<SrcFile Content="&#13;&#10;import java.util.ArrayList; &#13;&#10;&#13;&#10;&#13;&#10;/*&#13;&#10; * Piccola classe utilizzata per salvare i dati importati dal file generato dal programma cpp&#13;&#10; * Contiene informazioni relative all'alveare ed una lista di &quot;reports&quot;&#13;&#10; * i reports sono snapshots riguardanti lo stato della colonia in un momento del tempo (definiti nella classe Report)&#13;&#10; */&#13;&#10;public class Colonia {&#13;&#10;&#13;&#10;&#9;private /*@ spec_public*/ String name;&#9;// Nome identificativo colonia&#13;&#10;&#9;private /*@ spec_public*/ int yobQueen;&#9;// Anno di nascita regina (es 2020)&#13;&#10;&#9;private /*@ spec_public*/ int qualityQueen; // Indice qualitativo tra 1-5&#13;&#10;&#9;private /*@ spec_public*/ int totHoney;&#9;// Valore cumulativo miele prodotto negli anni&#13;&#10;&#9;private /*@ spec_public*/ /*@ non_null*/ ArrayList&lt;Report&gt; reportList;&#9;// Lista contenente tutti i report&#13;&#10;&#9;&#13;&#10;&#9;//@ public invariant totHoney &gt;= 0;&#13;&#10;&#13;&#10;&#9;/*&#13;&#10;&#9; * Costruttore senza parametri&#13;&#10;&#9; */&#13;&#10;&#9;//@ ensures yobQueen == 2015;&#13;&#10;&#9;//@ ensures qualityQueen == 1;&#13;&#10;&#9;//@ ensures totHoney == 0;&#13;&#10;&#9;//@ ensures reportList != null;&#13;&#10;&#9;public Colonia() {&#13;&#10;&#9;&#9;name=&quot;&quot;;&#13;&#10;&#9;&#9;yobQueen=2015;&#13;&#10;&#9;&#9;qualityQueen=1; &#13;&#10;&#9;&#9;totHoney=0;&#13;&#10;&#9;&#9;reportList = new ArrayList&lt;Report&gt;();&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;/*&#13;&#10;&#9; * Costruttore con parametri&#13;&#10;&#9; */&#13;&#10;&#9;//@ requires yq &gt; 2014;&#13;&#10;&#9;//@ requires qq &gt; 0 &amp;&amp; qq &lt;6;&#13;&#10;&#9;//@ requires th &gt;= 0;&#13;&#10;&#9;//@ requires rl != null;&#13;&#10;&#9;//@ ensures name == n;&#13;&#10;&#9;//@ ensures yobQueen == yq;&#13;&#10;&#9;//@ ensures qualityQueen == qq;&#13;&#10;&#9;//@ ensures totHoney == th;&#13;&#10;&#9;//@ ensures reportList == rl;&#13;&#10;&#9;//@ ensures (\forall int i; i &gt;= 0 &amp;&amp; i &lt; rl.size(); rl.get(i) != null);&#13;&#10;&#9;public Colonia(String n, int yq, int qq, int th, ArrayList&lt;Report&gt; rl) {&#13;&#10;&#9;&#9;name=n;&#13;&#10;&#9;&#9;yobQueen=yq;&#13;&#10;&#9;&#9;qualityQueen=qq;&#13;&#10;&#9;&#9;totHoney=th;&#13;&#10;&#9;&#9;reportList = rl;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/*&#13;&#10;&#9; * Metodi set&#13;&#10;&#9; */&#13;&#10;&#9;&#13;&#10;&#9;//@ ensures name == n;&#13;&#10;&#9;public void setName(String n) {&#13;&#10;&#9;&#9;name = n;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires yq &gt; 2014;&#13;&#10;&#9;//@ ensures yobQueen == yq;&#13;&#10;&#9;public void setYobQueen(int yq) {&#13;&#10;&#9;&#9;if (yq&gt;2014)&#13;&#10;&#9;&#9;&#9;yobQueen = yq;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires qq &gt; 0;&#13;&#10;&#9;//@ requires qq &lt; 6;&#13;&#10;&#9;//@ ensures qualityQueen == qq;&#13;&#10;&#9;public void setQualQueen(int qq) {&#13;&#10;&#9;&#9;if (qq&gt;0 &amp;&amp; qq&lt;6)&#13;&#10;&#9;&#9;&#9;qualityQueen = qq;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires th &gt;= 0;&#13;&#10;&#9;//@ ensures totHoney == \old(totHoney) + th;&#13;&#10;&#9;public void increaseTotalHoney(int th) {&#13;&#10;&#9;&#9;if (th&gt;0) {&#13;&#10;&#9;&#9;&#9;assert th &gt;= 0 : &quot; Valore negativo&quot;;&#13;&#10;&#9;&#9;&#9;totHoney += th;&#9;&#9;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires report != null;&#13;&#10;&#9;//@ ensures reportList.get(reportList.size()-1) == report;&#13;&#10;&#9;public void addReport(Report report) {&#13;&#10;&#9;&#9;assert report != null : &quot; Report non inizializzato&quot;;&#13;&#10;&#9;&#9;reportList.add(report);&#9;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/*&#13;&#10;&#9; * Metodi get&#13;&#10;&#9; */&#13;&#10;&#9;&#13;&#10;&#9;//@ ensures \result == name;&#13;&#10;&#9;public String getName() {&#13;&#10;&#9;&#9;return name;&#13;&#10;&#9;}&#13;&#10;&#9;//@ ensures \result == yobQueen;&#13;&#10;&#9;public int getYobQueen() {&#13;&#10;&#9;&#9;return yobQueen;&#13;&#10;&#9;}&#13;&#10;&#9;//@ ensures \result == qualityQueen;&#13;&#10;&#9;public int getQualQueen() {&#13;&#10;&#9;&#9;return qualityQueen;&#13;&#10;&#9;}&#13;&#10;&#9;//@ ensures \result == totHoney;&#13;&#10;&#9;public int getTotalHoney() {&#13;&#10;&#9;&#9;return totHoney;&#13;&#10;&#9;}&#13;&#10;&#9;//@ ensures \result == reportList;&#13;&#10;&#9;public ArrayList&lt;Report&gt; getReports() {&#13;&#10;&#9;&#9;assert reportList != null : &quot; Lista report non inizializzata&quot;;&#13;&#10;&#9;&#9;return reportList;&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" Filename="Colonia.java" Intrnl_Id="1"/>
+<SrcFile Content="import java.util.Calendar;&#13;&#10;import java.util.Date;&#13;&#10;/*&#13;&#10; * Classe per definire i fattori rilevanti dei report e fornire alcuni metodi per la loro interpretazione&#13;&#10; * I metodi forniti sono:&#13;&#10; * &#9;swarmRisk: &#13;&#10; * &#9;&#9;Ritorna un valore tra 0 e 5 rappresentante il rischio di sciamatura&#13;&#10; *  starvingRisk:&#13;&#10; *  &#9;Ritorna un valore tra 0 e 5 rappresentante il rischio di denutrimento&#13;&#10; *  needsSuper:&#13;&#10; *  &#9;Ritorna un boolean rappresentante la necessita' di aggiungere un melario&#13;&#10; */&#13;&#10;public class Report {&#13;&#10;&#9;private /*@ spec_public*/ Date reportDate; // Identificativo report&#13;&#10;&#9;private /*@ spec_public*/ int broodFrames; // Numero favi con covata (indicativo di crescita) &#13;&#10;&#9;private /*@ spec_public*/ int honeyFrames; // Numero favi con miele nella cassa (indicativo di richiesta melari)&#13;&#10;&#9;private /*@ spec_public*/ int beeFrames;&#9;// Numero favi con api (indicativo di affollamento)&#13;&#10;&#9;private /*@ spec_public*/ Boolean seenQueen; // Mancanza della regina &#13;&#10;&#9;private /*@ spec_public*/ Boolean swarmCells; // Presenza cupolino (indicativo di sciamatura)&#13;&#10;&#9;private /*@ spec_public*/ int numSupers; // Numero di melari presenti&#13;&#10;&#9;private /*@ spec_public*/ float percTopSuper; // Percentuale utilizzo ULTIMO melario (tra 0 ed 1)&#13;&#10;&#9;&#13;&#10;&#9;//@ public invariant broodFrames &gt;= 0 &amp;&amp; broodFrames &lt;= 12;&#13;&#10;&#9;//@ public invariant honeyFrames &gt;= 0 &amp;&amp; honeyFrames &lt;= 12;&#13;&#10;&#9;//@ public invariant beeFrames &gt;= 0 &amp;&amp; beeFrames &lt;= 12;&#13;&#10;&#9;//@ public invariant numSupers &gt;= 0 &amp;&amp; numSupers &lt;= 3;&#13;&#10;&#9;//@ public invariant percTopSuper &gt;= 0 &amp;&amp; percTopSuper &lt;= 1;&#13;&#10;&#9;&#13;&#10;&#9;public Report() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;reportDate = new Date();&#13;&#10;&#9;&#9;reportDate = cal.getTime();&#13;&#10;&#9;&#9;broodFrames=0;&#13;&#10;&#9;&#9;honeyFrames=0;&#13;&#10;&#9;&#9;beeFrames=0;&#13;&#10;&#9;&#9;seenQueen=false;&#13;&#10;&#9;&#9;swarmCells=false;&#13;&#10;&#9;&#9;numSupers=0;&#13;&#10;&#9;&#9;percTopSuper=0;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;//@ requires d != null;&#13;&#10;&#9;//@ requires bf &gt;= 0 &amp;&amp; bf &lt;= 12;&#13;&#10;&#9;//@ requires hf &gt;= 0 &amp;&amp; hf &lt;= 12;&#13;&#10;&#9;//@ requires bef &gt;= 0 &amp;&amp; bef &lt;= 12;&#13;&#10;&#9;//@ requires ns &gt;= 0 &amp;&amp; ns &lt;= 3;&#13;&#10;&#9;//@ requires pts &gt;= 0 &amp;&amp; pts &lt;= 1;&#13;&#10;&#9;//@ requires ns == 0 ==&gt; pts == 0;&#13;&#10;&#9;//@ ensures reportDate == d;&#13;&#10;&#9;//@ ensures broodFrames == bf;&#13;&#10;&#9;//@ ensures honeyFrames == hf;&#13;&#10;&#9;//@ ensures beeFrames == bef;&#13;&#10;&#9;//@ ensures seenQueen == sq;&#13;&#10;&#9;//@ ensures swarmCells == sc;&#13;&#10;&#9;//@ ensures numSupers == ns;&#13;&#10;&#9;//@ ensures percTopSuper == pts;&#13;&#10;&#9;//@ ensures ns == 0 ==&gt; percTopSuper == 0;&#13;&#10;&#9;public Report(Date d, int bf, int hf, int bef, Boolean sq, Boolean sc, int ns, float pts) {&#13;&#10;&#9;&#9;reportDate = d;&#13;&#10;&#9;&#9;if (bf&gt;=0 &amp;&amp; bf &lt;=12)&#13;&#10;&#9;&#9;&#9;broodFrames=bf;&#13;&#10;&#9;&#9;else&#13;&#10;&#9;&#9;&#9;broodFrames=0;&#13;&#10;&#9;&#9;if (hf&gt;=0 &amp;&amp; hf &lt;=12)&#13;&#10;&#9;&#9;&#9;honeyFrames=hf;&#13;&#10;&#9;&#9;else&#13;&#10;&#9;&#9;&#9;honeyFrames=0;&#13;&#10;&#9;&#9;if (bef&gt;=0 &amp;&amp; bef &lt;=12)&#13;&#10;&#9;&#9;&#9;beeFrames=bef;&#13;&#10;&#9;&#9;else&#13;&#10;&#9;&#9;&#9;beeFrames=0;&#13;&#10;&#9;&#9;seenQueen=sq;&#13;&#10;&#9;&#9;swarmCells=sc;&#13;&#10;&#9;&#9;if (ns&gt;=0 &amp;&amp; ns &lt;=3)&#13;&#10;&#9;&#9;&#9;numSupers=ns;&#13;&#10;&#9;&#9;else&#13;&#10;&#9;&#9;&#9;numSupers=0;&#13;&#10;&#9;&#9;if (pts&gt;=0 &amp;&amp; pts &lt;= 1)&#13;&#10;&#9;&#9;&#9;if (numSupers &gt; 0)&#13;&#10;&#9;&#9;&#9;&#9;percTopSuper = pts;&#13;&#10;&#9;&#9;&#9;else&#13;&#10;&#9;&#9;&#9;&#9;percTopSuper = 0;&#13;&#10;&#9;&#9;else&#13;&#10;&#9;&#9;&#9;percTopSuper=0;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires d != null;&#13;&#10;&#9;//@ ensures reportDate == d;&#13;&#10;&#9;public void setDate(Date d) {&#13;&#10;&#9;&#9;if (d!=null)&#13;&#10;&#9;&#9;&#9;reportDate = d;&#13;&#10;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires bf &gt;= 0;&#13;&#10;&#9;//@ requires bf &lt;= 12;&#13;&#10;&#9;//@ ensures broodFrames == bf;&#13;&#10;&#9;public void setBroodFrames(int bf) {&#13;&#10;&#9;&#9;if (bf&gt;=0 &amp;&amp; bf &lt;=12)&#13;&#10;&#9;&#9;&#9;broodFrames = bf;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires hf &gt;= 0;&#13;&#10;&#9;//@ requires hf &lt;= 12;&#13;&#10;&#9;//@ ensures honeyFrames == hf;&#13;&#10;&#9;public void setHoneyFrames(int hf) {&#13;&#10;&#9;&#9;if (hf&gt;=0 &amp;&amp; hf &lt;=12)&#13;&#10;&#9;&#9;&#9;honeyFrames = hf;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires bef &gt;= 0;&#13;&#10;&#9;//@ requires bef &lt;= 12;&#13;&#10;&#9;//@ ensures beeFrames == bef;&#13;&#10;&#9;public void setBeeFrames(int bef) {&#13;&#10;&#9;&#9;if (bef&gt;=0 &amp;&amp; bef &lt;=12)&#13;&#10;&#9;&#9;&#9;beeFrames = bef;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ ensures seenQueen == sq;&#13;&#10;&#9;public void setSeenQueen(Boolean sq) {&#13;&#10;&#9;&#9;seenQueen = sq;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ ensures swarmCells == sc;&#13;&#10;&#9;public void setSwarmCells(Boolean sc) {&#13;&#10;&#9;&#9;swarmCells = sc;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires ns &gt;= 0;&#13;&#10;&#9;//@ requires ns &lt;= 3;&#13;&#10;&#9;//@ ensures numSupers == ns;&#13;&#10;&#9;//@ ensures ns == 0 ==&gt; percTopSuper == 0;&#13;&#10;&#9;public void setNumSupers(int ns) {&#13;&#10;&#9;&#9;if (ns&gt;=0 &amp;&amp; ns&lt;=3) {&#13;&#10;&#9;&#9;&#9;numSupers = ns;&#13;&#10;&#9;&#9;&#9;if (ns==0)&#13;&#10;&#9;&#9;&#9;&#9;percTopSuper = 0;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//@ requires pts &gt;= 0;&#13;&#10;&#9;//@ requires pts &lt;= 1;&#13;&#10;&#9;//@ requires numSupers &gt; 0;&#13;&#10;&#9;//@ ensures percTopSuper == pts;&#13;&#10;&#9;public void setPercTopSuper(float pts) {&#13;&#10;&#9;&#9;if (numSupers &gt; 0 &amp;&amp; pts &gt;= 0 &amp;&amp; pts &lt;= 1) &#13;&#10;&#9;&#9;&#9;percTopSuper = pts;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;&#13;&#10;&#9;public Date getDate() {&#13;&#10;&#9;&#9;return reportDate;&#13;&#10;&#9;}&#13;&#10;&#9;public int getBroodFrames() {&#13;&#10;&#9;&#9;return broodFrames;&#13;&#10;&#9;}&#13;&#10;&#9;public int getHoneyFrames() {&#13;&#10;&#9;&#9;return honeyFrames;&#13;&#10;&#9;}&#13;&#10;&#9;public int getBeeFrames() {&#13;&#10;&#9;&#9;return beeFrames;&#13;&#10;&#9;}&#13;&#10;&#9;public Boolean getSeenQueen() {&#13;&#10;&#9;&#9;return seenQueen;&#13;&#10;&#9;}&#13;&#10;&#9;public Boolean getSwarmCells() {&#13;&#10;&#9;&#9;return swarmCells;&#13;&#10;&#9;}&#13;&#10;&#9;public int getNumSupers() {&#13;&#10;&#9;&#9;return numSupers;&#13;&#10;&#9;}&#13;&#10;&#9;public float getPercTopSuper() {&#13;&#10;&#9;&#9;return percTopSuper;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;// Ritorna un valore tra 0 e 5 rappresentante il rischio di sciamatura&#13;&#10;&#9;//@ ensures \result &gt;= 0 &amp;&amp; \result &lt;= 5;&#13;&#10;&#9;public int swarmRisk() {&#13;&#10;&#9;&#9;int risk = 0;&#13;&#10;&#9;&#9;if (broodFrames &gt; 9)&#13;&#10;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;if (swarmCells)&#13;&#10;&#9;&#9;&#9;risk+=2;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;if (beeFrames &gt; 10 &amp;&amp; numSupers==0)&#13;&#10;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;if (honeyFrames &gt; 4)&#13;&#10;&#9;&#9;&#9;if (numSupers == 0) {&#13;&#10;&#9;&#9;&#9;&#9;assert honeyFrames &gt; 4 : &quot; Errore nesting ifs&quot;;&#13;&#10;&#9;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;else if (percTopSuper &gt;= 0.8) {&#13;&#10;&#9;&#9;&#9;&#9;assert honeyFrames &gt; 4 : &quot; Errore nesting ifs&quot;;&#13;&#10;&#9;&#9;&#9;&#9;assert numSupers &gt; 0 : &quot; Errore melari rischio sciamatura&quot;;&#13;&#10;&#9;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#13;&#10;&#9;&#9;assert risk &gt;= 0 &amp;&amp; risk &lt;6 : &quot; Errore calcolo rischio&quot;;&#13;&#10;&#9;&#9;return risk;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;// Ritorna un valore tra 0 e 5 rappresentante il rischio di denutrimento&#13;&#10;&#9;//@ ensures \result &gt;= 0 &amp;&amp; \result &lt;= 5;&#13;&#10;&#9;public int starvingRisk() {&#13;&#10;&#9;&#9;int risk = 0;&#13;&#10;&#9;&#9;if (honeyFrames &lt; 2) {&#13;&#10;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;if (numSupers == 0) {&#13;&#10;&#9;&#9;&#9;&#9;assert honeyFrames &lt; 2 : &quot; Errore nesting ifs&quot;;&#13;&#10;&#9;&#9;&#9;&#9;risk+=2;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;else {&#13;&#10;&#9;&#9;&#9;&#9;assert honeyFrames &lt; 2 : &quot; Errore nesting ifs&quot;;&#13;&#10;&#9;&#9;&#9;&#9;assert numSupers &gt; 0 : &quot; Melari Negativi&quot;;&#13;&#10;&#9;&#9;&#9;&#9;if (beeFrames &gt; 9)&#13;&#10;&#9;&#9;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;&#9;&#9;if (broodFrames &gt; 10)&#13;&#10;&#9;&#9;&#9;&#9;&#9;risk+=2;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;if(honeyFrames == 0) &#13;&#10;&#9;&#9;&#9;&#9;risk++;&#13;&#10;&#9;&#9;}&#13;&#10;&#13;&#10;&#9;&#9;assert risk &gt;= 0 &amp;&amp; risk &lt;6 : &quot; Errore calcolo rischio&quot;;&#13;&#10;&#9;&#9;return risk;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;//Ritorna un boolean rappresentante la necessita' di aggiungere un melario&#13;&#10;&#9;&#13;&#10;&#9;//@ requires honeyFrames &gt; 3;&#13;&#10;&#9;//@ ensures \result == true || \result == false;&#13;&#10;&#9;public Boolean needsSuper() {&#13;&#10;&#9;&#9;if ( honeyFrames &gt; 3)&#13;&#10;&#9;&#9;&#9;if (numSupers == 0) {&#13;&#10;&#9;&#9;&#9;&#9;assert honeyFrames &gt; 3 : &quot; Errore nesting ifs&quot;;&#13;&#10;&#9;&#9;&#9;&#9;return true;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;else if (numSupers &lt; 3 &amp;&amp; percTopSuper &gt;= 0.8) {&#13;&#10;&#9;&#9;&#9;&#9;assert numSupers&gt;0 &amp;&amp; numSupers&lt;3 &amp;&amp; percTopSuper&gt;=0.8 : &quot; Errore necessita' melari&quot;;&#13;&#10;&#9;&#9;&#9;&#9;return true;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;return false;&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" Filename="Report.java" Intrnl_Id="2"/>
+<SrcFile Content="import static org.junit.Assert.*;&#13;&#10;&#13;&#10;import java.util.ArrayList;&#13;&#10;&#13;&#10;import org.junit.Test;&#13;&#10;&#13;&#10;public class ColoniaTest {&#13;&#10;&#9;&#13;&#10;&#9;Colonia colony;&#13;&#10;&#9;public ColoniaTest() {&#13;&#10;&#9;&#9;colony = new Colonia();&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testInit() {&#13;&#10;&#9;&#9;colony.setName(&quot;aa01&quot;);&#13;&#10;&#9;&#9;colony.setYobQueen(2017);&#13;&#10;&#9;&#9;colony.setQualQueen(5);&#13;&#10;&#9;&#9;colony.increaseTotalHoney(100);&#13;&#10;&#9;&#9;assertEquals(&quot;aa01&quot;,colony.getName());&#13;&#10;&#9;&#9;assertEquals(2017,colony.getYobQueen());&#13;&#10;&#9;&#9;assertEquals(5,colony.getQualQueen());&#13;&#10;&#9;&#9;assertEquals(100,colony.getTotalHoney());&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;colony.setYobQueen(2013);&#13;&#10;&#9;&#9;colony.setQualQueen(7);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;assertEquals(2017,colony.getYobQueen());&#13;&#10;&#9;&#9;assertEquals(5,colony.getQualQueen());&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testStatementCov() {&#13;&#10;&#9;&#9;Colonia col = new Colonia();&#13;&#10;&#9;&#9;assertTrue(col.getTotalHoney()==0);&#13;&#10;&#9;&#9;col = new Colonia(&quot;aa02&quot;,2018,4,5,new ArrayList&lt;Report&gt;());&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;col.addReport(new Report());&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;assertNotNull(col.getReports());&#13;&#10;&#9;}&#13;&#10;&#13;&#10;}&#13;&#10;" Filename="ColoniaTest.java" Intrnl_Id="3"/>
+<SrcFile Content="import static org.junit.Assert.*;&#13;&#10;import java.util.Calendar;&#13;&#10;import java.util.Date;&#13;&#10;&#13;&#10;import org.junit.Test;&#13;&#10;&#13;&#10;public class ReportTest {&#13;&#10;&#9;Report highSwarmRisk, medSwarmRisk, lowSwarmRisk, needsSuper1, needsSuper2, highStarveRisk, lowStarveRisk;&#13;&#10;&#9;Report bonus;&#13;&#10;&#9;&#13;&#10;&#9;public ReportTest() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;highSwarmRisk = new Report(cal.getTime(),10,5,11,true,true,0,0);&#13;&#10;&#9;&#9;medSwarmRisk = new Report(cal.getTime(),10,5,8,true,true,1,(float)0.5);&#13;&#10;&#9;&#9;lowSwarmRisk = new Report(cal.getTime(),9,3,10,true,false,0,0);&#13;&#10;&#9;&#9;needsSuper1 = new Report(cal.getTime(),7,5,8,true,true,1,(float)0.9); &#13;&#10;&#9;&#9;needsSuper2 = new Report(cal.getTime(),9,4,10,true,false,0,0); &#13;&#10;&#9;&#9;highStarveRisk = new Report(cal.getTime(),11,0,10,true,true,1,(float)0.9); &#13;&#10;&#9;&#9;lowStarveRisk = new Report(cal.getTime(),9,4,10,true,false,0,0); &#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testConstructor() {&#13;&#10;&#9;&#9;assertNotNull(highSwarmRisk);&#13;&#10;&#9;&#9;assertNotNull(medSwarmRisk);&#13;&#10;&#9;&#9;assertNotNull(lowSwarmRisk);&#13;&#10;&#9;&#9;assertNull(bonus);&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testConstruction() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;Report testRep = new Report();&#13;&#10;&#9;&#9;int broodFrames = 8;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;testRep.setDate(cal.getTime());&#13;&#10;&#9;&#9;testRep.setBroodFrames(broodFrames);&#13;&#10;&#9;&#9;testRep.setHoneyFrames(2);&#13;&#10;&#9;&#9;testRep.setBeeFrames(10);&#13;&#10;&#9;&#9;testRep.setSeenQueen(false);&#13;&#10;&#9;&#9;testRep.setSwarmCells(true);&#13;&#10;&#9;&#9;testRep.setNumSupers(1);&#13;&#10;&#9;&#9;testRep.setPercTopSuper((float)0.9);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;assertEquals(2, testRep.getHoneyFrames());&#13;&#10;&#9;&#9;assertEquals(10, testRep.getBeeFrames());&#13;&#10;&#9;&#9;assertEquals(1, testRep.getNumSupers());&#9;&#13;&#10;&#9;&#9;assertTrue(!testRep.getSeenQueen());&#9;&#13;&#10;&#9;&#9;assertTrue(testRep.getSwarmCells());&#13;&#10;&#9;    assertSame(testRep.getBroodFrames(),broodFrames);&#13;&#10;&#9;&#9;assertTrue(testRep.getPercTopSuper() == (float)0.9);&#13;&#10;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSwarm() {&#13;&#10;&#9;&#9;assertTrue(highSwarmRisk.swarmRisk()==5);&#13;&#10;&#9;&#9;assertTrue(medSwarmRisk.swarmRisk()==3);&#13;&#10;&#9;&#9;assertTrue(lowSwarmRisk.swarmRisk()==0);&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testStarve() {&#13;&#10;&#9;&#9;assertEquals(5,highStarveRisk.starvingRisk());&#13;&#10;&#9;&#9;assertEquals(0,lowStarveRisk.starvingRisk());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSuper() {&#13;&#10;&#9;&#9;assertTrue(needsSuper1.needsSuper());&#13;&#10;&#9;&#9;assertTrue(needsSuper2.needsSuper());&#13;&#10;&#9;&#9;assertTrue(needsSuper2.needsSuper());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSuperPercentage() {&#13;&#10;&#9;&#9;highSwarmRisk.setPercTopSuper((float)0.5);&#13;&#10;&#9;&#9;if (highSwarmRisk.getNumSupers() == 0 &amp;&amp; highSwarmRisk.getPercTopSuper() &gt; 0)&#13;&#10;&#9;&#9;&#9;fail();&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSwarmMCDC() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;Report reportMcdc = new Report(cal.getTime(),3,2,4,true,false,0,0);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;// Stato iniziale: tutto FALSE&#13;&#10;&#9;&#9;assertEquals(0, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// 4 Possibili condizioni che possono incrementare il rischio di sciamatura&#13;&#10;&#9;&#9;// Condizione 1: favi di covata &gt;9 (incrementa di 1)&#13;&#10;&#9;&#9;reportMcdc.setBroodFrames(10);&#13;&#10;&#9;&#9;assertEquals(1, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// Condizione 2: presenza di celle di sciamatura (+ 2)&#13;&#10;&#9;&#9;reportMcdc.setSwarmCells(true);&#13;&#10;&#9;&#9;assertEquals(3, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// Condizione 3: favi d'api &gt;10 senza melari (+ 1)&#13;&#10;&#9;&#9;reportMcdc.setBeeFrames(11);&#13;&#10;&#9;&#9;assertEquals(4, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;// Condizione 4.1: favi di miele &gt; 4 senza melari (+ 1)&#13;&#10;&#9;&#9;reportMcdc.setHoneyFrames(5);&#13;&#10;&#9;&#9;assertEquals(5, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// Condizione 4.2: favi di miele &gt; 4 con almeno un melario, riempimento &lt;0.8) (- 2)&#13;&#10;&#9;&#9;reportMcdc.setNumSupers(1);&#13;&#10;&#9;&#9;assertEquals(3, reportMcdc.swarmRisk());&#13;&#10;&#9;&#9;// Condizione 4.3: favi di miele &gt; 4 con almeno un melario, riempimento &gt;=0.8) (+ 1)&#13;&#10;&#9;&#9;reportMcdc.setPercTopSuper((float)0.8);&#13;&#10;&#9;&#9;assertEquals(4, reportMcdc.swarmRisk());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testStarveMcdc() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;Report reportMcdc = new Report(cal.getTime(),3,3,4,true,false,1,(float)0.8);&#13;&#10;&#9;&#9;assertEquals(0,reportMcdc.starvingRisk());&#13;&#10;&#9;&#9;// 5 Possibili condizioni che possono incrementare il rischio di denutrizione&#13;&#10;&#9;&#9;// Condizione 1: favi di miele &lt; 2 (+ 1)&#13;&#10;&#9;&#9;reportMcdc.setHoneyFrames(1);&#13;&#10;&#9;&#9;assertEquals(1,reportMcdc.starvingRisk());&#13;&#10;&#9;&#9;// Condizione 2: fmiele&lt;2 E numero di melari == 0 (+ 2)&#13;&#10;&#9;&#9;reportMcdc.setNumSupers(0);&#13;&#10;&#9;&#9;assertEquals(3,reportMcdc.starvingRisk());&#13;&#10;&#9;&#9;// Condizione 3.1: fmiele&lt;2 E numero di melari &gt; 0 (- 2) E favi d'api &gt; 9 (+ 1)&#13;&#10;&#9;&#9;reportMcdc.setNumSupers(1);&#13;&#10;&#9;&#9;reportMcdc.setPercTopSuper((float)0.8);&#13;&#10;&#9;&#9;reportMcdc.setBeeFrames(10);&#13;&#10;&#9;&#9;assertEquals(2,reportMcdc.starvingRisk());&#13;&#10;&#9;&#9;// Condizione 3.2: fmiele&lt;2 E numero di melari &gt; 0 E favi di covata &gt; 10 (+ 2)&#13;&#10;&#9;&#9;reportMcdc.setBroodFrames(11);&#13;&#10;&#9;&#9;assertEquals(4,reportMcdc.starvingRisk());&#13;&#10;&#9;&#9;// Condizione 5: favi di miele == 0 &#13;&#10;&#9;&#9;reportMcdc.setHoneyFrames(0);&#13;&#10;&#9;&#9;assertEquals(5,reportMcdc.starvingRisk());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testStarveCtWedge() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;// Test 37 - none&#13;&#10;&#9;&#9;Report rep = new Report(cal.getTime(),10,4,9,true,false,0,0);&#13;&#10;&#9;&#9;assertTrue(rep.starvingRisk()&lt;2);&#13;&#10;&#9;&#9;// Test 39 - emergency&#13;&#10;&#9;&#9;rep = new Report(cal.getTime(),11,0,11,true,false,2,(float)0.4);&#13;&#10;&#9;&#9;assertTrue(rep.starvingRisk()&gt;3);&#13;&#10;&#9;&#9;// Test 41 - warning&#13;&#10;&#9;&#9;rep = new Report(cal.getTime(),11,1,1,true,false,0,0);&#13;&#10;&#9;&#9;assertTrue(rep.starvingRisk()&gt;1 &amp;&amp;rep.starvingRisk()&lt;4);&#13;&#10;&#9;&#9;// Test 43 - warning&#13;&#10;&#9;&#9;rep = new Report(cal.getTime(),5,1,9,true,false,0,0);&#13;&#10;&#9;&#9;assertTrue(rep.starvingRisk()&gt;1 &amp;&amp;rep.starvingRisk()&lt;4);&#13;&#10;&#9;&#9;// Test 45 - emergency&#13;&#10;&#9;&#9;rep = new Report(cal.getTime(),10,0,10,true,false,0,0);&#13;&#10;&#9;&#9;assertTrue(rep.starvingRisk()&gt;3);&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSuperNeedCtWedge() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;// Test 23&#13;&#10;&#9;&#9;Report rep = new Report(cal.getTime(),5,2,5,true,false,1,(float)0.8);&#13;&#10;&#9;&#9;assertTrue(!rep.needsSuper());&#13;&#10;&#9;&#9;// Test 24&#13;&#10;&#9;&#9;rep = new Report(cal.getTime(),5,4,4,true,false,1,(float)0.8);&#13;&#10;&#9;&#9;assertTrue(rep.needsSuper());&#13;&#10;&#9;&#9;// Test 25&#13;&#10;&#9;&#9;rep = new Report(cal.getTime(),5,6,4,true,false,2,(float)0.8);&#13;&#10;&#9;&#9;assertTrue(rep.needsSuper());&#13;&#10;&#9;&#9;// Test 26&#13;&#10;&#9;&#9;rep = new Report(cal.getTime(),5,0,4,true,false,2,(float)1);&#13;&#10;&#9;&#9;assertTrue(!rep.needsSuper());&#13;&#10;&#9;&#9;// Test 32&#13;&#10;&#9;&#9;rep = new Report(cal.getTime(),5,1,4,true,false,0,0);&#13;&#10;&#9;&#9;assertTrue(!rep.needsSuper());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testSuperCoverage() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#13;&#10;&#9;&#9;Report rep = new Report(cal.getTime(),5,4,5,true,false,1,(float)0.7);&#13;&#10;&#9;&#9;assertTrue(!rep.needsSuper());&#13;&#10;&#9;&#9;rep.setNumSupers(3);&#13;&#10;&#9;&#9;assertTrue(!rep.needsSuper());&#13;&#10;&#9;&#9;rep.setBeeFrames(14);&#13;&#10;&#9;&#9;rep.setHoneyFrames(14);&#13;&#10;&#9;&#9;rep.setBroodFrames(14);&#13;&#10;&#9;&#9;rep.setNumSupers(4);&#13;&#10;&#9;&#9;rep.setDate(null);&#13;&#10;&#9;&#9;assertTrue(!rep.needsSuper());&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testConditionCoverage() {&#13;&#10;&#9;&#9;Calendar cal = Calendar.getInstance();&#13;&#10;&#9;&#9;cal.set(2020,0,1);&#13;&#10;&#9;&#9;// Test 23&#13;&#10;&#9;&#9;Report rep = new Report(cal.getTime(),-1,15,-1,true,false,5,(float)2);&#13;&#10;&#13;&#10;&#9;&#9;rep = new Report (cal.getTime(),13,-1,15,true,false,-1,-1); &#13;&#10;&#9;&#9;Date d = rep.getDate();&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;rep.setBeeFrames(-1);&#13;&#10;&#9;&#9;rep.setHoneyFrames(-1);&#13;&#10;&#9;&#9;rep.setBroodFrames(-1);&#13;&#10;&#9;&#9;rep.setNumSupers(-1);&#13;&#10;&#9;&#9;rep.setPercTopSuper(-1);&#13;&#10;&#9;&#9;rep.setPercTopSuper(2);&#13;&#10;&#13;&#10;&#9;&#9;assertTrue(rep.getBeeFrames() == 0);&#13;&#10;&#9;&#9;assertTrue(rep.getHoneyFrames() == 0);&#13;&#10;&#9;&#9;assertTrue(rep.getBroodFrames() == 0);&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" Filename="ReportTest.java" Intrnl_Id="4"/>
+</SrcFileList>
+<CritList>
+<CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+</CritList>
+<BoolOpList>
+<BoolOp Arity="2" Intrnl_Id="5" Name="conditional and (&amp;&amp;)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="02" Value="false"/>
+<MapEntry BoolAssgnmnt="10" Value="false"/>
+<MapEntry BoolAssgnmnt="11" Value="true"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+</BoolOpList>
+<HierarchyLvlTypeList>
+<HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="6"/>
+<HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="7"/>
+<HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="8"/>
+</HierarchyLvlTypeList>
+<MASTRoot>
+<HierarchyLvl HierarchyLvlId="482" HierarchyLvlTypeId="8" Intrnl_Id="9" Name="default package">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="441" HierarchyLvlTypeId="7" Intrnl_Id="10" Name="Colonia">
+<Header>
+<Loc EndOffset="352" SrcFileId="1" StartOffset="332"/>
+</Header>
+<LocList>
+<Loc EndOffset="3080" SrcFileId="1" StartOffset="332"/>
+</LocList>
+<HierarchyLvl HierarchyLvlId="429" HierarchyLvlTypeId="6" Intrnl_Id="11" Name="Colonia">
+<Header>
+<Loc EndOffset="1013" SrcFileId="1" StartOffset="997"/>
+</Header>
+<LocList>
+<Loc EndOffset="1125" SrcFileId="1" StartOffset="997"/>
+</LocList>
+<StmntSeq Intrnl_Id="12">
+<LocList>
+<Loc EndOffset="1027" SrcFileId="1" StartOffset="1019"/>
+<Loc EndOffset="1045" SrcFileId="1" StartOffset="1031"/>
+<Loc EndOffset="1064" SrcFileId="1" StartOffset="1049"/>
+<Loc EndOffset="1080" SrcFileId="1" StartOffset="1069"/>
+<Loc EndOffset="1121" SrcFileId="1" StartOffset="1084"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="Colonia.java" Intrnl_Id="13">
+<LocList>
+<Loc EndOffset="1027" SrcFileId="1" StartOffset="1019"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S2" CovItemPrefix="Colonia.java" Intrnl_Id="14">
+<LocList>
+<Loc EndOffset="1045" SrcFileId="1" StartOffset="1031"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S3" CovItemPrefix="Colonia.java" Intrnl_Id="15">
+<LocList>
+<Loc EndOffset="1064" SrcFileId="1" StartOffset="1049"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S4" CovItemPrefix="Colonia.java" Intrnl_Id="16">
+<LocList>
+<Loc EndOffset="1080" SrcFileId="1" StartOffset="1069"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S5" CovItemPrefix="Colonia.java" Intrnl_Id="17">
+<LocList>
+<Loc EndOffset="1121" SrcFileId="1" StartOffset="1084"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="430" HierarchyLvlTypeId="6" Intrnl_Id="18" Name="Colonia">
+<Header>
+<Loc EndOffset="1577" SrcFileId="1" StartOffset="1507"/>
+</Header>
+<LocList>
+<Loc EndOffset="1666" SrcFileId="1" StartOffset="1507"/>
+</LocList>
+<StmntSeq Intrnl_Id="19">
+<LocList>
+<Loc EndOffset="1590" SrcFileId="1" StartOffset="1583"/>
+<Loc EndOffset="1606" SrcFileId="1" StartOffset="1594"/>
+<Loc EndOffset="1626" SrcFileId="1" StartOffset="1610"/>
+<Loc EndOffset="1642" SrcFileId="1" StartOffset="1630"/>
+<Loc EndOffset="1662" SrcFileId="1" StartOffset="1646"/>
+</LocList>
+<BasicStmnt CovItemId="S6" CovItemPrefix="Colonia.java" Intrnl_Id="20">
+<LocList>
+<Loc EndOffset="1590" SrcFileId="1" StartOffset="1583"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S7" CovItemPrefix="Colonia.java" Intrnl_Id="21">
+<LocList>
+<Loc EndOffset="1606" SrcFileId="1" StartOffset="1594"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S8" CovItemPrefix="Colonia.java" Intrnl_Id="22">
+<LocList>
+<Loc EndOffset="1626" SrcFileId="1" StartOffset="1610"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S9" CovItemPrefix="Colonia.java" Intrnl_Id="23">
+<LocList>
+<Loc EndOffset="1642" SrcFileId="1" StartOffset="1630"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S10" CovItemPrefix="Colonia.java" Intrnl_Id="24">
+<LocList>
+<Loc EndOffset="1662" SrcFileId="1" StartOffset="1646"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="431" HierarchyLvlTypeId="6" Intrnl_Id="25" Name="setName">
+<Header>
+<Loc EndOffset="1756" SrcFileId="1" StartOffset="1727"/>
+</Header>
+<LocList>
+<Loc EndOffset="1777" SrcFileId="1" StartOffset="1727"/>
+</LocList>
+<StmntSeq Intrnl_Id="26">
+<LocList>
+<Loc EndOffset="1771" SrcFileId="1" StartOffset="1762"/>
+</LocList>
+<BasicStmnt CovItemId="S11" CovItemPrefix="Colonia.java" Intrnl_Id="27">
+<LocList>
+<Loc EndOffset="1771" SrcFileId="1" StartOffset="1762"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="432" HierarchyLvlTypeId="6" Intrnl_Id="28" Name="setYobQueen">
+<Header>
+<Loc EndOffset="1870" SrcFileId="1" StartOffset="1839"/>
+</Header>
+<LocList>
+<Loc EndOffset="1913" SrcFileId="1" StartOffset="1839"/>
+</LocList>
+<StmntSeq Intrnl_Id="29">
+<LocList>
+<Loc EndOffset="1907" SrcFileId="1" StartOffset="1876"/>
+</LocList>
+<CondStmnt CovItemId="S12" CovItemPrefix="Colonia.java" Intrnl_Id="30">
+<Branch CovItemId="B1" CovItemPrefix="Colonia.java" Implct="false" Intrnl_Id="31">
+<Cond/>
+<LocList>
+<Loc EndOffset="1907" SrcFileId="1" StartOffset="1893"/>
+</LocList>
+<StmntSeq Intrnl_Id="32">
+<LocList>
+<Loc EndOffset="1907" SrcFileId="1" StartOffset="1893"/>
+</LocList>
+<BasicStmnt CovItemId="S13" CovItemPrefix="Colonia.java" Intrnl_Id="33">
+<LocList>
+<Loc EndOffset="1907" SrcFileId="1" StartOffset="1893"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B2" CovItemPrefix="Colonia.java" Implct="true" Intrnl_Id="34">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="35">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1878" SrcFileId="1" StartOffset="1876"/>
+<LocList>
+<Loc EndOffset="1907" SrcFileId="1" StartOffset="1876"/>
+</LocList>
+<RootTerm CovItemId="C1" CovItemPrefix="Colonia.java" Intrnl_Id="36">
+<BasicBoolTerm Intrnl_Id="37">
+<LocList>
+<Loc EndOffset="1887" SrcFileId="1" StartOffset="1880"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="433" HierarchyLvlTypeId="6" Intrnl_Id="38" Name="setQualQueen">
+<Header>
+<Loc EndOffset="2031" SrcFileId="1" StartOffset="1999"/>
+</Header>
+<LocList>
+<Loc EndOffset="2083" SrcFileId="1" StartOffset="1999"/>
+</LocList>
+<StmntSeq Intrnl_Id="39">
+<LocList>
+<Loc EndOffset="2077" SrcFileId="1" StartOffset="2037"/>
+</LocList>
+<CondStmnt CovItemId="S14" CovItemPrefix="Colonia.java" Intrnl_Id="40">
+<Branch CovItemId="B3" CovItemPrefix="Colonia.java" Implct="false" Intrnl_Id="41">
+<Cond/>
+<LocList>
+<Loc EndOffset="2077" SrcFileId="1" StartOffset="2059"/>
+</LocList>
+<StmntSeq Intrnl_Id="42">
+<LocList>
+<Loc EndOffset="2077" SrcFileId="1" StartOffset="2059"/>
+</LocList>
+<BasicStmnt CovItemId="S15" CovItemPrefix="Colonia.java" Intrnl_Id="43">
+<LocList>
+<Loc EndOffset="2077" SrcFileId="1" StartOffset="2059"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B4" CovItemPrefix="Colonia.java" Implct="true" Intrnl_Id="44">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="45">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2039" SrcFileId="1" StartOffset="2037"/>
+<LocList>
+<Loc EndOffset="2077" SrcFileId="1" StartOffset="2037"/>
+</LocList>
+<RootTerm CovItemId="C2" CovItemPrefix="Colonia.java" Intrnl_Id="46">
+<OpTerm BooleanOpId="5" Intrnl_Id="47">
+<BasicBoolTerm Intrnl_Id="48">
+<LocList>
+<Loc EndOffset="2045" SrcFileId="1" StartOffset="2041"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="49">
+<LocList>
+<Loc EndOffset="2053" SrcFileId="1" StartOffset="2049"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2048" SrcFileId="1" StartOffset="2046"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="434" HierarchyLvlTypeId="6" Intrnl_Id="50" Name="increaseTotalHoney">
+<Header>
+<Loc EndOffset="2198" SrcFileId="1" StartOffset="2160"/>
+</Header>
+<LocList>
+<Loc EndOffset="2287" SrcFileId="1" StartOffset="2160"/>
+</LocList>
+<StmntSeq Intrnl_Id="51">
+<LocList>
+<Loc EndOffset="2283" SrcFileId="1" StartOffset="2204"/>
+</LocList>
+<CondStmnt CovItemId="S16" CovItemPrefix="Colonia.java" Intrnl_Id="52">
+<Branch CovItemId="B5" CovItemPrefix="Colonia.java" Implct="false" Intrnl_Id="53">
+<Cond/>
+<LocList>
+<Loc EndOffset="2283" SrcFileId="1" StartOffset="2214"/>
+</LocList>
+<StmntSeq Intrnl_Id="54">
+<LocList>
+<Loc EndOffset="2276" SrcFileId="1" StartOffset="2261"/>
+</LocList>
+<BasicStmnt CovItemId="S17" CovItemPrefix="Colonia.java" Intrnl_Id="55">
+<LocList>
+<Loc EndOffset="2276" SrcFileId="1" StartOffset="2261"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B6" CovItemPrefix="Colonia.java" Implct="true" Intrnl_Id="56">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="57">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2206" SrcFileId="1" StartOffset="2204"/>
+<LocList>
+<Loc EndOffset="2283" SrcFileId="1" StartOffset="2204"/>
+</LocList>
+<RootTerm CovItemId="C3" CovItemPrefix="Colonia.java" Intrnl_Id="58">
+<BasicBoolTerm Intrnl_Id="59">
+<LocList>
+<Loc EndOffset="2212" SrcFileId="1" StartOffset="2208"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="435" HierarchyLvlTypeId="6" Intrnl_Id="60" Name="addReport">
+<Header>
+<Loc EndOffset="2421" SrcFileId="1" StartOffset="2385"/>
+</Header>
+<LocList>
+<Loc EndOffset="2519" SrcFileId="1" StartOffset="2385"/>
+</LocList>
+<StmntSeq Intrnl_Id="61">
+<LocList>
+<Loc EndOffset="2506" SrcFileId="1" StartOffset="2483"/>
+</LocList>
+<BasicStmnt CovItemId="S18" CovItemPrefix="Colonia.java" Intrnl_Id="62">
+<LocList>
+<Loc EndOffset="2506" SrcFileId="1" StartOffset="2483"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="436" HierarchyLvlTypeId="6" Intrnl_Id="63" Name="getName">
+<Header>
+<Loc EndOffset="2609" SrcFileId="1" StartOffset="2586"/>
+</Header>
+<LocList>
+<Loc EndOffset="2631" SrcFileId="1" StartOffset="2586"/>
+</LocList>
+<StmntSeq Intrnl_Id="64">
+<LocList>
+<Loc EndOffset="2627" SrcFileId="1" StartOffset="2615"/>
+</LocList>
+<BasicStmnt CovItemId="S19" CovItemPrefix="Colonia.java" Intrnl_Id="65">
+<LocList>
+<Loc EndOffset="2627" SrcFileId="1" StartOffset="2615"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="437" HierarchyLvlTypeId="6" Intrnl_Id="66" Name="getYobQueen">
+<Header>
+<Loc EndOffset="2693" SrcFileId="1" StartOffset="2669"/>
+</Header>
+<LocList>
+<Loc EndOffset="2719" SrcFileId="1" StartOffset="2669"/>
+</LocList>
+<StmntSeq Intrnl_Id="67">
+<LocList>
+<Loc EndOffset="2715" SrcFileId="1" StartOffset="2699"/>
+</LocList>
+<BasicStmnt CovItemId="S20" CovItemPrefix="Colonia.java" Intrnl_Id="68">
+<LocList>
+<Loc EndOffset="2715" SrcFileId="1" StartOffset="2699"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="438" HierarchyLvlTypeId="6" Intrnl_Id="69" Name="getQualQueen">
+<Header>
+<Loc EndOffset="2786" SrcFileId="1" StartOffset="2761"/>
+</Header>
+<LocList>
+<Loc EndOffset="2816" SrcFileId="1" StartOffset="2761"/>
+</LocList>
+<StmntSeq Intrnl_Id="70">
+<LocList>
+<Loc EndOffset="2812" SrcFileId="1" StartOffset="2792"/>
+</LocList>
+<BasicStmnt CovItemId="S21" CovItemPrefix="Colonia.java" Intrnl_Id="71">
+<LocList>
+<Loc EndOffset="2812" SrcFileId="1" StartOffset="2792"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="439" HierarchyLvlTypeId="6" Intrnl_Id="72" Name="getTotalHoney">
+<Header>
+<Loc EndOffset="2880" SrcFileId="1" StartOffset="2854"/>
+</Header>
+<LocList>
+<Loc EndOffset="2906" SrcFileId="1" StartOffset="2854"/>
+</LocList>
+<StmntSeq Intrnl_Id="73">
+<LocList>
+<Loc EndOffset="2902" SrcFileId="1" StartOffset="2886"/>
+</LocList>
+<BasicStmnt CovItemId="S22" CovItemPrefix="Colonia.java" Intrnl_Id="74">
+<LocList>
+<Loc EndOffset="2902" SrcFileId="1" StartOffset="2886"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="440" HierarchyLvlTypeId="6" Intrnl_Id="75" Name="getReports">
+<Header>
+<Loc EndOffset="2983" SrcFileId="1" StartOffset="2946"/>
+</Header>
+<LocList>
+<Loc EndOffset="3077" SrcFileId="1" StartOffset="2946"/>
+</LocList>
+<StmntSeq Intrnl_Id="76">
+<LocList>
+<Loc EndOffset="3073" SrcFileId="1" StartOffset="3055"/>
+</LocList>
+<BasicStmnt CovItemId="S23" CovItemPrefix="Colonia.java" Intrnl_Id="77">
+<LocList>
+<Loc EndOffset="3073" SrcFileId="1" StartOffset="3055"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="463" HierarchyLvlTypeId="7" Intrnl_Id="78" Name="Report">
+<Header>
+<Loc EndOffset="496" SrcFileId="2" StartOffset="477"/>
+</Header>
+<LocList>
+<Loc EndOffset="6566" SrcFileId="2" StartOffset="477"/>
+</LocList>
+<HierarchyLvl HierarchyLvlId="442" HierarchyLvlTypeId="6" Intrnl_Id="79" Name="Report">
+<Header>
+<Loc EndOffset="1542" SrcFileId="2" StartOffset="1527"/>
+</Header>
+<LocList>
+<Loc EndOffset="1799" SrcFileId="2" StartOffset="1527"/>
+</LocList>
+<StmntSeq Intrnl_Id="80">
+<LocList>
+<Loc EndOffset="1586" SrcFileId="2" StartOffset="1548"/>
+<Loc EndOffset="1608" SrcFileId="2" StartOffset="1590"/>
+<Loc EndOffset="1636" SrcFileId="2" StartOffset="1612"/>
+<Loc EndOffset="1667" SrcFileId="2" StartOffset="1640"/>
+<Loc EndOffset="1685" SrcFileId="2" StartOffset="1671"/>
+<Loc EndOffset="1703" SrcFileId="2" StartOffset="1689"/>
+<Loc EndOffset="1719" SrcFileId="2" StartOffset="1707"/>
+<Loc EndOffset="1739" SrcFileId="2" StartOffset="1723"/>
+<Loc EndOffset="1760" SrcFileId="2" StartOffset="1743"/>
+<Loc EndOffset="1776" SrcFileId="2" StartOffset="1764"/>
+<Loc EndOffset="1795" SrcFileId="2" StartOffset="1780"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="Report.java" Intrnl_Id="81">
+<LocList>
+<Loc EndOffset="1586" SrcFileId="2" StartOffset="1548"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S2" CovItemPrefix="Report.java" Intrnl_Id="82">
+<LocList>
+<Loc EndOffset="1608" SrcFileId="2" StartOffset="1590"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S3" CovItemPrefix="Report.java" Intrnl_Id="83">
+<LocList>
+<Loc EndOffset="1636" SrcFileId="2" StartOffset="1612"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S4" CovItemPrefix="Report.java" Intrnl_Id="84">
+<LocList>
+<Loc EndOffset="1667" SrcFileId="2" StartOffset="1640"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S5" CovItemPrefix="Report.java" Intrnl_Id="85">
+<LocList>
+<Loc EndOffset="1685" SrcFileId="2" StartOffset="1671"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S6" CovItemPrefix="Report.java" Intrnl_Id="86">
+<LocList>
+<Loc EndOffset="1703" SrcFileId="2" StartOffset="1689"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S7" CovItemPrefix="Report.java" Intrnl_Id="87">
+<LocList>
+<Loc EndOffset="1719" SrcFileId="2" StartOffset="1707"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S8" CovItemPrefix="Report.java" Intrnl_Id="88">
+<LocList>
+<Loc EndOffset="1739" SrcFileId="2" StartOffset="1723"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S9" CovItemPrefix="Report.java" Intrnl_Id="89">
+<LocList>
+<Loc EndOffset="1760" SrcFileId="2" StartOffset="1743"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S10" CovItemPrefix="Report.java" Intrnl_Id="90">
+<LocList>
+<Loc EndOffset="1776" SrcFileId="2" StartOffset="1764"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S11" CovItemPrefix="Report.java" Intrnl_Id="91">
+<LocList>
+<Loc EndOffset="1795" SrcFileId="2" StartOffset="1780"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="443" HierarchyLvlTypeId="6" Intrnl_Id="92" Name="Report">
+<Header>
+<Loc EndOffset="2441" SrcFileId="2" StartOffset="2352"/>
+</Header>
+<LocList>
+<Loc EndOffset="2918" SrcFileId="2" StartOffset="2352"/>
+</LocList>
+<StmntSeq Intrnl_Id="93">
+<LocList>
+<Loc EndOffset="2462" SrcFileId="2" StartOffset="2447"/>
+<Loc EndOffset="2534" SrcFileId="2" StartOffset="2466"/>
+<Loc EndOffset="2606" SrcFileId="2" StartOffset="2538"/>
+<Loc EndOffset="2677" SrcFileId="2" StartOffset="2610"/>
+<Loc EndOffset="2694" SrcFileId="2" StartOffset="2681"/>
+<Loc EndOffset="2712" SrcFileId="2" StartOffset="2698"/>
+<Loc EndOffset="2779" SrcFileId="2" StartOffset="2716"/>
+<Loc EndOffset="2914" SrcFileId="2" StartOffset="2783"/>
+</LocList>
+<BasicStmnt CovItemId="S12" CovItemPrefix="Report.java" Intrnl_Id="94">
+<LocList>
+<Loc EndOffset="2462" SrcFileId="2" StartOffset="2447"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S13" CovItemPrefix="Report.java" Intrnl_Id="95">
+<Branch CovItemId="B1" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="96">
+<Cond/>
+<LocList>
+<Loc EndOffset="2507" SrcFileId="2" StartOffset="2492"/>
+</LocList>
+<StmntSeq Intrnl_Id="97">
+<LocList>
+<Loc EndOffset="2507" SrcFileId="2" StartOffset="2492"/>
+</LocList>
+<BasicStmnt CovItemId="S14" CovItemPrefix="Report.java" Intrnl_Id="98">
+<LocList>
+<Loc EndOffset="2507" SrcFileId="2" StartOffset="2492"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B2" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="99">
+<Cond>
+<Loc EndOffset="2515" SrcFileId="2" StartOffset="2511"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2534" SrcFileId="2" StartOffset="2520"/>
+</LocList>
+<StmntSeq Intrnl_Id="100">
+<LocList>
+<Loc EndOffset="2534" SrcFileId="2" StartOffset="2520"/>
+</LocList>
+<BasicStmnt CovItemId="S15" CovItemPrefix="Report.java" Intrnl_Id="101">
+<LocList>
+<Loc EndOffset="2534" SrcFileId="2" StartOffset="2520"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2468" SrcFileId="2" StartOffset="2466"/>
+<LocList>
+<Loc EndOffset="2534" SrcFileId="2" StartOffset="2466"/>
+</LocList>
+<RootTerm CovItemId="C1" CovItemPrefix="Report.java" Intrnl_Id="102">
+<OpTerm BooleanOpId="5" Intrnl_Id="103">
+<BasicBoolTerm Intrnl_Id="104">
+<LocList>
+<Loc EndOffset="2475" SrcFileId="2" StartOffset="2470"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="105">
+<LocList>
+<Loc EndOffset="2486" SrcFileId="2" StartOffset="2479"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2478" SrcFileId="2" StartOffset="2476"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S16" CovItemPrefix="Report.java" Intrnl_Id="106">
+<Branch CovItemId="B3" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="107">
+<Cond/>
+<LocList>
+<Loc EndOffset="2579" SrcFileId="2" StartOffset="2564"/>
+</LocList>
+<StmntSeq Intrnl_Id="108">
+<LocList>
+<Loc EndOffset="2579" SrcFileId="2" StartOffset="2564"/>
+</LocList>
+<BasicStmnt CovItemId="S17" CovItemPrefix="Report.java" Intrnl_Id="109">
+<LocList>
+<Loc EndOffset="2579" SrcFileId="2" StartOffset="2564"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B4" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="110">
+<Cond>
+<Loc EndOffset="2587" SrcFileId="2" StartOffset="2583"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2606" SrcFileId="2" StartOffset="2592"/>
+</LocList>
+<StmntSeq Intrnl_Id="111">
+<LocList>
+<Loc EndOffset="2606" SrcFileId="2" StartOffset="2592"/>
+</LocList>
+<BasicStmnt CovItemId="S18" CovItemPrefix="Report.java" Intrnl_Id="112">
+<LocList>
+<Loc EndOffset="2606" SrcFileId="2" StartOffset="2592"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2540" SrcFileId="2" StartOffset="2538"/>
+<LocList>
+<Loc EndOffset="2606" SrcFileId="2" StartOffset="2538"/>
+</LocList>
+<RootTerm CovItemId="C2" CovItemPrefix="Report.java" Intrnl_Id="113">
+<OpTerm BooleanOpId="5" Intrnl_Id="114">
+<BasicBoolTerm Intrnl_Id="115">
+<LocList>
+<Loc EndOffset="2547" SrcFileId="2" StartOffset="2542"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="116">
+<LocList>
+<Loc EndOffset="2558" SrcFileId="2" StartOffset="2551"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2550" SrcFileId="2" StartOffset="2548"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S19" CovItemPrefix="Report.java" Intrnl_Id="117">
+<Branch CovItemId="B5" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="118">
+<Cond/>
+<LocList>
+<Loc EndOffset="2652" SrcFileId="2" StartOffset="2638"/>
+</LocList>
+<StmntSeq Intrnl_Id="119">
+<LocList>
+<Loc EndOffset="2652" SrcFileId="2" StartOffset="2638"/>
+</LocList>
+<BasicStmnt CovItemId="S20" CovItemPrefix="Report.java" Intrnl_Id="120">
+<LocList>
+<Loc EndOffset="2652" SrcFileId="2" StartOffset="2638"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B6" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="121">
+<Cond>
+<Loc EndOffset="2660" SrcFileId="2" StartOffset="2656"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2677" SrcFileId="2" StartOffset="2665"/>
+</LocList>
+<StmntSeq Intrnl_Id="122">
+<LocList>
+<Loc EndOffset="2677" SrcFileId="2" StartOffset="2665"/>
+</LocList>
+<BasicStmnt CovItemId="S21" CovItemPrefix="Report.java" Intrnl_Id="123">
+<LocList>
+<Loc EndOffset="2677" SrcFileId="2" StartOffset="2665"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2612" SrcFileId="2" StartOffset="2610"/>
+<LocList>
+<Loc EndOffset="2677" SrcFileId="2" StartOffset="2610"/>
+</LocList>
+<RootTerm CovItemId="C3" CovItemPrefix="Report.java" Intrnl_Id="124">
+<OpTerm BooleanOpId="5" Intrnl_Id="125">
+<BasicBoolTerm Intrnl_Id="126">
+<LocList>
+<Loc EndOffset="2620" SrcFileId="2" StartOffset="2614"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="127">
+<LocList>
+<Loc EndOffset="2632" SrcFileId="2" StartOffset="2624"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2623" SrcFileId="2" StartOffset="2621"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S22" CovItemPrefix="Report.java" Intrnl_Id="128">
+<LocList>
+<Loc EndOffset="2694" SrcFileId="2" StartOffset="2681"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S23" CovItemPrefix="Report.java" Intrnl_Id="129">
+<LocList>
+<Loc EndOffset="2712" SrcFileId="2" StartOffset="2698"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S24" CovItemPrefix="Report.java" Intrnl_Id="130">
+<Branch CovItemId="B7" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="131">
+<Cond/>
+<LocList>
+<Loc EndOffset="2754" SrcFileId="2" StartOffset="2741"/>
+</LocList>
+<StmntSeq Intrnl_Id="132">
+<LocList>
+<Loc EndOffset="2754" SrcFileId="2" StartOffset="2741"/>
+</LocList>
+<BasicStmnt CovItemId="S25" CovItemPrefix="Report.java" Intrnl_Id="133">
+<LocList>
+<Loc EndOffset="2754" SrcFileId="2" StartOffset="2741"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B8" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="134">
+<Cond>
+<Loc EndOffset="2762" SrcFileId="2" StartOffset="2758"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2779" SrcFileId="2" StartOffset="2767"/>
+</LocList>
+<StmntSeq Intrnl_Id="135">
+<LocList>
+<Loc EndOffset="2779" SrcFileId="2" StartOffset="2767"/>
+</LocList>
+<BasicStmnt CovItemId="S26" CovItemPrefix="Report.java" Intrnl_Id="136">
+<LocList>
+<Loc EndOffset="2779" SrcFileId="2" StartOffset="2767"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2718" SrcFileId="2" StartOffset="2716"/>
+<LocList>
+<Loc EndOffset="2779" SrcFileId="2" StartOffset="2716"/>
+</LocList>
+<RootTerm CovItemId="C4" CovItemPrefix="Report.java" Intrnl_Id="137">
+<OpTerm BooleanOpId="5" Intrnl_Id="138">
+<BasicBoolTerm Intrnl_Id="139">
+<LocList>
+<Loc EndOffset="2725" SrcFileId="2" StartOffset="2720"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="140">
+<LocList>
+<Loc EndOffset="2735" SrcFileId="2" StartOffset="2729"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2728" SrcFileId="2" StartOffset="2726"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S27" CovItemPrefix="Report.java" Intrnl_Id="141">
+<Branch CovItemId="B9" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="142">
+<Cond/>
+<LocList>
+<Loc EndOffset="2886" SrcFileId="2" StartOffset="2811"/>
+</LocList>
+<StmntSeq Intrnl_Id="143">
+<LocList>
+<Loc EndOffset="2886" SrcFileId="2" StartOffset="2811"/>
+</LocList>
+<CondStmnt CovItemId="S28" CovItemPrefix="Report.java" Intrnl_Id="144">
+<Branch CovItemId="B11" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="145">
+<Cond/>
+<LocList>
+<Loc EndOffset="2854" SrcFileId="2" StartOffset="2835"/>
+</LocList>
+<StmntSeq Intrnl_Id="146">
+<LocList>
+<Loc EndOffset="2854" SrcFileId="2" StartOffset="2835"/>
+</LocList>
+<BasicStmnt CovItemId="S29" CovItemPrefix="Report.java" Intrnl_Id="147">
+<LocList>
+<Loc EndOffset="2854" SrcFileId="2" StartOffset="2835"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B12" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="148">
+<Cond>
+<Loc EndOffset="2863" SrcFileId="2" StartOffset="2859"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2886" SrcFileId="2" StartOffset="2869"/>
+</LocList>
+<StmntSeq Intrnl_Id="149">
+<LocList>
+<Loc EndOffset="2886" SrcFileId="2" StartOffset="2869"/>
+</LocList>
+<BasicStmnt CovItemId="S30" CovItemPrefix="Report.java" Intrnl_Id="150">
+<LocList>
+<Loc EndOffset="2886" SrcFileId="2" StartOffset="2869"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2813" SrcFileId="2" StartOffset="2811"/>
+<LocList>
+<Loc EndOffset="2886" SrcFileId="2" StartOffset="2811"/>
+</LocList>
+<RootTerm CovItemId="C6" CovItemPrefix="Report.java" Intrnl_Id="151">
+<BasicBoolTerm Intrnl_Id="152">
+<LocList>
+<Loc EndOffset="2828" SrcFileId="2" StartOffset="2815"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B10" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="153">
+<Cond>
+<Loc EndOffset="2894" SrcFileId="2" StartOffset="2890"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2914" SrcFileId="2" StartOffset="2899"/>
+</LocList>
+<StmntSeq Intrnl_Id="154">
+<LocList>
+<Loc EndOffset="2914" SrcFileId="2" StartOffset="2899"/>
+</LocList>
+<BasicStmnt CovItemId="S31" CovItemPrefix="Report.java" Intrnl_Id="155">
+<LocList>
+<Loc EndOffset="2914" SrcFileId="2" StartOffset="2899"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2785" SrcFileId="2" StartOffset="2783"/>
+<LocList>
+<Loc EndOffset="2914" SrcFileId="2" StartOffset="2783"/>
+</LocList>
+<RootTerm CovItemId="C5" CovItemPrefix="Report.java" Intrnl_Id="156">
+<OpTerm BooleanOpId="5" Intrnl_Id="157">
+<BasicBoolTerm Intrnl_Id="158">
+<LocList>
+<Loc EndOffset="2793" SrcFileId="2" StartOffset="2787"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="159">
+<LocList>
+<Loc EndOffset="2805" SrcFileId="2" StartOffset="2797"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2796" SrcFileId="2" StartOffset="2794"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="444" HierarchyLvlTypeId="6" Intrnl_Id="160" Name="setDate">
+<Header>
+<Loc EndOffset="3008" SrcFileId="2" StartOffset="2981"/>
+</Header>
+<LocList>
+<Loc EndOffset="3052" SrcFileId="2" StartOffset="2981"/>
+</LocList>
+<StmntSeq Intrnl_Id="161">
+<LocList>
+<Loc EndOffset="3046" SrcFileId="2" StartOffset="3014"/>
+</LocList>
+<CondStmnt CovItemId="S32" CovItemPrefix="Report.java" Intrnl_Id="162">
+<Branch CovItemId="B13" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="163">
+<Cond/>
+<LocList>
+<Loc EndOffset="3046" SrcFileId="2" StartOffset="3031"/>
+</LocList>
+<StmntSeq Intrnl_Id="164">
+<LocList>
+<Loc EndOffset="3046" SrcFileId="2" StartOffset="3031"/>
+</LocList>
+<BasicStmnt CovItemId="S33" CovItemPrefix="Report.java" Intrnl_Id="165">
+<LocList>
+<Loc EndOffset="3046" SrcFileId="2" StartOffset="3031"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B14" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="166">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="167">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3016" SrcFileId="2" StartOffset="3014"/>
+<LocList>
+<Loc EndOffset="3046" SrcFileId="2" StartOffset="3014"/>
+</LocList>
+<RootTerm CovItemId="C7" CovItemPrefix="Report.java" Intrnl_Id="168">
+<BasicBoolTerm Intrnl_Id="169">
+<LocList>
+<Loc EndOffset="3025" SrcFileId="2" StartOffset="3018"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="445" HierarchyLvlTypeId="6" Intrnl_Id="170" Name="setBroodFrames">
+<Header>
+<Loc EndOffset="3174" SrcFileId="2" StartOffset="3140"/>
+</Header>
+<LocList>
+<Loc EndOffset="3227" SrcFileId="2" StartOffset="3140"/>
+</LocList>
+<StmntSeq Intrnl_Id="171">
+<LocList>
+<Loc EndOffset="3223" SrcFileId="2" StartOffset="3180"/>
+</LocList>
+<CondStmnt CovItemId="S34" CovItemPrefix="Report.java" Intrnl_Id="172">
+<Branch CovItemId="B15" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="173">
+<Cond/>
+<LocList>
+<Loc EndOffset="3223" SrcFileId="2" StartOffset="3206"/>
+</LocList>
+<StmntSeq Intrnl_Id="174">
+<LocList>
+<Loc EndOffset="3223" SrcFileId="2" StartOffset="3206"/>
+</LocList>
+<BasicStmnt CovItemId="S35" CovItemPrefix="Report.java" Intrnl_Id="175">
+<LocList>
+<Loc EndOffset="3223" SrcFileId="2" StartOffset="3206"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B16" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="176">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="177">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3182" SrcFileId="2" StartOffset="3180"/>
+<LocList>
+<Loc EndOffset="3223" SrcFileId="2" StartOffset="3180"/>
+</LocList>
+<RootTerm CovItemId="C8" CovItemPrefix="Report.java" Intrnl_Id="178">
+<OpTerm BooleanOpId="5" Intrnl_Id="179">
+<BasicBoolTerm Intrnl_Id="180">
+<LocList>
+<Loc EndOffset="3189" SrcFileId="2" StartOffset="3184"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="181">
+<LocList>
+<Loc EndOffset="3200" SrcFileId="2" StartOffset="3193"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="3192" SrcFileId="2" StartOffset="3190"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="446" HierarchyLvlTypeId="6" Intrnl_Id="182" Name="setHoneyFrames">
+<Header>
+<Loc EndOffset="3349" SrcFileId="2" StartOffset="3315"/>
+</Header>
+<LocList>
+<Loc EndOffset="3402" SrcFileId="2" StartOffset="3315"/>
+</LocList>
+<StmntSeq Intrnl_Id="183">
+<LocList>
+<Loc EndOffset="3398" SrcFileId="2" StartOffset="3355"/>
+</LocList>
+<CondStmnt CovItemId="S36" CovItemPrefix="Report.java" Intrnl_Id="184">
+<Branch CovItemId="B17" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="185">
+<Cond/>
+<LocList>
+<Loc EndOffset="3398" SrcFileId="2" StartOffset="3381"/>
+</LocList>
+<StmntSeq Intrnl_Id="186">
+<LocList>
+<Loc EndOffset="3398" SrcFileId="2" StartOffset="3381"/>
+</LocList>
+<BasicStmnt CovItemId="S37" CovItemPrefix="Report.java" Intrnl_Id="187">
+<LocList>
+<Loc EndOffset="3398" SrcFileId="2" StartOffset="3381"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B18" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="188">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="189">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3357" SrcFileId="2" StartOffset="3355"/>
+<LocList>
+<Loc EndOffset="3398" SrcFileId="2" StartOffset="3355"/>
+</LocList>
+<RootTerm CovItemId="C9" CovItemPrefix="Report.java" Intrnl_Id="190">
+<OpTerm BooleanOpId="5" Intrnl_Id="191">
+<BasicBoolTerm Intrnl_Id="192">
+<LocList>
+<Loc EndOffset="3364" SrcFileId="2" StartOffset="3359"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="193">
+<LocList>
+<Loc EndOffset="3375" SrcFileId="2" StartOffset="3368"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="3367" SrcFileId="2" StartOffset="3365"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="447" HierarchyLvlTypeId="6" Intrnl_Id="194" Name="setBeeFrames">
+<Header>
+<Loc EndOffset="3524" SrcFileId="2" StartOffset="3491"/>
+</Header>
+<LocList>
+<Loc EndOffset="3578" SrcFileId="2" StartOffset="3491"/>
+</LocList>
+<StmntSeq Intrnl_Id="195">
+<LocList>
+<Loc EndOffset="3574" SrcFileId="2" StartOffset="3530"/>
+</LocList>
+<CondStmnt CovItemId="S38" CovItemPrefix="Report.java" Intrnl_Id="196">
+<Branch CovItemId="B19" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="197">
+<Cond/>
+<LocList>
+<Loc EndOffset="3574" SrcFileId="2" StartOffset="3558"/>
+</LocList>
+<StmntSeq Intrnl_Id="198">
+<LocList>
+<Loc EndOffset="3574" SrcFileId="2" StartOffset="3558"/>
+</LocList>
+<BasicStmnt CovItemId="S39" CovItemPrefix="Report.java" Intrnl_Id="199">
+<LocList>
+<Loc EndOffset="3574" SrcFileId="2" StartOffset="3558"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B20" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="200">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="201">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3532" SrcFileId="2" StartOffset="3530"/>
+<LocList>
+<Loc EndOffset="3574" SrcFileId="2" StartOffset="3530"/>
+</LocList>
+<RootTerm CovItemId="C10" CovItemPrefix="Report.java" Intrnl_Id="202">
+<OpTerm BooleanOpId="5" Intrnl_Id="203">
+<BasicBoolTerm Intrnl_Id="204">
+<LocList>
+<Loc EndOffset="3540" SrcFileId="2" StartOffset="3534"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="205">
+<LocList>
+<Loc EndOffset="3552" SrcFileId="2" StartOffset="3544"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="3543" SrcFileId="2" StartOffset="3541"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="448" HierarchyLvlTypeId="6" Intrnl_Id="206" Name="setSeenQueen">
+<Header>
+<Loc EndOffset="3651" SrcFileId="2" StartOffset="3615"/>
+</Header>
+<LocList>
+<Loc EndOffset="3676" SrcFileId="2" StartOffset="3615"/>
+</LocList>
+<StmntSeq Intrnl_Id="207">
+<LocList>
+<Loc EndOffset="3672" SrcFileId="2" StartOffset="3657"/>
+</LocList>
+<BasicStmnt CovItemId="S40" CovItemPrefix="Report.java" Intrnl_Id="208">
+<LocList>
+<Loc EndOffset="3672" SrcFileId="2" StartOffset="3657"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="449" HierarchyLvlTypeId="6" Intrnl_Id="209" Name="setSwarmCells">
+<Header>
+<Loc EndOffset="3751" SrcFileId="2" StartOffset="3714"/>
+</Header>
+<LocList>
+<Loc EndOffset="3777" SrcFileId="2" StartOffset="3714"/>
+</LocList>
+<StmntSeq Intrnl_Id="210">
+<LocList>
+<Loc EndOffset="3773" SrcFileId="2" StartOffset="3757"/>
+</LocList>
+<BasicStmnt CovItemId="S41" CovItemPrefix="Report.java" Intrnl_Id="211">
+<LocList>
+<Loc EndOffset="3773" SrcFileId="2" StartOffset="3757"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="450" HierarchyLvlTypeId="6" Intrnl_Id="212" Name="setNumSupers">
+<Header>
+<Loc EndOffset="3939" SrcFileId="2" StartOffset="3907"/>
+</Header>
+<LocList>
+<Loc EndOffset="4033" SrcFileId="2" StartOffset="3907"/>
+</LocList>
+<StmntSeq Intrnl_Id="213">
+<LocList>
+<Loc EndOffset="4029" SrcFileId="2" StartOffset="3945"/>
+</LocList>
+<CondStmnt CovItemId="S42" CovItemPrefix="Report.java" Intrnl_Id="214">
+<Branch CovItemId="B21" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="215">
+<Cond/>
+<LocList>
+<Loc EndOffset="4029" SrcFileId="2" StartOffset="3965"/>
+</LocList>
+<StmntSeq Intrnl_Id="216">
+<LocList>
+<Loc EndOffset="3986" SrcFileId="2" StartOffset="3971"/>
+<Loc EndOffset="4024" SrcFileId="2" StartOffset="3991"/>
+</LocList>
+<BasicStmnt CovItemId="S43" CovItemPrefix="Report.java" Intrnl_Id="217">
+<LocList>
+<Loc EndOffset="3986" SrcFileId="2" StartOffset="3971"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S44" CovItemPrefix="Report.java" Intrnl_Id="218">
+<Branch CovItemId="B23" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="219">
+<Cond/>
+<LocList>
+<Loc EndOffset="4024" SrcFileId="2" StartOffset="4007"/>
+</LocList>
+<StmntSeq Intrnl_Id="220">
+<LocList>
+<Loc EndOffset="4024" SrcFileId="2" StartOffset="4007"/>
+</LocList>
+<BasicStmnt CovItemId="S45" CovItemPrefix="Report.java" Intrnl_Id="221">
+<LocList>
+<Loc EndOffset="4024" SrcFileId="2" StartOffset="4007"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B24" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="222">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="223">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3993" SrcFileId="2" StartOffset="3991"/>
+<LocList>
+<Loc EndOffset="4024" SrcFileId="2" StartOffset="3991"/>
+</LocList>
+<RootTerm CovItemId="C12" CovItemPrefix="Report.java" Intrnl_Id="224">
+<BasicBoolTerm Intrnl_Id="225">
+<LocList>
+<Loc EndOffset="4000" SrcFileId="2" StartOffset="3995"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B22" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="226">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="227">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3947" SrcFileId="2" StartOffset="3945"/>
+<LocList>
+<Loc EndOffset="4029" SrcFileId="2" StartOffset="3945"/>
+</LocList>
+<RootTerm CovItemId="C11" CovItemPrefix="Report.java" Intrnl_Id="228">
+<OpTerm BooleanOpId="5" Intrnl_Id="229">
+<BasicBoolTerm Intrnl_Id="230">
+<LocList>
+<Loc EndOffset="3954" SrcFileId="2" StartOffset="3949"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="231">
+<LocList>
+<Loc EndOffset="3963" SrcFileId="2" StartOffset="3958"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="3957" SrcFileId="2" StartOffset="3955"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="451" HierarchyLvlTypeId="6" Intrnl_Id="232" Name="setPercTopSuper">
+<Header>
+<Loc EndOffset="4192" SrcFileId="2" StartOffset="4154"/>
+</Header>
+<LocList>
+<Loc EndOffset="4269" SrcFileId="2" StartOffset="4154"/>
+</LocList>
+<StmntSeq Intrnl_Id="233">
+<LocList>
+<Loc EndOffset="4265" SrcFileId="2" StartOffset="4198"/>
+</LocList>
+<CondStmnt CovItemId="S46" CovItemPrefix="Report.java" Intrnl_Id="234">
+<Branch CovItemId="B25" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="235">
+<Cond/>
+<LocList>
+<Loc EndOffset="4265" SrcFileId="2" StartOffset="4246"/>
+</LocList>
+<StmntSeq Intrnl_Id="236">
+<LocList>
+<Loc EndOffset="4265" SrcFileId="2" StartOffset="4246"/>
+</LocList>
+<BasicStmnt CovItemId="S47" CovItemPrefix="Report.java" Intrnl_Id="237">
+<LocList>
+<Loc EndOffset="4265" SrcFileId="2" StartOffset="4246"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B26" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="238">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="239">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4200" SrcFileId="2" StartOffset="4198"/>
+<LocList>
+<Loc EndOffset="4265" SrcFileId="2" StartOffset="4198"/>
+</LocList>
+<RootTerm CovItemId="C13" CovItemPrefix="Report.java" Intrnl_Id="240">
+<OpTerm BooleanOpId="5" Intrnl_Id="241">
+<OpTerm BooleanOpId="5" Intrnl_Id="242">
+<BasicBoolTerm Intrnl_Id="243">
+<LocList>
+<Loc EndOffset="4215" SrcFileId="2" StartOffset="4202"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="244">
+<LocList>
+<Loc EndOffset="4227" SrcFileId="2" StartOffset="4219"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="4218" SrcFileId="2" StartOffset="4216"/>
+</LocList>
+</OpTerm>
+<BasicBoolTerm Intrnl_Id="245">
+<LocList>
+<Loc EndOffset="4239" SrcFileId="2" StartOffset="4231"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="4230" SrcFileId="2" StartOffset="4228"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="452" HierarchyLvlTypeId="6" Intrnl_Id="246" Name="getDate">
+<Header>
+<Loc EndOffset="4299" SrcFileId="2" StartOffset="4278"/>
+</Header>
+<LocList>
+<Loc EndOffset="4327" SrcFileId="2" StartOffset="4278"/>
+</LocList>
+<StmntSeq Intrnl_Id="247">
+<LocList>
+<Loc EndOffset="4323" SrcFileId="2" StartOffset="4305"/>
+</LocList>
+<BasicStmnt CovItemId="S48" CovItemPrefix="Report.java" Intrnl_Id="248">
+<LocList>
+<Loc EndOffset="4323" SrcFileId="2" StartOffset="4305"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="453" HierarchyLvlTypeId="6" Intrnl_Id="249" Name="getBroodFrames">
+<Header>
+<Loc EndOffset="4357" SrcFileId="2" StartOffset="4330"/>
+</Header>
+<LocList>
+<Loc EndOffset="4386" SrcFileId="2" StartOffset="4330"/>
+</LocList>
+<StmntSeq Intrnl_Id="250">
+<LocList>
+<Loc EndOffset="4382" SrcFileId="2" StartOffset="4363"/>
+</LocList>
+<BasicStmnt CovItemId="S49" CovItemPrefix="Report.java" Intrnl_Id="251">
+<LocList>
+<Loc EndOffset="4382" SrcFileId="2" StartOffset="4363"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="454" HierarchyLvlTypeId="6" Intrnl_Id="252" Name="getHoneyFrames">
+<Header>
+<Loc EndOffset="4416" SrcFileId="2" StartOffset="4389"/>
+</Header>
+<LocList>
+<Loc EndOffset="4445" SrcFileId="2" StartOffset="4389"/>
+</LocList>
+<StmntSeq Intrnl_Id="253">
+<LocList>
+<Loc EndOffset="4441" SrcFileId="2" StartOffset="4422"/>
+</LocList>
+<BasicStmnt CovItemId="S50" CovItemPrefix="Report.java" Intrnl_Id="254">
+<LocList>
+<Loc EndOffset="4441" SrcFileId="2" StartOffset="4422"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="455" HierarchyLvlTypeId="6" Intrnl_Id="255" Name="getBeeFrames">
+<Header>
+<Loc EndOffset="4473" SrcFileId="2" StartOffset="4448"/>
+</Header>
+<LocList>
+<Loc EndOffset="4500" SrcFileId="2" StartOffset="4448"/>
+</LocList>
+<StmntSeq Intrnl_Id="256">
+<LocList>
+<Loc EndOffset="4496" SrcFileId="2" StartOffset="4479"/>
+</LocList>
+<BasicStmnt CovItemId="S51" CovItemPrefix="Report.java" Intrnl_Id="257">
+<LocList>
+<Loc EndOffset="4496" SrcFileId="2" StartOffset="4479"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="456" HierarchyLvlTypeId="6" Intrnl_Id="258" Name="getSeenQueen">
+<Header>
+<Loc EndOffset="4532" SrcFileId="2" StartOffset="4503"/>
+</Header>
+<LocList>
+<Loc EndOffset="4559" SrcFileId="2" StartOffset="4503"/>
+</LocList>
+<StmntSeq Intrnl_Id="259">
+<LocList>
+<Loc EndOffset="4555" SrcFileId="2" StartOffset="4538"/>
+</LocList>
+<BasicStmnt CovItemId="S52" CovItemPrefix="Report.java" Intrnl_Id="260">
+<LocList>
+<Loc EndOffset="4555" SrcFileId="2" StartOffset="4538"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="457" HierarchyLvlTypeId="6" Intrnl_Id="261" Name="getSwarmCells">
+<Header>
+<Loc EndOffset="4592" SrcFileId="2" StartOffset="4562"/>
+</Header>
+<LocList>
+<Loc EndOffset="4620" SrcFileId="2" StartOffset="4562"/>
+</LocList>
+<StmntSeq Intrnl_Id="262">
+<LocList>
+<Loc EndOffset="4616" SrcFileId="2" StartOffset="4598"/>
+</LocList>
+<BasicStmnt CovItemId="S53" CovItemPrefix="Report.java" Intrnl_Id="263">
+<LocList>
+<Loc EndOffset="4616" SrcFileId="2" StartOffset="4598"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="458" HierarchyLvlTypeId="6" Intrnl_Id="264" Name="getNumSupers">
+<Header>
+<Loc EndOffset="4648" SrcFileId="2" StartOffset="4623"/>
+</Header>
+<LocList>
+<Loc EndOffset="4675" SrcFileId="2" StartOffset="4623"/>
+</LocList>
+<StmntSeq Intrnl_Id="265">
+<LocList>
+<Loc EndOffset="4671" SrcFileId="2" StartOffset="4654"/>
+</LocList>
+<BasicStmnt CovItemId="S54" CovItemPrefix="Report.java" Intrnl_Id="266">
+<LocList>
+<Loc EndOffset="4671" SrcFileId="2" StartOffset="4654"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="459" HierarchyLvlTypeId="6" Intrnl_Id="267" Name="getPercTopSuper">
+<Header>
+<Loc EndOffset="4708" SrcFileId="2" StartOffset="4678"/>
+</Header>
+<LocList>
+<Loc EndOffset="4738" SrcFileId="2" StartOffset="4678"/>
+</LocList>
+<StmntSeq Intrnl_Id="268">
+<LocList>
+<Loc EndOffset="4734" SrcFileId="2" StartOffset="4714"/>
+</LocList>
+<BasicStmnt CovItemId="S55" CovItemPrefix="Report.java" Intrnl_Id="269">
+<LocList>
+<Loc EndOffset="4734" SrcFileId="2" StartOffset="4714"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="460" HierarchyLvlTypeId="6" Intrnl_Id="270" Name="swarmRisk">
+<Header>
+<Loc EndOffset="4883" SrcFileId="2" StartOffset="4861"/>
+</Header>
+<LocList>
+<Loc EndOffset="5414" SrcFileId="2" StartOffset="4861"/>
+</LocList>
+<StmntSeq Intrnl_Id="271">
+<LocList>
+<Loc EndOffset="4902" SrcFileId="2" StartOffset="4889"/>
+<Loc EndOffset="4938" SrcFileId="2" StartOffset="4906"/>
+<Loc EndOffset="4974" SrcFileId="2" StartOffset="4946"/>
+<Loc EndOffset="5029" SrcFileId="2" StartOffset="4982"/>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5037"/>
+<Loc EndOffset="5410" SrcFileId="2" StartOffset="5398"/>
+</LocList>
+<BasicStmnt CovItemId="S56" CovItemPrefix="Report.java" Intrnl_Id="272">
+<LocList>
+<Loc EndOffset="4902" SrcFileId="2" StartOffset="4889"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S57" CovItemPrefix="Report.java" Intrnl_Id="273">
+<Branch CovItemId="B27" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="274">
+<Cond/>
+<LocList>
+<Loc EndOffset="4938" SrcFileId="2" StartOffset="4931"/>
+</LocList>
+<StmntSeq Intrnl_Id="275">
+<LocList>
+<Loc EndOffset="4938" SrcFileId="2" StartOffset="4931"/>
+</LocList>
+<BasicStmnt CovItemId="S58" CovItemPrefix="Report.java" Intrnl_Id="276">
+<LocList>
+<Loc EndOffset="4938" SrcFileId="2" StartOffset="4931"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B28" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="277">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="278">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4908" SrcFileId="2" StartOffset="4906"/>
+<LocList>
+<Loc EndOffset="4938" SrcFileId="2" StartOffset="4906"/>
+</LocList>
+<RootTerm CovItemId="C14" CovItemPrefix="Report.java" Intrnl_Id="279">
+<BasicBoolTerm Intrnl_Id="280">
+<LocList>
+<Loc EndOffset="4925" SrcFileId="2" StartOffset="4910"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S59" CovItemPrefix="Report.java" Intrnl_Id="281">
+<Branch CovItemId="B29" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="282">
+<Cond/>
+<LocList>
+<Loc EndOffset="4974" SrcFileId="2" StartOffset="4966"/>
+</LocList>
+<StmntSeq Intrnl_Id="283">
+<LocList>
+<Loc EndOffset="4974" SrcFileId="2" StartOffset="4966"/>
+</LocList>
+<BasicStmnt CovItemId="S60" CovItemPrefix="Report.java" Intrnl_Id="284">
+<LocList>
+<Loc EndOffset="4974" SrcFileId="2" StartOffset="4966"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B30" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="285">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="286">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4948" SrcFileId="2" StartOffset="4946"/>
+<LocList>
+<Loc EndOffset="4974" SrcFileId="2" StartOffset="4946"/>
+</LocList>
+<RootTerm CovItemId="C15" CovItemPrefix="Report.java" Intrnl_Id="287">
+<BasicBoolTerm Intrnl_Id="288">
+<LocList>
+<Loc EndOffset="4960" SrcFileId="2" StartOffset="4950"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S61" CovItemPrefix="Report.java" Intrnl_Id="289">
+<Branch CovItemId="B31" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="290">
+<Cond/>
+<LocList>
+<Loc EndOffset="5029" SrcFileId="2" StartOffset="5022"/>
+</LocList>
+<StmntSeq Intrnl_Id="291">
+<LocList>
+<Loc EndOffset="5029" SrcFileId="2" StartOffset="5022"/>
+</LocList>
+<BasicStmnt CovItemId="S62" CovItemPrefix="Report.java" Intrnl_Id="292">
+<LocList>
+<Loc EndOffset="5029" SrcFileId="2" StartOffset="5022"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B32" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="293">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="294">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4984" SrcFileId="2" StartOffset="4982"/>
+<LocList>
+<Loc EndOffset="5029" SrcFileId="2" StartOffset="4982"/>
+</LocList>
+<RootTerm CovItemId="C16" CovItemPrefix="Report.java" Intrnl_Id="295">
+<OpTerm BooleanOpId="5" Intrnl_Id="296">
+<BasicBoolTerm Intrnl_Id="297">
+<LocList>
+<Loc EndOffset="5000" SrcFileId="2" StartOffset="4986"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="298">
+<LocList>
+<Loc EndOffset="5016" SrcFileId="2" StartOffset="5004"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="5003" SrcFileId="2" StartOffset="5001"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S63" CovItemPrefix="Report.java" Intrnl_Id="299">
+<Branch CovItemId="B33" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="300">
+<Cond/>
+<LocList>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5062"/>
+</LocList>
+<StmntSeq Intrnl_Id="301">
+<LocList>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5062"/>
+</LocList>
+<CondStmnt CovItemId="S64" CovItemPrefix="Report.java" Intrnl_Id="302">
+<Branch CovItemId="B35" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="303">
+<Cond/>
+<LocList>
+<Loc EndOffset="5155" SrcFileId="2" StartOffset="5082"/>
+</LocList>
+<StmntSeq Intrnl_Id="304">
+<LocList>
+<Loc EndOffset="5149" SrcFileId="2" StartOffset="5142"/>
+</LocList>
+<BasicStmnt CovItemId="S65" CovItemPrefix="Report.java" Intrnl_Id="305">
+<LocList>
+<Loc EndOffset="5149" SrcFileId="2" StartOffset="5142"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B36" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="306">
+<Cond>
+<Loc EndOffset="5164" SrcFileId="2" StartOffset="5160"/>
+</Cond>
+<LocList>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5165"/>
+</LocList>
+<StmntSeq Intrnl_Id="307">
+<LocList>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5165"/>
+</LocList>
+<CondStmnt CovItemId="S66" CovItemPrefix="Report.java" Intrnl_Id="308">
+<Branch CovItemId="B37" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="309">
+<Cond/>
+<LocList>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5190"/>
+</LocList>
+<StmntSeq Intrnl_Id="310">
+<LocList>
+<Loc EndOffset="5322" SrcFileId="2" StartOffset="5315"/>
+</LocList>
+<BasicStmnt CovItemId="S67" CovItemPrefix="Report.java" Intrnl_Id="311">
+<LocList>
+<Loc EndOffset="5322" SrcFileId="2" StartOffset="5315"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B38" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="312">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="313">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5167" SrcFileId="2" StartOffset="5165"/>
+<LocList>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5165"/>
+</LocList>
+<RootTerm CovItemId="C19" CovItemPrefix="Report.java" Intrnl_Id="314">
+<BasicBoolTerm Intrnl_Id="315">
+<LocList>
+<Loc EndOffset="5188" SrcFileId="2" StartOffset="5169"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5064" SrcFileId="2" StartOffset="5062"/>
+<LocList>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5062"/>
+</LocList>
+<RootTerm CovItemId="C18" CovItemPrefix="Report.java" Intrnl_Id="316">
+<BasicBoolTerm Intrnl_Id="317">
+<LocList>
+<Loc EndOffset="5080" SrcFileId="2" StartOffset="5066"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B34" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="318">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="319">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5039" SrcFileId="2" StartOffset="5037"/>
+<LocList>
+<Loc EndOffset="5328" SrcFileId="2" StartOffset="5037"/>
+</LocList>
+<RootTerm CovItemId="C17" CovItemPrefix="Report.java" Intrnl_Id="320">
+<BasicBoolTerm Intrnl_Id="321">
+<LocList>
+<Loc EndOffset="5056" SrcFileId="2" StartOffset="5041"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S68" CovItemPrefix="Report.java" Intrnl_Id="322">
+<LocList>
+<Loc EndOffset="5410" SrcFileId="2" StartOffset="5398"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="461" HierarchyLvlTypeId="6" Intrnl_Id="323" Name="starvingRisk">
+<Header>
+<Loc EndOffset="5564" SrcFileId="2" StartOffset="5539"/>
+</Header>
+<LocList>
+<Loc EndOffset="6044" SrcFileId="2" StartOffset="5539"/>
+</LocList>
+<StmntSeq Intrnl_Id="324">
+<LocList>
+<Loc EndOffset="5583" SrcFileId="2" StartOffset="5570"/>
+<Loc EndOffset="5962" SrcFileId="2" StartOffset="5587"/>
+<Loc EndOffset="6040" SrcFileId="2" StartOffset="6028"/>
+</LocList>
+<BasicStmnt CovItemId="S69" CovItemPrefix="Report.java" Intrnl_Id="325">
+<LocList>
+<Loc EndOffset="5583" SrcFileId="2" StartOffset="5570"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S70" CovItemPrefix="Report.java" Intrnl_Id="326">
+<Branch CovItemId="B39" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="327">
+<Cond/>
+<LocList>
+<Loc EndOffset="5962" SrcFileId="2" StartOffset="5608"/>
+</LocList>
+<StmntSeq Intrnl_Id="328">
+<LocList>
+<Loc EndOffset="5621" SrcFileId="2" StartOffset="5614"/>
+<Loc EndOffset="5918" SrcFileId="2" StartOffset="5626"/>
+<Loc EndOffset="5957" SrcFileId="2" StartOffset="5923"/>
+</LocList>
+<BasicStmnt CovItemId="S71" CovItemPrefix="Report.java" Intrnl_Id="329">
+<LocList>
+<Loc EndOffset="5621" SrcFileId="2" StartOffset="5614"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S72" CovItemPrefix="Report.java" Intrnl_Id="330">
+<Branch CovItemId="B41" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="331">
+<Cond/>
+<LocList>
+<Loc EndOffset="5720" SrcFileId="2" StartOffset="5646"/>
+</LocList>
+<StmntSeq Intrnl_Id="332">
+<LocList>
+<Loc EndOffset="5714" SrcFileId="2" StartOffset="5706"/>
+</LocList>
+<BasicStmnt CovItemId="S73" CovItemPrefix="Report.java" Intrnl_Id="333">
+<LocList>
+<Loc EndOffset="5714" SrcFileId="2" StartOffset="5706"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B42" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="334">
+<Cond>
+<Loc EndOffset="5729" SrcFileId="2" StartOffset="5725"/>
+</Cond>
+<LocList>
+<Loc EndOffset="5918" SrcFileId="2" StartOffset="5730"/>
+</LocList>
+<StmntSeq Intrnl_Id="335">
+<LocList>
+<Loc EndOffset="5870" SrcFileId="2" StartOffset="5838"/>
+<Loc EndOffset="5912" SrcFileId="2" StartOffset="5876"/>
+</LocList>
+<CondStmnt CovItemId="S74" CovItemPrefix="Report.java" Intrnl_Id="336">
+<Branch CovItemId="B43" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="337">
+<Cond/>
+<LocList>
+<Loc EndOffset="5870" SrcFileId="2" StartOffset="5863"/>
+</LocList>
+<StmntSeq Intrnl_Id="338">
+<LocList>
+<Loc EndOffset="5870" SrcFileId="2" StartOffset="5863"/>
+</LocList>
+<BasicStmnt CovItemId="S75" CovItemPrefix="Report.java" Intrnl_Id="339">
+<LocList>
+<Loc EndOffset="5870" SrcFileId="2" StartOffset="5863"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B44" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="340">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="341">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5840" SrcFileId="2" StartOffset="5838"/>
+<LocList>
+<Loc EndOffset="5870" SrcFileId="2" StartOffset="5838"/>
+</LocList>
+<RootTerm CovItemId="C22" CovItemPrefix="Report.java" Intrnl_Id="342">
+<BasicBoolTerm Intrnl_Id="343">
+<LocList>
+<Loc EndOffset="5855" SrcFileId="2" StartOffset="5842"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S76" CovItemPrefix="Report.java" Intrnl_Id="344">
+<Branch CovItemId="B45" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="345">
+<Cond/>
+<LocList>
+<Loc EndOffset="5912" SrcFileId="2" StartOffset="5904"/>
+</LocList>
+<StmntSeq Intrnl_Id="346">
+<LocList>
+<Loc EndOffset="5912" SrcFileId="2" StartOffset="5904"/>
+</LocList>
+<BasicStmnt CovItemId="S77" CovItemPrefix="Report.java" Intrnl_Id="347">
+<LocList>
+<Loc EndOffset="5912" SrcFileId="2" StartOffset="5904"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B46" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="348">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="349">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5878" SrcFileId="2" StartOffset="5876"/>
+<LocList>
+<Loc EndOffset="5912" SrcFileId="2" StartOffset="5876"/>
+</LocList>
+<RootTerm CovItemId="C23" CovItemPrefix="Report.java" Intrnl_Id="350">
+<BasicBoolTerm Intrnl_Id="351">
+<LocList>
+<Loc EndOffset="5896" SrcFileId="2" StartOffset="5880"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5628" SrcFileId="2" StartOffset="5626"/>
+<LocList>
+<Loc EndOffset="5918" SrcFileId="2" StartOffset="5626"/>
+</LocList>
+<RootTerm CovItemId="C21" CovItemPrefix="Report.java" Intrnl_Id="352">
+<BasicBoolTerm Intrnl_Id="353">
+<LocList>
+<Loc EndOffset="5644" SrcFileId="2" StartOffset="5630"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S78" CovItemPrefix="Report.java" Intrnl_Id="354">
+<Branch CovItemId="B47" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="355">
+<Cond/>
+<LocList>
+<Loc EndOffset="5957" SrcFileId="2" StartOffset="5950"/>
+</LocList>
+<StmntSeq Intrnl_Id="356">
+<LocList>
+<Loc EndOffset="5957" SrcFileId="2" StartOffset="5950"/>
+</LocList>
+<BasicStmnt CovItemId="S79" CovItemPrefix="Report.java" Intrnl_Id="357">
+<LocList>
+<Loc EndOffset="5957" SrcFileId="2" StartOffset="5950"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B48" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="358">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="359">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5925" SrcFileId="2" StartOffset="5923"/>
+<LocList>
+<Loc EndOffset="5957" SrcFileId="2" StartOffset="5923"/>
+</LocList>
+<RootTerm CovItemId="C24" CovItemPrefix="Report.java" Intrnl_Id="360">
+<BasicBoolTerm Intrnl_Id="361">
+<LocList>
+<Loc EndOffset="5942" SrcFileId="2" StartOffset="5926"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B40" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="362">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="363">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5589" SrcFileId="2" StartOffset="5587"/>
+<LocList>
+<Loc EndOffset="5962" SrcFileId="2" StartOffset="5587"/>
+</LocList>
+<RootTerm CovItemId="C20" CovItemPrefix="Report.java" Intrnl_Id="364">
+<BasicBoolTerm Intrnl_Id="365">
+<LocList>
+<Loc EndOffset="5606" SrcFileId="2" StartOffset="5591"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S80" CovItemPrefix="Report.java" Intrnl_Id="366">
+<LocList>
+<Loc EndOffset="6040" SrcFileId="2" StartOffset="6028"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="462" HierarchyLvlTypeId="6" Intrnl_Id="367" Name="needsSuper">
+<Header>
+<Loc EndOffset="6240" SrcFileId="2" StartOffset="6213"/>
+</Header>
+<LocList>
+<Loc EndOffset="6563" SrcFileId="2" StartOffset="6213"/>
+</LocList>
+<StmntSeq Intrnl_Id="368">
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6246"/>
+<Loc EndOffset="6559" SrcFileId="2" StartOffset="6546"/>
+</LocList>
+<CondStmnt CovItemId="S81" CovItemPrefix="Report.java" Intrnl_Id="369">
+<Branch CovItemId="B49" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="370">
+<Cond/>
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6272"/>
+</LocList>
+<StmntSeq Intrnl_Id="371">
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6272"/>
+</LocList>
+<CondStmnt CovItemId="S82" CovItemPrefix="Report.java" Intrnl_Id="372">
+<Branch CovItemId="B51" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="373">
+<Cond/>
+<LocList>
+<Loc EndOffset="6370" SrcFileId="2" StartOffset="6292"/>
+</LocList>
+<StmntSeq Intrnl_Id="374">
+<LocList>
+<Loc EndOffset="6364" SrcFileId="2" StartOffset="6352"/>
+</LocList>
+<BasicStmnt CovItemId="S83" CovItemPrefix="Report.java" Intrnl_Id="375">
+<LocList>
+<Loc EndOffset="6364" SrcFileId="2" StartOffset="6352"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B52" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="376">
+<Cond>
+<Loc EndOffset="6379" SrcFileId="2" StartOffset="6375"/>
+</Cond>
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6380"/>
+</LocList>
+<StmntSeq Intrnl_Id="377">
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6380"/>
+</LocList>
+<CondStmnt CovItemId="S84" CovItemPrefix="Report.java" Intrnl_Id="378">
+<Branch CovItemId="B53" CovItemPrefix="Report.java" Implct="false" Intrnl_Id="379">
+<Cond/>
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6422"/>
+</LocList>
+<StmntSeq Intrnl_Id="380">
+<LocList>
+<Loc EndOffset="6532" SrcFileId="2" StartOffset="6520"/>
+</LocList>
+<BasicStmnt CovItemId="S85" CovItemPrefix="Report.java" Intrnl_Id="381">
+<LocList>
+<Loc EndOffset="6532" SrcFileId="2" StartOffset="6520"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B54" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="382">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="383">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="6382" SrcFileId="2" StartOffset="6380"/>
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6380"/>
+</LocList>
+<RootTerm CovItemId="C27" CovItemPrefix="Report.java" Intrnl_Id="384">
+<OpTerm BooleanOpId="5" Intrnl_Id="385">
+<BasicBoolTerm Intrnl_Id="386">
+<LocList>
+<Loc EndOffset="6397" SrcFileId="2" StartOffset="6384"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="387">
+<LocList>
+<Loc EndOffset="6420" SrcFileId="2" StartOffset="6401"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="6400" SrcFileId="2" StartOffset="6398"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="6274" SrcFileId="2" StartOffset="6272"/>
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6272"/>
+</LocList>
+<RootTerm CovItemId="C26" CovItemPrefix="Report.java" Intrnl_Id="388">
+<BasicBoolTerm Intrnl_Id="389">
+<LocList>
+<Loc EndOffset="6290" SrcFileId="2" StartOffset="6276"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B50" CovItemPrefix="Report.java" Implct="true" Intrnl_Id="390">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="391">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="6248" SrcFileId="2" StartOffset="6246"/>
+<LocList>
+<Loc EndOffset="6538" SrcFileId="2" StartOffset="6246"/>
+</LocList>
+<RootTerm CovItemId="C25" CovItemPrefix="Report.java" Intrnl_Id="392">
+<BasicBoolTerm Intrnl_Id="393">
+<LocList>
+<Loc EndOffset="6266" SrcFileId="2" StartOffset="6251"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S86" CovItemPrefix="Report.java" Intrnl_Id="394">
+<LocList>
+<Loc EndOffset="6559" SrcFileId="2" StartOffset="6546"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="467" HierarchyLvlTypeId="7" Intrnl_Id="395" Name="ColoniaTest">
+<Header>
+<Loc EndOffset="118" SrcFileId="3" StartOffset="94"/>
+</Header>
+<LocList>
+<Loc EndOffset="947" SrcFileId="3" StartOffset="94"/>
+</LocList>
+<HierarchyLvl HierarchyLvlId="464" HierarchyLvlTypeId="6" Intrnl_Id="396" Name="ColoniaTest">
+<Header>
+<Loc EndOffset="164" SrcFileId="3" StartOffset="144"/>
+</Header>
+<LocList>
+<Loc EndOffset="197" SrcFileId="3" StartOffset="144"/>
+</LocList>
+<StmntSeq Intrnl_Id="397">
+<LocList>
+<Loc EndOffset="193" SrcFileId="3" StartOffset="170"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="ColoniaTest.java" Intrnl_Id="398">
+<LocList>
+<Loc EndOffset="193" SrcFileId="3" StartOffset="170"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="465" HierarchyLvlTypeId="6" Intrnl_Id="399" Name="testInit">
+<Header>
+<Loc EndOffset="233" SrcFileId="3" StartOffset="203"/>
+</Header>
+<LocList>
+<Loc EndOffset="680" SrcFileId="3" StartOffset="203"/>
+</LocList>
+<StmntSeq Intrnl_Id="400">
+<LocList>
+<Loc EndOffset="262" SrcFileId="3" StartOffset="239"/>
+<Loc EndOffset="291" SrcFileId="3" StartOffset="266"/>
+<Loc EndOffset="318" SrcFileId="3" StartOffset="295"/>
+<Loc EndOffset="353" SrcFileId="3" StartOffset="322"/>
+<Loc EndOffset="395" SrcFileId="3" StartOffset="357"/>
+<Loc EndOffset="439" SrcFileId="3" StartOffset="399"/>
+<Loc EndOffset="481" SrcFileId="3" StartOffset="443"/>
+<Loc EndOffset="526" SrcFileId="3" StartOffset="485"/>
+<Loc EndOffset="559" SrcFileId="3" StartOffset="534"/>
+<Loc EndOffset="586" SrcFileId="3" StartOffset="563"/>
+<Loc EndOffset="634" SrcFileId="3" StartOffset="594"/>
+<Loc EndOffset="676" SrcFileId="3" StartOffset="638"/>
+</LocList>
+<BasicStmnt CovItemId="S2" CovItemPrefix="ColoniaTest.java" Intrnl_Id="401">
+<LocList>
+<Loc EndOffset="262" SrcFileId="3" StartOffset="239"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S3" CovItemPrefix="ColoniaTest.java" Intrnl_Id="402">
+<LocList>
+<Loc EndOffset="291" SrcFileId="3" StartOffset="266"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S4" CovItemPrefix="ColoniaTest.java" Intrnl_Id="403">
+<LocList>
+<Loc EndOffset="318" SrcFileId="3" StartOffset="295"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S5" CovItemPrefix="ColoniaTest.java" Intrnl_Id="404">
+<LocList>
+<Loc EndOffset="353" SrcFileId="3" StartOffset="322"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S6" CovItemPrefix="ColoniaTest.java" Intrnl_Id="405">
+<LocList>
+<Loc EndOffset="395" SrcFileId="3" StartOffset="357"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S7" CovItemPrefix="ColoniaTest.java" Intrnl_Id="406">
+<LocList>
+<Loc EndOffset="439" SrcFileId="3" StartOffset="399"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S8" CovItemPrefix="ColoniaTest.java" Intrnl_Id="407">
+<LocList>
+<Loc EndOffset="481" SrcFileId="3" StartOffset="443"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S9" CovItemPrefix="ColoniaTest.java" Intrnl_Id="408">
+<LocList>
+<Loc EndOffset="526" SrcFileId="3" StartOffset="485"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S10" CovItemPrefix="ColoniaTest.java" Intrnl_Id="409">
+<LocList>
+<Loc EndOffset="559" SrcFileId="3" StartOffset="534"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S11" CovItemPrefix="ColoniaTest.java" Intrnl_Id="410">
+<LocList>
+<Loc EndOffset="586" SrcFileId="3" StartOffset="563"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S12" CovItemPrefix="ColoniaTest.java" Intrnl_Id="411">
+<LocList>
+<Loc EndOffset="634" SrcFileId="3" StartOffset="594"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S13" CovItemPrefix="ColoniaTest.java" Intrnl_Id="412">
+<LocList>
+<Loc EndOffset="676" SrcFileId="3" StartOffset="638"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="466" HierarchyLvlTypeId="6" Intrnl_Id="413" Name="testStatementCov">
+<Header>
+<Loc EndOffset="726" SrcFileId="3" StartOffset="688"/>
+</Header>
+<LocList>
+<Loc EndOffset="942" SrcFileId="3" StartOffset="688"/>
+</LocList>
+<StmntSeq Intrnl_Id="414">
+<LocList>
+<Loc EndOffset="760" SrcFileId="3" StartOffset="732"/>
+<Loc EndOffset="799" SrcFileId="3" StartOffset="764"/>
+<Loc EndOffset="862" SrcFileId="3" StartOffset="803"/>
+<Loc EndOffset="898" SrcFileId="3" StartOffset="870"/>
+<Loc EndOffset="938" SrcFileId="3" StartOffset="906"/>
+</LocList>
+<BasicStmnt CovItemId="S14" CovItemPrefix="ColoniaTest.java" Intrnl_Id="415">
+<LocList>
+<Loc EndOffset="760" SrcFileId="3" StartOffset="732"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S15" CovItemPrefix="ColoniaTest.java" Intrnl_Id="416">
+<LocList>
+<Loc EndOffset="799" SrcFileId="3" StartOffset="764"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S16" CovItemPrefix="ColoniaTest.java" Intrnl_Id="417">
+<LocList>
+<Loc EndOffset="862" SrcFileId="3" StartOffset="803"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S17" CovItemPrefix="ColoniaTest.java" Intrnl_Id="418">
+<LocList>
+<Loc EndOffset="898" SrcFileId="3" StartOffset="870"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S18" CovItemPrefix="ColoniaTest.java" Intrnl_Id="419">
+<LocList>
+<Loc EndOffset="938" SrcFileId="3" StartOffset="906"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="481" HierarchyLvlTypeId="7" Intrnl_Id="420" Name="ReportTest">
+<Header>
+<Loc EndOffset="138" SrcFileId="4" StartOffset="115"/>
+</Header>
+<LocList>
+<Loc EndOffset="7295" SrcFileId="4" StartOffset="115"/>
+</LocList>
+<HierarchyLvl HierarchyLvlId="468" HierarchyLvlTypeId="6" Intrnl_Id="421" Name="ReportTest">
+<Header>
+<Loc EndOffset="290" SrcFileId="4" StartOffset="271"/>
+</Header>
+<LocList>
+<Loc EndOffset="859" SrcFileId="4" StartOffset="271"/>
+</LocList>
+<StmntSeq Intrnl_Id="422">
+<LocList>
+<Loc EndOffset="334" SrcFileId="4" StartOffset="296"/>
+<Loc EndOffset="356" SrcFileId="4" StartOffset="338"/>
+<Loc EndOffset="424" SrcFileId="4" StartOffset="360"/>
+<Loc EndOffset="499" SrcFileId="4" StartOffset="428"/>
+<Loc EndOffset="566" SrcFileId="4" StartOffset="503"/>
+<Loc EndOffset="639" SrcFileId="4" StartOffset="570"/>
+<Loc EndOffset="706" SrcFileId="4" StartOffset="644"/>
+<Loc EndOffset="785" SrcFileId="4" StartOffset="711"/>
+<Loc EndOffset="854" SrcFileId="4" StartOffset="790"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="ReportTest.java" Intrnl_Id="423">
+<LocList>
+<Loc EndOffset="334" SrcFileId="4" StartOffset="296"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S2" CovItemPrefix="ReportTest.java" Intrnl_Id="424">
+<LocList>
+<Loc EndOffset="356" SrcFileId="4" StartOffset="338"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S3" CovItemPrefix="ReportTest.java" Intrnl_Id="425">
+<LocList>
+<Loc EndOffset="424" SrcFileId="4" StartOffset="360"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S4" CovItemPrefix="ReportTest.java" Intrnl_Id="426">
+<LocList>
+<Loc EndOffset="499" SrcFileId="4" StartOffset="428"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S5" CovItemPrefix="ReportTest.java" Intrnl_Id="427">
+<LocList>
+<Loc EndOffset="566" SrcFileId="4" StartOffset="503"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S6" CovItemPrefix="ReportTest.java" Intrnl_Id="428">
+<LocList>
+<Loc EndOffset="639" SrcFileId="4" StartOffset="570"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S7" CovItemPrefix="ReportTest.java" Intrnl_Id="429">
+<LocList>
+<Loc EndOffset="706" SrcFileId="4" StartOffset="644"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S8" CovItemPrefix="ReportTest.java" Intrnl_Id="430">
+<LocList>
+<Loc EndOffset="785" SrcFileId="4" StartOffset="711"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S9" CovItemPrefix="ReportTest.java" Intrnl_Id="431">
+<LocList>
+<Loc EndOffset="854" SrcFileId="4" StartOffset="790"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="469" HierarchyLvlTypeId="6" Intrnl_Id="432" Name="testConstructor">
+<Header>
+<Loc EndOffset="902" SrcFileId="4" StartOffset="865"/>
+</Header>
+<LocList>
+<Loc EndOffset="1027" SrcFileId="4" StartOffset="865"/>
+</LocList>
+<StmntSeq Intrnl_Id="433">
+<LocList>
+<Loc EndOffset="937" SrcFileId="4" StartOffset="908"/>
+<Loc EndOffset="969" SrcFileId="4" StartOffset="941"/>
+<Loc EndOffset="1001" SrcFileId="4" StartOffset="973"/>
+<Loc EndOffset="1023" SrcFileId="4" StartOffset="1005"/>
+</LocList>
+<BasicStmnt CovItemId="S10" CovItemPrefix="ReportTest.java" Intrnl_Id="434">
+<LocList>
+<Loc EndOffset="937" SrcFileId="4" StartOffset="908"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S11" CovItemPrefix="ReportTest.java" Intrnl_Id="435">
+<LocList>
+<Loc EndOffset="969" SrcFileId="4" StartOffset="941"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S12" CovItemPrefix="ReportTest.java" Intrnl_Id="436">
+<LocList>
+<Loc EndOffset="1001" SrcFileId="4" StartOffset="973"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S13" CovItemPrefix="ReportTest.java" Intrnl_Id="437">
+<LocList>
+<Loc EndOffset="1023" SrcFileId="4" StartOffset="1005"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="470" HierarchyLvlTypeId="6" Intrnl_Id="438" Name="testConstruction">
+<Header>
+<Loc EndOffset="1071" SrcFileId="4" StartOffset="1033"/>
+</Header>
+<LocList>
+<Loc EndOffset="1806" SrcFileId="4" StartOffset="1033"/>
+</LocList>
+<StmntSeq Intrnl_Id="439">
+<LocList>
+<Loc EndOffset="1115" SrcFileId="4" StartOffset="1077"/>
+<Loc EndOffset="1137" SrcFileId="4" StartOffset="1119"/>
+<Loc EndOffset="1171" SrcFileId="4" StartOffset="1141"/>
+<Loc EndOffset="1195" SrcFileId="4" StartOffset="1175"/>
+<Loc EndOffset="1234" SrcFileId="4" StartOffset="1203"/>
+<Loc EndOffset="1274" SrcFileId="4" StartOffset="1238"/>
+<Loc EndOffset="1304" SrcFileId="4" StartOffset="1278"/>
+<Loc EndOffset="1333" SrcFileId="4" StartOffset="1308"/>
+<Loc EndOffset="1365" SrcFileId="4" StartOffset="1337"/>
+<Loc EndOffset="1397" SrcFileId="4" StartOffset="1369"/>
+<Loc EndOffset="1425" SrcFileId="4" StartOffset="1401"/>
+<Loc EndOffset="1465" SrcFileId="4" StartOffset="1429"/>
+<Loc EndOffset="1515" SrcFileId="4" StartOffset="1473"/>
+<Loc EndOffset="1560" SrcFileId="4" StartOffset="1519"/>
+<Loc EndOffset="1604" SrcFileId="4" StartOffset="1564"/>
+<Loc EndOffset="1645" SrcFileId="4" StartOffset="1609"/>
+<Loc EndOffset="1686" SrcFileId="4" StartOffset="1650"/>
+<Loc EndOffset="1742" SrcFileId="4" StartOffset="1693"/>
+<Loc EndOffset="1798" SrcFileId="4" StartOffset="1746"/>
+</LocList>
+<BasicStmnt CovItemId="S14" CovItemPrefix="ReportTest.java" Intrnl_Id="440">
+<LocList>
+<Loc EndOffset="1115" SrcFileId="4" StartOffset="1077"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S15" CovItemPrefix="ReportTest.java" Intrnl_Id="441">
+<LocList>
+<Loc EndOffset="1137" SrcFileId="4" StartOffset="1119"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S16" CovItemPrefix="ReportTest.java" Intrnl_Id="442">
+<LocList>
+<Loc EndOffset="1171" SrcFileId="4" StartOffset="1141"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S17" CovItemPrefix="ReportTest.java" Intrnl_Id="443">
+<LocList>
+<Loc EndOffset="1195" SrcFileId="4" StartOffset="1175"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S18" CovItemPrefix="ReportTest.java" Intrnl_Id="444">
+<LocList>
+<Loc EndOffset="1234" SrcFileId="4" StartOffset="1203"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S19" CovItemPrefix="ReportTest.java" Intrnl_Id="445">
+<LocList>
+<Loc EndOffset="1274" SrcFileId="4" StartOffset="1238"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S20" CovItemPrefix="ReportTest.java" Intrnl_Id="446">
+<LocList>
+<Loc EndOffset="1304" SrcFileId="4" StartOffset="1278"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S21" CovItemPrefix="ReportTest.java" Intrnl_Id="447">
+<LocList>
+<Loc EndOffset="1333" SrcFileId="4" StartOffset="1308"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S22" CovItemPrefix="ReportTest.java" Intrnl_Id="448">
+<LocList>
+<Loc EndOffset="1365" SrcFileId="4" StartOffset="1337"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S23" CovItemPrefix="ReportTest.java" Intrnl_Id="449">
+<LocList>
+<Loc EndOffset="1397" SrcFileId="4" StartOffset="1369"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S24" CovItemPrefix="ReportTest.java" Intrnl_Id="450">
+<LocList>
+<Loc EndOffset="1425" SrcFileId="4" StartOffset="1401"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S25" CovItemPrefix="ReportTest.java" Intrnl_Id="451">
+<LocList>
+<Loc EndOffset="1465" SrcFileId="4" StartOffset="1429"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S26" CovItemPrefix="ReportTest.java" Intrnl_Id="452">
+<LocList>
+<Loc EndOffset="1515" SrcFileId="4" StartOffset="1473"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S27" CovItemPrefix="ReportTest.java" Intrnl_Id="453">
+<LocList>
+<Loc EndOffset="1560" SrcFileId="4" StartOffset="1519"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S28" CovItemPrefix="ReportTest.java" Intrnl_Id="454">
+<LocList>
+<Loc EndOffset="1604" SrcFileId="4" StartOffset="1564"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S29" CovItemPrefix="ReportTest.java" Intrnl_Id="455">
+<LocList>
+<Loc EndOffset="1645" SrcFileId="4" StartOffset="1609"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S30" CovItemPrefix="ReportTest.java" Intrnl_Id="456">
+<LocList>
+<Loc EndOffset="1686" SrcFileId="4" StartOffset="1650"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S31" CovItemPrefix="ReportTest.java" Intrnl_Id="457">
+<LocList>
+<Loc EndOffset="1742" SrcFileId="4" StartOffset="1693"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S32" CovItemPrefix="ReportTest.java" Intrnl_Id="458">
+<LocList>
+<Loc EndOffset="1798" SrcFileId="4" StartOffset="1746"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="471" HierarchyLvlTypeId="6" Intrnl_Id="459" Name="testSwarm">
+<Header>
+<Loc EndOffset="1846" SrcFileId="4" StartOffset="1815"/>
+</Header>
+<LocList>
+<Loc EndOffset="1985" SrcFileId="4" StartOffset="1815"/>
+</LocList>
+<StmntSeq Intrnl_Id="460">
+<LocList>
+<Loc EndOffset="1893" SrcFileId="4" StartOffset="1852"/>
+<Loc EndOffset="1937" SrcFileId="4" StartOffset="1897"/>
+<Loc EndOffset="1981" SrcFileId="4" StartOffset="1941"/>
+</LocList>
+<BasicStmnt CovItemId="S33" CovItemPrefix="ReportTest.java" Intrnl_Id="461">
+<LocList>
+<Loc EndOffset="1893" SrcFileId="4" StartOffset="1852"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S34" CovItemPrefix="ReportTest.java" Intrnl_Id="462">
+<LocList>
+<Loc EndOffset="1937" SrcFileId="4" StartOffset="1897"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S35" CovItemPrefix="ReportTest.java" Intrnl_Id="463">
+<LocList>
+<Loc EndOffset="1981" SrcFileId="4" StartOffset="1941"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="472" HierarchyLvlTypeId="6" Intrnl_Id="464" Name="testStarve">
+<Header>
+<Loc EndOffset="2022" SrcFileId="4" StartOffset="1990"/>
+</Header>
+<LocList>
+<Loc EndOffset="2127" SrcFileId="4" StartOffset="1990"/>
+</LocList>
+<StmntSeq Intrnl_Id="465">
+<LocList>
+<Loc EndOffset="2074" SrcFileId="4" StartOffset="2028"/>
+<Loc EndOffset="2123" SrcFileId="4" StartOffset="2078"/>
+</LocList>
+<BasicStmnt CovItemId="S36" CovItemPrefix="ReportTest.java" Intrnl_Id="466">
+<LocList>
+<Loc EndOffset="2074" SrcFileId="4" StartOffset="2028"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S37" CovItemPrefix="ReportTest.java" Intrnl_Id="467">
+<LocList>
+<Loc EndOffset="2123" SrcFileId="4" StartOffset="2078"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="473" HierarchyLvlTypeId="6" Intrnl_Id="468" Name="testSuper">
+<Header>
+<Loc EndOffset="2164" SrcFileId="4" StartOffset="2133"/>
+</Header>
+<LocList>
+<Loc EndOffset="2293" SrcFileId="4" StartOffset="2133"/>
+</LocList>
+<StmntSeq Intrnl_Id="469">
+<LocList>
+<Loc EndOffset="2207" SrcFileId="4" StartOffset="2170"/>
+<Loc EndOffset="2248" SrcFileId="4" StartOffset="2211"/>
+<Loc EndOffset="2289" SrcFileId="4" StartOffset="2252"/>
+</LocList>
+<BasicStmnt CovItemId="S38" CovItemPrefix="ReportTest.java" Intrnl_Id="470">
+<LocList>
+<Loc EndOffset="2207" SrcFileId="4" StartOffset="2170"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S39" CovItemPrefix="ReportTest.java" Intrnl_Id="471">
+<LocList>
+<Loc EndOffset="2248" SrcFileId="4" StartOffset="2211"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S40" CovItemPrefix="ReportTest.java" Intrnl_Id="472">
+<LocList>
+<Loc EndOffset="2289" SrcFileId="4" StartOffset="2252"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="474" HierarchyLvlTypeId="6" Intrnl_Id="473" Name="testSuperPercentage">
+<Header>
+<Loc EndOffset="2340" SrcFileId="4" StartOffset="2299"/>
+</Header>
+<LocList>
+<Loc EndOffset="2485" SrcFileId="4" StartOffset="2299"/>
+</LocList>
+<StmntSeq Intrnl_Id="474">
+<LocList>
+<Loc EndOffset="2388" SrcFileId="4" StartOffset="2346"/>
+<Loc EndOffset="2481" SrcFileId="4" StartOffset="2392"/>
+</LocList>
+<BasicStmnt CovItemId="S41" CovItemPrefix="ReportTest.java" Intrnl_Id="475">
+<LocList>
+<Loc EndOffset="2388" SrcFileId="4" StartOffset="2346"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S42" CovItemPrefix="ReportTest.java" Intrnl_Id="476">
+<Branch CovItemId="B1" CovItemPrefix="ReportTest.java" Implct="false" Intrnl_Id="477">
+<Cond/>
+<LocList>
+<Loc EndOffset="2481" SrcFileId="4" StartOffset="2474"/>
+</LocList>
+<StmntSeq Intrnl_Id="478">
+<LocList>
+<Loc EndOffset="2481" SrcFileId="4" StartOffset="2474"/>
+</LocList>
+<BasicStmnt CovItemId="S43" CovItemPrefix="ReportTest.java" Intrnl_Id="479">
+<LocList>
+<Loc EndOffset="2481" SrcFileId="4" StartOffset="2474"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B2" CovItemPrefix="ReportTest.java" Implct="true" Intrnl_Id="480">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="481">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2394" SrcFileId="4" StartOffset="2392"/>
+<LocList>
+<Loc EndOffset="2481" SrcFileId="4" StartOffset="2392"/>
+</LocList>
+<RootTerm CovItemId="C1" CovItemPrefix="ReportTest.java" Intrnl_Id="482">
+<OpTerm BooleanOpId="5" Intrnl_Id="483">
+<BasicBoolTerm Intrnl_Id="484">
+<LocList>
+<Loc EndOffset="2429" SrcFileId="4" StartOffset="2396"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="485">
+<LocList>
+<Loc EndOffset="2468" SrcFileId="4" StartOffset="2433"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2432" SrcFileId="4" StartOffset="2430"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="475" HierarchyLvlTypeId="6" Intrnl_Id="486" Name="testSwarmMCDC">
+<Header>
+<Loc EndOffset="2526" SrcFileId="4" StartOffset="2491"/>
+</Header>
+<LocList>
+<Loc EndOffset="3710" SrcFileId="4" StartOffset="2491"/>
+</LocList>
+<StmntSeq Intrnl_Id="487">
+<LocList>
+<Loc EndOffset="2570" SrcFileId="4" StartOffset="2532"/>
+<Loc EndOffset="2592" SrcFileId="4" StartOffset="2574"/>
+<Loc EndOffset="2667" SrcFileId="4" StartOffset="2600"/>
+<Loc EndOffset="2749" SrcFileId="4" StartOffset="2709"/>
+<Loc EndOffset="2918" SrcFileId="4" StartOffset="2888"/>
+<Loc EndOffset="2962" SrcFileId="4" StartOffset="2922"/>
+<Loc EndOffset="3055" SrcFileId="4" StartOffset="3024"/>
+<Loc EndOffset="3099" SrcFileId="4" StartOffset="3059"/>
+<Loc EndOffset="3185" SrcFileId="4" StartOffset="3157"/>
+<Loc EndOffset="3229" SrcFileId="4" StartOffset="3189"/>
+<Loc EndOffset="3325" SrcFileId="4" StartOffset="3296"/>
+<Loc EndOffset="3369" SrcFileId="4" StartOffset="3329"/>
+<Loc EndOffset="3487" SrcFileId="4" StartOffset="3460"/>
+<Loc EndOffset="3531" SrcFileId="4" StartOffset="3491"/>
+<Loc EndOffset="3662" SrcFileId="4" StartOffset="3623"/>
+<Loc EndOffset="3706" SrcFileId="4" StartOffset="3666"/>
+</LocList>
+<BasicStmnt CovItemId="S44" CovItemPrefix="ReportTest.java" Intrnl_Id="488">
+<LocList>
+<Loc EndOffset="2570" SrcFileId="4" StartOffset="2532"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S45" CovItemPrefix="ReportTest.java" Intrnl_Id="489">
+<LocList>
+<Loc EndOffset="2592" SrcFileId="4" StartOffset="2574"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S46" CovItemPrefix="ReportTest.java" Intrnl_Id="490">
+<LocList>
+<Loc EndOffset="2667" SrcFileId="4" StartOffset="2600"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S47" CovItemPrefix="ReportTest.java" Intrnl_Id="491">
+<LocList>
+<Loc EndOffset="2749" SrcFileId="4" StartOffset="2709"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S48" CovItemPrefix="ReportTest.java" Intrnl_Id="492">
+<LocList>
+<Loc EndOffset="2918" SrcFileId="4" StartOffset="2888"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S49" CovItemPrefix="ReportTest.java" Intrnl_Id="493">
+<LocList>
+<Loc EndOffset="2962" SrcFileId="4" StartOffset="2922"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S50" CovItemPrefix="ReportTest.java" Intrnl_Id="494">
+<LocList>
+<Loc EndOffset="3055" SrcFileId="4" StartOffset="3024"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S51" CovItemPrefix="ReportTest.java" Intrnl_Id="495">
+<LocList>
+<Loc EndOffset="3099" SrcFileId="4" StartOffset="3059"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S52" CovItemPrefix="ReportTest.java" Intrnl_Id="496">
+<LocList>
+<Loc EndOffset="3185" SrcFileId="4" StartOffset="3157"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S53" CovItemPrefix="ReportTest.java" Intrnl_Id="497">
+<LocList>
+<Loc EndOffset="3229" SrcFileId="4" StartOffset="3189"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S54" CovItemPrefix="ReportTest.java" Intrnl_Id="498">
+<LocList>
+<Loc EndOffset="3325" SrcFileId="4" StartOffset="3296"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S55" CovItemPrefix="ReportTest.java" Intrnl_Id="499">
+<LocList>
+<Loc EndOffset="3369" SrcFileId="4" StartOffset="3329"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S56" CovItemPrefix="ReportTest.java" Intrnl_Id="500">
+<LocList>
+<Loc EndOffset="3487" SrcFileId="4" StartOffset="3460"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S57" CovItemPrefix="ReportTest.java" Intrnl_Id="501">
+<LocList>
+<Loc EndOffset="3531" SrcFileId="4" StartOffset="3491"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S58" CovItemPrefix="ReportTest.java" Intrnl_Id="502">
+<LocList>
+<Loc EndOffset="3662" SrcFileId="4" StartOffset="3623"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S59" CovItemPrefix="ReportTest.java" Intrnl_Id="503">
+<LocList>
+<Loc EndOffset="3706" SrcFileId="4" StartOffset="3666"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="476" HierarchyLvlTypeId="6" Intrnl_Id="504" Name="testStarveMcdc">
+<Header>
+<Loc EndOffset="3752" SrcFileId="4" StartOffset="3716"/>
+</Header>
+<LocList>
+<Loc EndOffset="4804" SrcFileId="4" StartOffset="3716"/>
+</LocList>
+<StmntSeq Intrnl_Id="505">
+<LocList>
+<Loc EndOffset="3796" SrcFileId="4" StartOffset="3758"/>
+<Loc EndOffset="3818" SrcFileId="4" StartOffset="3800"/>
+<Loc EndOffset="3898" SrcFileId="4" StartOffset="3822"/>
+<Loc EndOffset="3944" SrcFileId="4" StartOffset="3902"/>
+<Loc EndOffset="4102" SrcFileId="4" StartOffset="4073"/>
+<Loc EndOffset="4148" SrcFileId="4" StartOffset="4106"/>
+<Loc EndOffset="4238" SrcFileId="4" StartOffset="4211"/>
+<Loc EndOffset="4284" SrcFileId="4" StartOffset="4242"/>
+<Loc EndOffset="4398" SrcFileId="4" StartOffset="4371"/>
+<Loc EndOffset="4441" SrcFileId="4" StartOffset="4402"/>
+<Loc EndOffset="4473" SrcFileId="4" StartOffset="4445"/>
+<Loc EndOffset="4519" SrcFileId="4" StartOffset="4477"/>
+<Loc EndOffset="4635" SrcFileId="4" StartOffset="4605"/>
+<Loc EndOffset="4681" SrcFileId="4" StartOffset="4639"/>
+<Loc EndOffset="4754" SrcFileId="4" StartOffset="4725"/>
+<Loc EndOffset="4800" SrcFileId="4" StartOffset="4758"/>
+</LocList>
+<BasicStmnt CovItemId="S60" CovItemPrefix="ReportTest.java" Intrnl_Id="506">
+<LocList>
+<Loc EndOffset="3796" SrcFileId="4" StartOffset="3758"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S61" CovItemPrefix="ReportTest.java" Intrnl_Id="507">
+<LocList>
+<Loc EndOffset="3818" SrcFileId="4" StartOffset="3800"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S62" CovItemPrefix="ReportTest.java" Intrnl_Id="508">
+<LocList>
+<Loc EndOffset="3898" SrcFileId="4" StartOffset="3822"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S63" CovItemPrefix="ReportTest.java" Intrnl_Id="509">
+<LocList>
+<Loc EndOffset="3944" SrcFileId="4" StartOffset="3902"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S64" CovItemPrefix="ReportTest.java" Intrnl_Id="510">
+<LocList>
+<Loc EndOffset="4102" SrcFileId="4" StartOffset="4073"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S65" CovItemPrefix="ReportTest.java" Intrnl_Id="511">
+<LocList>
+<Loc EndOffset="4148" SrcFileId="4" StartOffset="4106"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S66" CovItemPrefix="ReportTest.java" Intrnl_Id="512">
+<LocList>
+<Loc EndOffset="4238" SrcFileId="4" StartOffset="4211"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S67" CovItemPrefix="ReportTest.java" Intrnl_Id="513">
+<LocList>
+<Loc EndOffset="4284" SrcFileId="4" StartOffset="4242"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S68" CovItemPrefix="ReportTest.java" Intrnl_Id="514">
+<LocList>
+<Loc EndOffset="4398" SrcFileId="4" StartOffset="4371"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S69" CovItemPrefix="ReportTest.java" Intrnl_Id="515">
+<LocList>
+<Loc EndOffset="4441" SrcFileId="4" StartOffset="4402"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S70" CovItemPrefix="ReportTest.java" Intrnl_Id="516">
+<LocList>
+<Loc EndOffset="4473" SrcFileId="4" StartOffset="4445"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S71" CovItemPrefix="ReportTest.java" Intrnl_Id="517">
+<LocList>
+<Loc EndOffset="4519" SrcFileId="4" StartOffset="4477"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S72" CovItemPrefix="ReportTest.java" Intrnl_Id="518">
+<LocList>
+<Loc EndOffset="4635" SrcFileId="4" StartOffset="4605"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S73" CovItemPrefix="ReportTest.java" Intrnl_Id="519">
+<LocList>
+<Loc EndOffset="4681" SrcFileId="4" StartOffset="4639"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S74" CovItemPrefix="ReportTest.java" Intrnl_Id="520">
+<LocList>
+<Loc EndOffset="4754" SrcFileId="4" StartOffset="4725"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S75" CovItemPrefix="ReportTest.java" Intrnl_Id="521">
+<LocList>
+<Loc EndOffset="4800" SrcFileId="4" StartOffset="4758"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="477" HierarchyLvlTypeId="6" Intrnl_Id="522" Name="testStarveCtWedge">
+<Header>
+<Loc EndOffset="4849" SrcFileId="4" StartOffset="4810"/>
+</Header>
+<LocList>
+<Loc EndOffset="5578" SrcFileId="4" StartOffset="4810"/>
+</LocList>
+<StmntSeq Intrnl_Id="523">
+<LocList>
+<Loc EndOffset="4893" SrcFileId="4" StartOffset="4855"/>
+<Loc EndOffset="4915" SrcFileId="4" StartOffset="4897"/>
+<Loc EndOffset="5001" SrcFileId="4" StartOffset="4940"/>
+<Loc EndOffset="5038" SrcFileId="4" StartOffset="5005"/>
+<Loc EndOffset="5132" SrcFileId="4" StartOffset="5068"/>
+<Loc EndOffset="5169" SrcFileId="4" StartOffset="5136"/>
+<Loc EndOffset="5251" SrcFileId="4" StartOffset="5197"/>
+<Loc EndOffset="5311" SrcFileId="4" StartOffset="5255"/>
+<Loc EndOffset="5392" SrcFileId="4" StartOffset="5339"/>
+<Loc EndOffset="5452" SrcFileId="4" StartOffset="5396"/>
+<Loc EndOffset="5537" SrcFileId="4" StartOffset="5482"/>
+<Loc EndOffset="5574" SrcFileId="4" StartOffset="5541"/>
+</LocList>
+<BasicStmnt CovItemId="S76" CovItemPrefix="ReportTest.java" Intrnl_Id="524">
+<LocList>
+<Loc EndOffset="4893" SrcFileId="4" StartOffset="4855"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S77" CovItemPrefix="ReportTest.java" Intrnl_Id="525">
+<LocList>
+<Loc EndOffset="4915" SrcFileId="4" StartOffset="4897"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S78" CovItemPrefix="ReportTest.java" Intrnl_Id="526">
+<LocList>
+<Loc EndOffset="5001" SrcFileId="4" StartOffset="4940"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S79" CovItemPrefix="ReportTest.java" Intrnl_Id="527">
+<LocList>
+<Loc EndOffset="5038" SrcFileId="4" StartOffset="5005"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S80" CovItemPrefix="ReportTest.java" Intrnl_Id="528">
+<LocList>
+<Loc EndOffset="5132" SrcFileId="4" StartOffset="5068"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S81" CovItemPrefix="ReportTest.java" Intrnl_Id="529">
+<LocList>
+<Loc EndOffset="5169" SrcFileId="4" StartOffset="5136"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S82" CovItemPrefix="ReportTest.java" Intrnl_Id="530">
+<LocList>
+<Loc EndOffset="5251" SrcFileId="4" StartOffset="5197"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S83" CovItemPrefix="ReportTest.java" Intrnl_Id="531">
+<LocList>
+<Loc EndOffset="5311" SrcFileId="4" StartOffset="5255"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S84" CovItemPrefix="ReportTest.java" Intrnl_Id="532">
+<LocList>
+<Loc EndOffset="5392" SrcFileId="4" StartOffset="5339"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S85" CovItemPrefix="ReportTest.java" Intrnl_Id="533">
+<LocList>
+<Loc EndOffset="5452" SrcFileId="4" StartOffset="5396"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S86" CovItemPrefix="ReportTest.java" Intrnl_Id="534">
+<LocList>
+<Loc EndOffset="5537" SrcFileId="4" StartOffset="5482"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S87" CovItemPrefix="ReportTest.java" Intrnl_Id="535">
+<LocList>
+<Loc EndOffset="5574" SrcFileId="4" StartOffset="5541"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="478" HierarchyLvlTypeId="6" Intrnl_Id="536" Name="testSuperNeedCtWedge">
+<Header>
+<Loc EndOffset="5626" SrcFileId="4" StartOffset="5584"/>
+</Header>
+<LocList>
+<Loc EndOffset="6260" SrcFileId="4" StartOffset="5584"/>
+</LocList>
+<StmntSeq Intrnl_Id="537">
+<LocList>
+<Loc EndOffset="5670" SrcFileId="4" StartOffset="5632"/>
+<Loc EndOffset="5692" SrcFileId="4" StartOffset="5674"/>
+<Loc EndOffset="5779" SrcFileId="4" StartOffset="5710"/>
+<Loc EndOffset="5813" SrcFileId="4" StartOffset="5783"/>
+<Loc EndOffset="5893" SrcFileId="4" StartOffset="5831"/>
+<Loc EndOffset="5926" SrcFileId="4" StartOffset="5897"/>
+<Loc EndOffset="6006" SrcFileId="4" StartOffset="5944"/>
+<Loc EndOffset="6039" SrcFileId="4" StartOffset="6010"/>
+<Loc EndOffset="6117" SrcFileId="4" StartOffset="6057"/>
+<Loc EndOffset="6151" SrcFileId="4" StartOffset="6121"/>
+<Loc EndOffset="6222" SrcFileId="4" StartOffset="6169"/>
+<Loc EndOffset="6256" SrcFileId="4" StartOffset="6226"/>
+</LocList>
+<BasicStmnt CovItemId="S88" CovItemPrefix="ReportTest.java" Intrnl_Id="538">
+<LocList>
+<Loc EndOffset="5670" SrcFileId="4" StartOffset="5632"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S89" CovItemPrefix="ReportTest.java" Intrnl_Id="539">
+<LocList>
+<Loc EndOffset="5692" SrcFileId="4" StartOffset="5674"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S90" CovItemPrefix="ReportTest.java" Intrnl_Id="540">
+<LocList>
+<Loc EndOffset="5779" SrcFileId="4" StartOffset="5710"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S91" CovItemPrefix="ReportTest.java" Intrnl_Id="541">
+<LocList>
+<Loc EndOffset="5813" SrcFileId="4" StartOffset="5783"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S92" CovItemPrefix="ReportTest.java" Intrnl_Id="542">
+<LocList>
+<Loc EndOffset="5893" SrcFileId="4" StartOffset="5831"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S93" CovItemPrefix="ReportTest.java" Intrnl_Id="543">
+<LocList>
+<Loc EndOffset="5926" SrcFileId="4" StartOffset="5897"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S94" CovItemPrefix="ReportTest.java" Intrnl_Id="544">
+<LocList>
+<Loc EndOffset="6006" SrcFileId="4" StartOffset="5944"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S95" CovItemPrefix="ReportTest.java" Intrnl_Id="545">
+<LocList>
+<Loc EndOffset="6039" SrcFileId="4" StartOffset="6010"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S96" CovItemPrefix="ReportTest.java" Intrnl_Id="546">
+<LocList>
+<Loc EndOffset="6117" SrcFileId="4" StartOffset="6057"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S97" CovItemPrefix="ReportTest.java" Intrnl_Id="547">
+<LocList>
+<Loc EndOffset="6151" SrcFileId="4" StartOffset="6121"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S98" CovItemPrefix="ReportTest.java" Intrnl_Id="548">
+<LocList>
+<Loc EndOffset="6222" SrcFileId="4" StartOffset="6169"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S99" CovItemPrefix="ReportTest.java" Intrnl_Id="549">
+<LocList>
+<Loc EndOffset="6256" SrcFileId="4" StartOffset="6226"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="479" HierarchyLvlTypeId="6" Intrnl_Id="550" Name="testSuperCoverage">
+<Header>
+<Loc EndOffset="6305" SrcFileId="4" StartOffset="6266"/>
+</Header>
+<LocList>
+<Loc EndOffset="6701" SrcFileId="4" StartOffset="6266"/>
+</LocList>
+<StmntSeq Intrnl_Id="551">
+<LocList>
+<Loc EndOffset="6349" SrcFileId="4" StartOffset="6311"/>
+<Loc EndOffset="6371" SrcFileId="4" StartOffset="6353"/>
+<Loc EndOffset="6446" SrcFileId="4" StartOffset="6377"/>
+<Loc EndOffset="6480" SrcFileId="4" StartOffset="6450"/>
+<Loc EndOffset="6504" SrcFileId="4" StartOffset="6484"/>
+<Loc EndOffset="6538" SrcFileId="4" StartOffset="6508"/>
+<Loc EndOffset="6563" SrcFileId="4" StartOffset="6542"/>
+<Loc EndOffset="6590" SrcFileId="4" StartOffset="6567"/>
+<Loc EndOffset="6617" SrcFileId="4" StartOffset="6594"/>
+<Loc EndOffset="6641" SrcFileId="4" StartOffset="6621"/>
+<Loc EndOffset="6663" SrcFileId="4" StartOffset="6645"/>
+<Loc EndOffset="6697" SrcFileId="4" StartOffset="6667"/>
+</LocList>
+<BasicStmnt CovItemId="S100" CovItemPrefix="ReportTest.java" Intrnl_Id="552">
+<LocList>
+<Loc EndOffset="6349" SrcFileId="4" StartOffset="6311"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S101" CovItemPrefix="ReportTest.java" Intrnl_Id="553">
+<LocList>
+<Loc EndOffset="6371" SrcFileId="4" StartOffset="6353"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S102" CovItemPrefix="ReportTest.java" Intrnl_Id="554">
+<LocList>
+<Loc EndOffset="6446" SrcFileId="4" StartOffset="6377"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S103" CovItemPrefix="ReportTest.java" Intrnl_Id="555">
+<LocList>
+<Loc EndOffset="6480" SrcFileId="4" StartOffset="6450"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S104" CovItemPrefix="ReportTest.java" Intrnl_Id="556">
+<LocList>
+<Loc EndOffset="6504" SrcFileId="4" StartOffset="6484"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S105" CovItemPrefix="ReportTest.java" Intrnl_Id="557">
+<LocList>
+<Loc EndOffset="6538" SrcFileId="4" StartOffset="6508"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S106" CovItemPrefix="ReportTest.java" Intrnl_Id="558">
+<LocList>
+<Loc EndOffset="6563" SrcFileId="4" StartOffset="6542"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S107" CovItemPrefix="ReportTest.java" Intrnl_Id="559">
+<LocList>
+<Loc EndOffset="6590" SrcFileId="4" StartOffset="6567"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S108" CovItemPrefix="ReportTest.java" Intrnl_Id="560">
+<LocList>
+<Loc EndOffset="6617" SrcFileId="4" StartOffset="6594"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S109" CovItemPrefix="ReportTest.java" Intrnl_Id="561">
+<LocList>
+<Loc EndOffset="6641" SrcFileId="4" StartOffset="6621"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S110" CovItemPrefix="ReportTest.java" Intrnl_Id="562">
+<LocList>
+<Loc EndOffset="6663" SrcFileId="4" StartOffset="6645"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S111" CovItemPrefix="ReportTest.java" Intrnl_Id="563">
+<LocList>
+<Loc EndOffset="6697" SrcFileId="4" StartOffset="6667"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="480" HierarchyLvlTypeId="6" Intrnl_Id="564" Name="testConditionCoverage">
+<Header>
+<Loc EndOffset="6752" SrcFileId="4" StartOffset="6709"/>
+</Header>
+<LocList>
+<Loc EndOffset="7292" SrcFileId="4" StartOffset="6709"/>
+</LocList>
+<StmntSeq Intrnl_Id="565">
+<LocList>
+<Loc EndOffset="6796" SrcFileId="4" StartOffset="6758"/>
+<Loc EndOffset="6818" SrcFileId="4" StartOffset="6800"/>
+<Loc EndOffset="6906" SrcFileId="4" StartOffset="6836"/>
+<Loc EndOffset="6971" SrcFileId="4" StartOffset="6912"/>
+<Loc EndOffset="6999" SrcFileId="4" StartOffset="6976"/>
+<Loc EndOffset="7028" SrcFileId="4" StartOffset="7007"/>
+<Loc EndOffset="7055" SrcFileId="4" StartOffset="7032"/>
+<Loc EndOffset="7082" SrcFileId="4" StartOffset="7059"/>
+<Loc EndOffset="7107" SrcFileId="4" StartOffset="7086"/>
+<Loc EndOffset="7135" SrcFileId="4" StartOffset="7111"/>
+<Loc EndOffset="7162" SrcFileId="4" StartOffset="7139"/>
+<Loc EndOffset="7204" SrcFileId="4" StartOffset="7168"/>
+<Loc EndOffset="7246" SrcFileId="4" StartOffset="7208"/>
+<Loc EndOffset="7288" SrcFileId="4" StartOffset="7250"/>
+</LocList>
+<BasicStmnt CovItemId="S112" CovItemPrefix="ReportTest.java" Intrnl_Id="566">
+<LocList>
+<Loc EndOffset="6796" SrcFileId="4" StartOffset="6758"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S113" CovItemPrefix="ReportTest.java" Intrnl_Id="567">
+<LocList>
+<Loc EndOffset="6818" SrcFileId="4" StartOffset="6800"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S114" CovItemPrefix="ReportTest.java" Intrnl_Id="568">
+<LocList>
+<Loc EndOffset="6906" SrcFileId="4" StartOffset="6836"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S115" CovItemPrefix="ReportTest.java" Intrnl_Id="569">
+<LocList>
+<Loc EndOffset="6971" SrcFileId="4" StartOffset="6912"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S116" CovItemPrefix="ReportTest.java" Intrnl_Id="570">
+<LocList>
+<Loc EndOffset="6999" SrcFileId="4" StartOffset="6976"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S117" CovItemPrefix="ReportTest.java" Intrnl_Id="571">
+<LocList>
+<Loc EndOffset="7028" SrcFileId="4" StartOffset="7007"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S118" CovItemPrefix="ReportTest.java" Intrnl_Id="572">
+<LocList>
+<Loc EndOffset="7055" SrcFileId="4" StartOffset="7032"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S119" CovItemPrefix="ReportTest.java" Intrnl_Id="573">
+<LocList>
+<Loc EndOffset="7082" SrcFileId="4" StartOffset="7059"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S120" CovItemPrefix="ReportTest.java" Intrnl_Id="574">
+<LocList>
+<Loc EndOffset="7107" SrcFileId="4" StartOffset="7086"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S121" CovItemPrefix="ReportTest.java" Intrnl_Id="575">
+<LocList>
+<Loc EndOffset="7135" SrcFileId="4" StartOffset="7111"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S122" CovItemPrefix="ReportTest.java" Intrnl_Id="576">
+<LocList>
+<Loc EndOffset="7162" SrcFileId="4" StartOffset="7139"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S123" CovItemPrefix="ReportTest.java" Intrnl_Id="577">
+<LocList>
+<Loc EndOffset="7204" SrcFileId="4" StartOffset="7168"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S124" CovItemPrefix="ReportTest.java" Intrnl_Id="578">
+<LocList>
+<Loc EndOffset="7246" SrcFileId="4" StartOffset="7208"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S125" CovItemPrefix="ReportTest.java" Intrnl_Id="579">
+<LocList>
+<Loc EndOffset="7288" SrcFileId="4" StartOffset="7250"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</MASTRoot>
+</TestSessionContainer>

@@ -22,6 +22,7 @@ public class ColoniaParamTest {
 			{50,150},
 			{100,200},
 			{-100,100},
+			{0,100},
 		});
 	}
 	
