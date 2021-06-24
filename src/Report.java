@@ -228,7 +228,7 @@ public class Report {
 		return risk;
 	}
 	
-	//Ritorna un boolean rappresentante la necessita' di aggiungere un melario
+	//Ritorna un boolean rappresentante la necessita' di aggiungere un melario.
 	
 	//@ requires honeyFrames > 3;
 	//@ ensures \result == true || \result == false;
