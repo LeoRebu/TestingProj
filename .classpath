@@ -4,5 +4,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="var" path="OPENJML_RUNTIME_LIBRARY"/>
+	<classpathentry kind="lib" path="modeljunit-2.5-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="junit-4.13.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

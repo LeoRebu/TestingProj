@@ -1,41 +1,44 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 
-@RunWith(Parameterized.class)
 public class ColoniaTest {
+	
 	Colonia colony;
-	private int inputIncrease;
-	private int expectedResult;
-	
-	
-	@Parameters
-	public static Collection<Object[]> creaParametri() {
-		return Arrays.asList(new Object[][] {
-			{50,150},
-			{100,200},
-			{-100,100},
-		});
-	}
-	
-	public ColoniaTest(int p1, int p2) {
-		colony = new Colonia("aa01", 2020, 4, 100, new ArrayList<Report>());
-		inputIncrease = p1;
-		expectedResult = p2;
+	public ColoniaTest() {
+		colony = new Colonia();
 	}
 	
 	@Test
-	public void testIncreaseHoney() {
-		colony.increaseTotalHoney(inputIncrease);
+	public void testInit() {
+		colony.setName("aa01");
+		colony.setYobQueen(2017);
+		colony.setQualQueen(5);
+		colony.increaseTotalHoney(100);
+		assertEquals("aa01",colony.getName());
+		assertEquals(2017,colony.getYobQueen());
+		assertEquals(5,colony.getQualQueen());
+		assertEquals(100,colony.getTotalHoney());
 		
-		assertEquals(expectedResult,colony.getTotalHoney());
+		colony.setYobQueen(2013);
+		colony.setQualQueen(7);
+		
+		assertEquals(2017,colony.getYobQueen());
+		assertEquals(5,colony.getQualQueen());
 	}
+
 	
+	@Test
+	public void testStatementCov() {
+		Colonia col = new Colonia();
+		assertTrue(col.getTotalHoney()==0);
+		col = new Colonia("aa02",2018,4,5,new ArrayList<Report>());
+		
+		col.addReport(new Report());
+		
+		assertNotNull(col.getReports());
+	}
+
 }

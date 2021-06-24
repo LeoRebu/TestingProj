@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 import java.util.Calendar;
+import java.util.Date;
+
 import org.junit.Test;
 
 public class ReportTest {
@@ -11,10 +13,10 @@ public class ReportTest {
 		cal.set(2020,0,1);
 		highSwarmRisk = new Report(cal.getTime(),10,5,11,true,true,0,0);
 		medSwarmRisk = new Report(cal.getTime(),10,5,8,true,true,1,(float)0.5);
-		lowSwarmRisk = new Report(cal.getTime(),9,5,10,true,false,0,0);
+		lowSwarmRisk = new Report(cal.getTime(),9,3,10,true,false,0,0);
 		needsSuper1 = new Report(cal.getTime(),7,5,8,true,true,1,(float)0.9); 
 		needsSuper2 = new Report(cal.getTime(),9,4,10,true,false,0,0); 
-		highStarveRisk = new Report(cal.getTime(),11,2,10,true,true,1,(float)0.9); 
+		highStarveRisk = new Report(cal.getTime(),11,0,10,true,true,1,(float)0.9); 
 		lowStarveRisk = new Report(cal.getTime(),9,4,10,true,false,0,0); 
 	}
 	
@@ -47,8 +49,9 @@ public class ReportTest {
 		assertEquals(1, testRep.getNumSupers());	
 		assertTrue(!testRep.getSeenQueen());	
 		assertTrue(testRep.getSwarmCells());
-	    assertSame(broodFrames, testRep.getBroodFrames());
-		assertTrue(testRep.getPercTopSuper() == 0.9);
+	    assertSame(testRep.getBroodFrames(),broodFrames);
+		assertTrue(testRep.getPercTopSuper() == (float)0.9);
+		
 	}
 
 
@@ -84,32 +87,138 @@ public class ReportTest {
 	public void testSwarmMCDC() {
 		Calendar cal = Calendar.getInstance();
 		cal.set(2020,0,1);
+		
 		Report reportMcdc = new Report(cal.getTime(),3,2,4,true,false,0,0);
+		
+		// Stato iniziale: tutto FALSE
 		assertEquals(0, reportMcdc.swarmRisk());
 		// 4 Possibili condizioni che possono incrementare il rischio di sciamatura
 		// Condizione 1: favi di covata >9 (incrementa di 1)
 		reportMcdc.setBroodFrames(10);
 		assertEquals(1, reportMcdc.swarmRisk());
-		// Condizione 2: presenza di celle di sciamatura (incr. 2)
+		// Condizione 2: presenza di celle di sciamatura (+ 2)
 		reportMcdc.setSwarmCells(true);
 		assertEquals(3, reportMcdc.swarmRisk());
-		// Condizione 3: favi d'api >10 senza melari (incr. 1)
+		// Condizione 3: favi d'api >10 senza melari (+ 1)
 		reportMcdc.setBeeFrames(11);
-		assertEquals(3, reportMcdc.swarmRisk());
-		reportMcdc.setNumSupers(1);
 		assertEquals(4, reportMcdc.swarmRisk());
 		
-		// Condizione 4.1: favi di miele > 4 con almeno un melario, riempimento <0.8)
+		// Condizione 4.1: favi di miele > 4 senza melari (+ 1)
 		reportMcdc.setHoneyFrames(5);
-		assertEquals(4, reportMcdc.swarmRisk());
-		// Condizione 4.2: favi di miele > 4 con almeno un melario, riempimento >=0.8)
+		assertEquals(5, reportMcdc.swarmRisk());
+		// Condizione 4.2: favi di miele > 4 con almeno un melario, riempimento <0.8) (- 2)
+		reportMcdc.setNumSupers(1);
+		assertEquals(3, reportMcdc.swarmRisk());
+		// Condizione 4.3: favi di miele > 4 con almeno un melario, riempimento >=0.8) (+ 1)
 		reportMcdc.setPercTopSuper((float)0.8);
-		assertEquals(5, reportMcdc.swarmRisk());
-		// Condizione 4.3: favi di miele > 4 senza melari
+		assertEquals(4, reportMcdc.swarmRisk());
+	}
+	
+	@Test
+	public void testStarveMcdc() {
+		Calendar cal = Calendar.getInstance();
+		cal.set(2020,0,1);
+		Report reportMcdc = new Report(cal.getTime(),3,3,4,true,false,1,(float)0.8);
+		assertEquals(0,reportMcdc.starvingRisk());
+		// 5 Possibili condizioni che possono incrementare il rischio di denutrizione
+		// Condizione 1: favi di miele < 2 (+ 1)
+		reportMcdc.setHoneyFrames(1);
+		assertEquals(1,reportMcdc.starvingRisk());
+		// Condizione 2: fmiele<2 E numero di melari == 0 (+ 2)
 		reportMcdc.setNumSupers(0);
-		reportMcdc.setPercTopSuper(0);
-		assertEquals(5, reportMcdc.swarmRisk());
+		assertEquals(3,reportMcdc.starvingRisk());
+		// Condizione 3.1: fmiele<2 E numero di melari > 0 (- 2) E favi d'api > 9 (+ 1)
+		reportMcdc.setNumSupers(1);
+		reportMcdc.setPercTopSuper((float)0.8);
+		reportMcdc.setBeeFrames(10);
+		assertEquals(2,reportMcdc.starvingRisk());
+		// Condizione 3.2: fmiele<2 E numero di melari > 0 E favi di covata > 10 (+ 2)
+		reportMcdc.setBroodFrames(11);
+		assertEquals(4,reportMcdc.starvingRisk());
+		// Condizione 5: favi di miele == 0 
+		reportMcdc.setHoneyFrames(0);
+		assertEquals(5,reportMcdc.starvingRisk());
+	}
+	
+	@Test
+	public void testStarveCtWedge() {
+		Calendar cal = Calendar.getInstance();
+		cal.set(2020,0,1);
+		// Test 37 - none
+		Report rep = new Report(cal.getTime(),10,4,9,true,false,0,0);
+		assertTrue(rep.starvingRisk()<2);
+		// Test 39 - emergency
+		rep = new Report(cal.getTime(),11,0,11,true,false,2,(float)0.4);
+		assertTrue(rep.starvingRisk()>3);
+		// Test 41 - warning
+		rep = new Report(cal.getTime(),11,1,1,true,false,0,0);
+		assertTrue(rep.starvingRisk()>1 &&rep.starvingRisk()<4);
+		// Test 43 - warning
+		rep = new Report(cal.getTime(),5,1,9,true,false,0,0);
+		assertTrue(rep.starvingRisk()>1 &&rep.starvingRisk()<4);
+		// Test 45 - emergency
+		rep = new Report(cal.getTime(),10,0,10,true,false,0,0);
+		assertTrue(rep.starvingRisk()>3);
+	}
+	
+	@Test
+	public void testSuperNeedCtWedge() {
+		Calendar cal = Calendar.getInstance();
+		cal.set(2020,0,1);
+		// Test 23
+		Report rep = new Report(cal.getTime(),5,2,5,true,false,1,(float)0.8);
+		assertTrue(!rep.needsSuper());
+		// Test 24
+		rep = new Report(cal.getTime(),5,4,4,true,false,1,(float)0.8);
+		assertTrue(rep.needsSuper());
+		// Test 25
+		rep = new Report(cal.getTime(),5,6,4,true,false,2,(float)0.8);
+		assertTrue(rep.needsSuper());
+		// Test 26
+		rep = new Report(cal.getTime(),5,0,4,true,false,2,(float)1);
+		assertTrue(!rep.needsSuper());
+		// Test 32
+		rep = new Report(cal.getTime(),5,1,4,true,false,0,0);
+		assertTrue(!rep.needsSuper());
+	}
+	
+	@Test
+	public void testSuperCoverage() {
+		Calendar cal = Calendar.getInstance();
+		cal.set(2020,0,1);
+
+		Report rep = new Report(cal.getTime(),5,4,5,true,false,1,(float)0.7);
+		assertTrue(!rep.needsSuper());
+		rep.setNumSupers(3);
+		assertTrue(!rep.needsSuper());
+		rep.setBeeFrames(14);
+		rep.setHoneyFrames(14);
+		rep.setBroodFrames(14);
+		rep.setNumSupers(4);
+		rep.setDate(null);
+		assertTrue(!rep.needsSuper());
+	}
+	
+
+	@Test
+	public void testConditionCoverage() {
+		Calendar cal = Calendar.getInstance();
+		cal.set(2020,0,1);
+		// Test 23
+		Report rep = new Report(cal.getTime(),-1,15,-1,true,false,5,(float)2);
+
+		rep = new Report (cal.getTime(),13,-1,15,true,false,-1,-1); 
+		Date d = rep.getDate();
 		
-		
+		rep.setBeeFrames(-1);
+		rep.setHoneyFrames(-1);
+		rep.setBroodFrames(-1);
+		rep.setNumSupers(-1);
+		rep.setPercTopSuper(-1);
+		rep.setPercTopSuper(2);
+
+		assertTrue(rep.getBeeFrames() == 0);
+		assertTrue(rep.getHoneyFrames() == 0);
+		assertTrue(rep.getBroodFrames() == 0);
 	}
 }

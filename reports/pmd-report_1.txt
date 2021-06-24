@@ -1,0 +1,560 @@
+src/Colonia.java:3:	CommentRequired: Class comments are required
+src/Colonia.java:3:	CommentRequired: Class comments are required
+src/Colonia.java:3:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+src/Colonia.java:3:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+src/Colonia.java:5:	CommentRequired: Field comments are required
+src/Colonia.java:5:	CommentRequired: Field comments are required
+src/Colonia.java:6:	CommentRequired: Field comments are required
+src/Colonia.java:6:	CommentRequired: Field comments are required
+src/Colonia.java:7:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/Colonia.java:7:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/Colonia.java:7:	CommentRequired: Field comments are required
+src/Colonia.java:7:	CommentRequired: Field comments are required
+src/Colonia.java:8:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/Colonia.java:8:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/Colonia.java:8:	CommentRequired: Field comments are required
+src/Colonia.java:8:	CommentRequired: Field comments are required
+src/Colonia.java:9:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/Colonia.java:9:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/Colonia.java:9:	CommentRequired: Field comments are required
+src/Colonia.java:9:	CommentRequired: Field comments are required
+src/Colonia.java:9:	ImmutableField: Private field 'reportList' could be made final; it is only initialized in the declaration or constructor.
+src/Colonia.java:9:	ImmutableField: Private field 'reportList' could be made final; it is only initialized in the declaration or constructor.
+src/Colonia.java:9:	LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/Colonia.java:9:	LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/Colonia.java:18:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:18:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:23:	UseDiamondOperator: Explicit type arguments can be replaced by Diamond Operator
+src/Colonia.java:23:	UseDiamondOperator: Explicit type arguments can be replaced by Diamond Operator
+src/Colonia.java:36:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:36:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:36:	LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/Colonia.java:36:	LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'n' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'n' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'qq' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'qq' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'rl' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'rl' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'th' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'th' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'yq' is not assigned and could be declared final
+src/Colonia.java:36:	MethodArgumentCouldBeFinal: Parameter 'yq' is not assigned and could be declared final
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like n
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like n
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like qq
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like qq
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like rl
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like rl
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like th
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like th
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like yq
+src/Colonia.java:36:	ShortVariable: Avoid variables with short names like yq
+src/Colonia.java:45:	MethodArgumentCouldBeFinal: Parameter 'n' is not assigned and could be declared final
+src/Colonia.java:45:	MethodArgumentCouldBeFinal: Parameter 'n' is not assigned and could be declared final
+src/Colonia.java:45:	ShortVariable: Avoid variables with short names like n
+src/Colonia.java:45:	ShortVariable: Avoid variables with short names like n
+src/Colonia.java:51:	MethodArgumentCouldBeFinal: Parameter 'yq' is not assigned and could be declared final
+src/Colonia.java:51:	MethodArgumentCouldBeFinal: Parameter 'yq' is not assigned and could be declared final
+src/Colonia.java:51:	ShortVariable: Avoid variables with short names like yq
+src/Colonia.java:51:	ShortVariable: Avoid variables with short names like yq
+src/Colonia.java:58:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:58:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:58:	MethodArgumentCouldBeFinal: Parameter 'qq' is not assigned and could be declared final
+src/Colonia.java:58:	MethodArgumentCouldBeFinal: Parameter 'qq' is not assigned and could be declared final
+src/Colonia.java:58:	ShortVariable: Avoid variables with short names like qq
+src/Colonia.java:58:	ShortVariable: Avoid variables with short names like qq
+src/Colonia.java:64:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:64:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:64:	MethodArgumentCouldBeFinal: Parameter 'th' is not assigned and could be declared final
+src/Colonia.java:64:	MethodArgumentCouldBeFinal: Parameter 'th' is not assigned and could be declared final
+src/Colonia.java:64:	ShortVariable: Avoid variables with short names like th
+src/Colonia.java:64:	ShortVariable: Avoid variables with short names like th
+src/Colonia.java:71:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:71:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:71:	MethodArgumentCouldBeFinal: Parameter 'report' is not assigned and could be declared final
+src/Colonia.java:71:	MethodArgumentCouldBeFinal: Parameter 'report' is not assigned and could be declared final
+src/Colonia.java:87:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:87:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:91:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:91:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:95:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:95:	CommentRequired: Public method and constructor comments are required
+src/Colonia.java:95:	LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/Colonia.java:95:	LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/Report.java:4:	CommentRequired: Class comments are required
+src/Report.java:4:	CommentRequired: Class comments are required
+src/Report.java:4:	DataClass: The class 'Report' is suspected to be a Data Class (WOC=23.810%, NOPA=0, NOAM=14, WMC=40)
+src/Report.java:4:	DataClass: The class 'Report' is suspected to be a Data Class (WOC=23.810%, NOPA=0, NOAM=14, WMC=40)
+src/Report.java:4:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+src/Report.java:4:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+src/Report.java:5:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/Report.java:5:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/Report.java:5:	CommentRequired: Field comments are required
+src/Report.java:5:	CommentRequired: Field comments are required
+src/Report.java:6:	CommentRequired: Field comments are required
+src/Report.java:6:	CommentRequired: Field comments are required
+src/Report.java:7:	CommentRequired: Field comments are required
+src/Report.java:7:	CommentRequired: Field comments are required
+src/Report.java:8:	CommentRequired: Field comments are required
+src/Report.java:8:	CommentRequired: Field comments are required
+src/Report.java:9:	CommentRequired: Field comments are required
+src/Report.java:9:	CommentRequired: Field comments are required
+src/Report.java:10:	CommentRequired: Field comments are required
+src/Report.java:10:	CommentRequired: Field comments are required
+src/Report.java:11:	CommentRequired: Field comments are required
+src/Report.java:11:	CommentRequired: Field comments are required
+src/Report.java:12:	CommentRequired: Field comments are required
+src/Report.java:12:	CommentRequired: Field comments are required
+src/Report.java:20:	CommentRequired: Public method and constructor comments are required
+src/Report.java:20:	CommentRequired: Public method and constructor comments are required
+src/Report.java:21:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+src/Report.java:21:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+src/Report.java:50:	CommentRequired: Public method and constructor comments are required
+src/Report.java:50:	CommentRequired: Public method and constructor comments are required
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'bef' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'bef' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'bf' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'bf' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'd' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'd' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'hf' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'hf' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'ns' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'ns' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'pts' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'pts' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'sc' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'sc' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'sq' is not assigned and could be declared final
+src/Report.java:50:	MethodArgumentCouldBeFinal: Parameter 'sq' is not assigned and could be declared final
+src/Report.java:50:	ShortVariable: Avoid variables with short names like bf
+src/Report.java:50:	ShortVariable: Avoid variables with short names like bf
+src/Report.java:50:	ShortVariable: Avoid variables with short names like d
+src/Report.java:50:	ShortVariable: Avoid variables with short names like d
+src/Report.java:50:	ShortVariable: Avoid variables with short names like hf
+src/Report.java:50:	ShortVariable: Avoid variables with short names like hf
+src/Report.java:50:	ShortVariable: Avoid variables with short names like ns
+src/Report.java:50:	ShortVariable: Avoid variables with short names like ns
+src/Report.java:50:	ShortVariable: Avoid variables with short names like sc
+src/Report.java:50:	ShortVariable: Avoid variables with short names like sc
+src/Report.java:50:	ShortVariable: Avoid variables with short names like sq
+src/Report.java:50:	ShortVariable: Avoid variables with short names like sq
+src/Report.java:59:	ControlStatementBraces: This statement should have braces
+src/Report.java:59:	ControlStatementBraces: This statement should have braces
+src/Report.java:59:	IfElseStmtsMustUseBraces: Avoid using if...else statements without curly braces
+src/Report.java:59:	IfElseStmtsMustUseBraces: Avoid using if...else statements without curly braces
+src/Report.java:61:	ControlStatementBraces: This statement should have braces
+src/Report.java:61:	ControlStatementBraces: This statement should have braces
+src/Report.java:61:	IfElseStmtsMustUseBraces: Avoid using if...else statements without curly braces
+src/Report.java:61:	IfElseStmtsMustUseBraces: Avoid using if...else statements without curly braces
+src/Report.java:66:	CommentRequired: Public method and constructor comments are required
+src/Report.java:66:	CommentRequired: Public method and constructor comments are required
+src/Report.java:66:	MethodArgumentCouldBeFinal: Parameter 'd' is not assigned and could be declared final
+src/Report.java:66:	MethodArgumentCouldBeFinal: Parameter 'd' is not assigned and could be declared final
+src/Report.java:66:	ShortVariable: Avoid variables with short names like d
+src/Report.java:66:	ShortVariable: Avoid variables with short names like d
+src/Report.java:73:	MethodArgumentCouldBeFinal: Parameter 'bf' is not assigned and could be declared final
+src/Report.java:73:	MethodArgumentCouldBeFinal: Parameter 'bf' is not assigned and could be declared final
+src/Report.java:73:	ShortVariable: Avoid variables with short names like bf
+src/Report.java:73:	ShortVariable: Avoid variables with short names like bf
+src/Report.java:80:	MethodArgumentCouldBeFinal: Parameter 'hf' is not assigned and could be declared final
+src/Report.java:80:	MethodArgumentCouldBeFinal: Parameter 'hf' is not assigned and could be declared final
+src/Report.java:80:	ShortVariable: Avoid variables with short names like hf
+src/Report.java:80:	ShortVariable: Avoid variables with short names like hf
+src/Report.java:87:	MethodArgumentCouldBeFinal: Parameter 'bef' is not assigned and could be declared final
+src/Report.java:87:	MethodArgumentCouldBeFinal: Parameter 'bef' is not assigned and could be declared final
+src/Report.java:92:	MethodArgumentCouldBeFinal: Parameter 'sq' is not assigned and could be declared final
+src/Report.java:92:	MethodArgumentCouldBeFinal: Parameter 'sq' is not assigned and could be declared final
+src/Report.java:92:	ShortVariable: Avoid variables with short names like sq
+src/Report.java:92:	ShortVariable: Avoid variables with short names like sq
+src/Report.java:97:	MethodArgumentCouldBeFinal: Parameter 'sc' is not assigned and could be declared final
+src/Report.java:97:	MethodArgumentCouldBeFinal: Parameter 'sc' is not assigned and could be declared final
+src/Report.java:97:	ShortVariable: Avoid variables with short names like sc
+src/Report.java:97:	ShortVariable: Avoid variables with short names like sc
+src/Report.java:105:	MethodArgumentCouldBeFinal: Parameter 'ns' is not assigned and could be declared final
+src/Report.java:105:	MethodArgumentCouldBeFinal: Parameter 'ns' is not assigned and could be declared final
+src/Report.java:105:	ShortVariable: Avoid variables with short names like ns
+src/Report.java:105:	ShortVariable: Avoid variables with short names like ns
+src/Report.java:107:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:107:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:108:	ControlStatementBraces: This statement should have braces
+src/Report.java:108:	ControlStatementBraces: This statement should have braces
+src/Report.java:115:	MethodArgumentCouldBeFinal: Parameter 'pts' is not assigned and could be declared final
+src/Report.java:115:	MethodArgumentCouldBeFinal: Parameter 'pts' is not assigned and could be declared final
+src/Report.java:116:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:116:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:117:	ControlStatementBraces: This statement should have braces
+src/Report.java:117:	ControlStatementBraces: This statement should have braces
+src/Report.java:121:	CommentRequired: Public method and constructor comments are required
+src/Report.java:121:	CommentRequired: Public method and constructor comments are required
+src/Report.java:148:	CommentRequired: Public method and constructor comments are required
+src/Report.java:148:	CommentRequired: Public method and constructor comments are required
+src/Report.java:149:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '149'-'151').
+src/Report.java:149:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '149'-'151').
+src/Report.java:149:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '149'-'157').
+src/Report.java:149:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '149'-'157').
+src/Report.java:149:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '149'-'162').
+src/Report.java:149:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '149'-'162').
+src/Report.java:150:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:150:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:150:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:150:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:151:	ControlStatementBraces: This statement should have braces
+src/Report.java:151:	ControlStatementBraces: This statement should have braces
+src/Report.java:151:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '151'-'157').
+src/Report.java:151:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '151'-'157').
+src/Report.java:151:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '151'-'162').
+src/Report.java:151:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '151'-'162').
+src/Report.java:153:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:153:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:154:	ControlStatementBraces: This statement should have braces
+src/Report.java:154:	ControlStatementBraces: This statement should have braces
+src/Report.java:156:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:156:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:157:	ControlStatementBraces: This statement should have braces
+src/Report.java:157:	ControlStatementBraces: This statement should have braces
+src/Report.java:157:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '157'-'162').
+src/Report.java:157:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '157'-'162').
+src/Report.java:159:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:159:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:159:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:159:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:161:	AvoidDuplicateLiterals: The String literal " Errore nesting ifs" appears 5 times in this file; the first occurrence is on line 161
+src/Report.java:161:	AvoidDuplicateLiterals: The String literal " Errore nesting ifs" appears 5 times in this file; the first occurrence is on line 161
+src/Report.java:162:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '162'-'167').
+src/Report.java:162:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '162'-'167').
+src/Report.java:164:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:164:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:176:	CommentRequired: Public method and constructor comments are required
+src/Report.java:176:	CommentRequired: Public method and constructor comments are required
+src/Report.java:177:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '177'-'179').
+src/Report.java:177:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '177'-'179').
+src/Report.java:178:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:178:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:179:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '179'-'182').
+src/Report.java:179:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '179'-'182').
+src/Report.java:182:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '182'-'188').
+src/Report.java:182:	DataflowAnomalyAnalysis: Found 'DD'-anomaly for variable 'risk' (lines '182'-'188').
+src/Report.java:187:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:187:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:187:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:187:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:188:	ControlStatementBraces: This statement should have braces
+src/Report.java:188:	ControlStatementBraces: This statement should have braces
+src/Report.java:189:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:189:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:189:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:189:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:190:	ControlStatementBraces: This statement should have braces
+src/Report.java:190:	ControlStatementBraces: This statement should have braces
+src/Report.java:192:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:192:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:193:	ControlStatementBraces: This statement should have braces
+src/Report.java:193:	ControlStatementBraces: This statement should have braces
+src/Report.java:204:	CommentRequired: Public method and constructor comments are required
+src/Report.java:204:	CommentRequired: Public method and constructor comments are required
+src/Report.java:205:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:205:	AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/Report.java:205:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:205:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+src/Report.java:208:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/Report.java:208:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/Report.java:212:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/Report.java:212:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/Report.java:214:	UselessParentheses: Useless parentheses.
+src/Report.java:214:	UselessParentheses: Useless parentheses.
+src/main.java:6:	ClassNamingConventions: The utility class name 'main' doesn't match '[A-Z][a-zA-Z0-9]+(Utils?|Helper)'
+src/main.java:6:	ClassNamingConventions: The utility class name 'main' doesn't match '[A-Z][a-zA-Z0-9]+(Utils?|Helper)'
+src/main.java:6:	CommentRequired: Class comments are required
+src/main.java:6:	CommentRequired: Class comments are required
+src/main.java:6:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+src/main.java:6:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+src/main.java:6:	ShortClassName: Avoid short class names like main
+src/main.java:6:	ShortClassName: Avoid short class names like main
+src/main.java:6:	UseUtilityClass: All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/main.java:6:	UseUtilityClass: All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/main.java:8:	CommentRequired: Public method and constructor comments are required
+src/main.java:8:	CommentRequired: Public method and constructor comments are required
+src/main.java:8:	MethodArgumentCouldBeFinal: Parameter 'args' is not assigned and could be declared final
+src/main.java:8:	MethodArgumentCouldBeFinal: Parameter 'args' is not assigned and could be declared final
+src/main.java:8:	MethodWithSameNameAsEnclosingClass: Classes should not have non-constructor methods with the same name as the class
+src/main.java:8:	MethodWithSameNameAsEnclosingClass: Classes should not have non-constructor methods with the same name as the class
+src/main.java:10:	LocalVariableCouldBeFinal: Local variable 'listaColonie' could be declared final
+src/main.java:10:	LocalVariableCouldBeFinal: Local variable 'listaColonie' could be declared final
+src/main.java:10:	UseDiamondOperator: Explicit type arguments can be replaced by Diamond Operator
+src/main.java:10:	UseDiamondOperator: Explicit type arguments can be replaced by Diamond Operator
+src/main.java:11:	LocalVariableCouldBeFinal: Local variable 'nomeFile' could be declared final
+src/main.java:11:	LocalVariableCouldBeFinal: Local variable 'nomeFile' could be declared final
+src/main.java:15:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:15:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:15:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:15:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:15:	SystemPrintln: System.out.println is used
+src/main.java:15:	SystemPrintln: System.out.println is used
+src/main.java:18:	CommentRequired: Public method and constructor comments are required
+src/main.java:18:	CommentRequired: Public method and constructor comments are required
+src/main.java:18:	LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main.java:18:	LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main.java:18:	MethodArgumentCouldBeFinal: Parameter 'lc' is not assigned and could be declared final
+src/main.java:18:	MethodArgumentCouldBeFinal: Parameter 'lc' is not assigned and could be declared final
+src/main.java:18:	MethodArgumentCouldBeFinal: Parameter 'nomeFile' is not assigned and could be declared final
+src/main.java:18:	MethodArgumentCouldBeFinal: Parameter 'nomeFile' is not assigned and could be declared final
+src/main.java:18:	ShortVariable: Avoid variables with short names like lc
+src/main.java:18:	ShortVariable: Avoid variables with short names like lc
+src/main.java:20:	LocalVariableCouldBeFinal: Local variable 'myFile' could be declared final
+src/main.java:20:	LocalVariableCouldBeFinal: Local variable 'myFile' could be declared final
+src/main.java:21:	CloseResource: Ensure that resources like this Scanner object are closed after use
+src/main.java:21:	CloseResource: Ensure that resources like this Scanner object are closed after use
+src/main.java:21:	LocalVariableCouldBeFinal: Local variable 'myReader' could be declared final
+src/main.java:21:	LocalVariableCouldBeFinal: Local variable 'myReader' could be declared final
+src/main.java:23:	LocalVariableCouldBeFinal: Local variable 'colony' could be declared final
+src/main.java:23:	LocalVariableCouldBeFinal: Local variable 'colony' could be declared final
+src/main.java:24:	LocalVariableCouldBeFinal: Local variable 'delim' could be declared final
+src/main.java:24:	LocalVariableCouldBeFinal: Local variable 'delim' could be declared final
+src/main.java:25:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+src/main.java:25:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+src/main.java:25:	LocalVariableCouldBeFinal: Local variable 'colonyData' could be declared final
+src/main.java:25:	LocalVariableCouldBeFinal: Local variable 'colonyData' could be declared final
+src/main.java:26:	AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main.java:26:	AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main.java:26:	LocalVariableCouldBeFinal: Local variable 'c' could be declared final
+src/main.java:26:	LocalVariableCouldBeFinal: Local variable 'c' could be declared final
+src/main.java:26:	ShortVariable: Avoid variables with short names like c
+src/main.java:26:	ShortVariable: Avoid variables with short names like c
+src/main.java:27:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:27:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:28:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:28:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:28:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:28:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:29:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:29:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:29:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:29:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:30:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:30:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:30:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:30:	LawOfDemeter: Potential violation of Law of Demeter (method chain calls)
+src/main.java:36:	SystemPrintln: System.out.println is used
+src/main.java:36:	SystemPrintln: System.out.println is used
+src/main.java:37:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main.java:37:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+test/ColoniaTest.java:12:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+test/ColoniaTest.java:12:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+test/ColoniaTest.java:13:	CommentRequired: Class comments are required
+test/ColoniaTest.java:13:	CommentRequired: Class comments are required
+test/ColoniaTest.java:14:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ColoniaTest.java:14:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ColoniaTest.java:14:	CommentDefaultAccessModifier: To avoid mistakes add a comment at the beginning of the colony field if you want a default access modifier
+test/ColoniaTest.java:14:	CommentDefaultAccessModifier: To avoid mistakes add a comment at the beginning of the colony field if you want a default access modifier
+test/ColoniaTest.java:14:	CommentRequired: Field comments are required
+test/ColoniaTest.java:14:	CommentRequired: Field comments are required
+test/ColoniaTest.java:14:	DefaultPackage: Use explicit scoping instead of the default package private level
+test/ColoniaTest.java:14:	DefaultPackage: Use explicit scoping instead of the default package private level
+test/ColoniaTest.java:15:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ColoniaTest.java:15:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ColoniaTest.java:15:	CommentRequired: Field comments are required
+test/ColoniaTest.java:15:	CommentRequired: Field comments are required
+test/ColoniaTest.java:15:	ImmutableField: Private field 'inputIncrease' could be made final; it is only initialized in the declaration or constructor.
+test/ColoniaTest.java:15:	ImmutableField: Private field 'inputIncrease' could be made final; it is only initialized in the declaration or constructor.
+test/ColoniaTest.java:16:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ColoniaTest.java:16:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ColoniaTest.java:16:	CommentRequired: Field comments are required
+test/ColoniaTest.java:16:	CommentRequired: Field comments are required
+test/ColoniaTest.java:16:	ImmutableField: Private field 'expectedResult' could be made final; it is only initialized in the declaration or constructor.
+test/ColoniaTest.java:16:	ImmutableField: Private field 'expectedResult' could be made final; it is only initialized in the declaration or constructor.
+test/ColoniaTest.java:20:	CommentRequired: Public method and constructor comments are required
+test/ColoniaTest.java:20:	CommentRequired: Public method and constructor comments are required
+test/ColoniaTest.java:28:	CommentRequired: Public method and constructor comments are required
+test/ColoniaTest.java:28:	CommentRequired: Public method and constructor comments are required
+test/ColoniaTest.java:28:	MethodArgumentCouldBeFinal: Parameter 'p1' is not assigned and could be declared final
+test/ColoniaTest.java:28:	MethodArgumentCouldBeFinal: Parameter 'p1' is not assigned and could be declared final
+test/ColoniaTest.java:28:	MethodArgumentCouldBeFinal: Parameter 'p2' is not assigned and could be declared final
+test/ColoniaTest.java:28:	MethodArgumentCouldBeFinal: Parameter 'p2' is not assigned and could be declared final
+test/ColoniaTest.java:28:	ShortVariable: Avoid variables with short names like p1
+test/ColoniaTest.java:28:	ShortVariable: Avoid variables with short names like p1
+test/ColoniaTest.java:28:	ShortVariable: Avoid variables with short names like p2
+test/ColoniaTest.java:28:	ShortVariable: Avoid variables with short names like p2
+test/ColoniaTest.java:35:	CommentRequired: Public method and constructor comments are required
+test/ColoniaTest.java:35:	CommentRequired: Public method and constructor comments are required
+test/ColoniaTest.java:38:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ColoniaTest.java:38:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:5:	CommentRequired: Class comments are required
+test/ReportTest.java:5:	CommentRequired: Class comments are required
+test/ReportTest.java:5:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+test/ReportTest.java:5:	NoPackage: All classes, interfaces, enums and annotations must belong to a named package
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:6:	CommentDefaultAccessModifier: To avoid mistakes add a comment at the beginning of the highSwarmRisk field if you want a default access modifier
+test/ReportTest.java:6:	CommentDefaultAccessModifier: To avoid mistakes add a comment at the beginning of the highSwarmRisk field if you want a default access modifier
+test/ReportTest.java:6:	CommentRequired: Field comments are required
+test/ReportTest.java:6:	CommentRequired: Field comments are required
+test/ReportTest.java:6:	DefaultPackage: Use explicit scoping instead of the default package private level
+test/ReportTest.java:6:	DefaultPackage: Use explicit scoping instead of the default package private level
+test/ReportTest.java:6:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+test/ReportTest.java:6:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+test/ReportTest.java:7:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:7:	BeanMembersShouldSerialize: Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/ReportTest.java:7:	CommentDefaultAccessModifier: To avoid mistakes add a comment at the beginning of the bonus field if you want a default access modifier
+test/ReportTest.java:7:	CommentDefaultAccessModifier: To avoid mistakes add a comment at the beginning of the bonus field if you want a default access modifier
+test/ReportTest.java:7:	CommentRequired: Field comments are required
+test/ReportTest.java:7:	CommentRequired: Field comments are required
+test/ReportTest.java:7:	DefaultPackage: Use explicit scoping instead of the default package private level
+test/ReportTest.java:7:	DefaultPackage: Use explicit scoping instead of the default package private level
+test/ReportTest.java:9:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:9:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:10:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+test/ReportTest.java:10:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+test/ReportTest.java:22:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:22:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:22:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:22:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:23:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:23:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:24:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:24:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:25:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:25:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:26:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:26:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:30:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:30:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:30:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:30:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:31:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+test/ReportTest.java:31:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+test/ReportTest.java:32:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:32:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:33:	LocalVariableCouldBeFinal: Local variable 'testRep' could be declared final
+test/ReportTest.java:33:	LocalVariableCouldBeFinal: Local variable 'testRep' could be declared final
+test/ReportTest.java:34:	LocalVariableCouldBeFinal: Local variable 'broodFrames' could be declared final
+test/ReportTest.java:34:	LocalVariableCouldBeFinal: Local variable 'broodFrames' could be declared final
+test/ReportTest.java:36:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:36:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:45:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:45:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:46:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:46:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:47:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:47:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:48:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:48:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:48:	SimplifyBooleanAssertion: assertTrue(!expr) can be replaced by assertFalse(expr)
+test/ReportTest.java:48:	SimplifyBooleanAssertion: assertTrue(!expr) can be replaced by assertFalse(expr)
+test/ReportTest.java:49:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:49:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:50:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:50:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:51:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:51:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:51:	UseAssertSameInsteadOfAssertTrue: Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+test/ReportTest.java:51:	UseAssertSameInsteadOfAssertTrue: Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+test/ReportTest.java:57:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:57:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:57:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:57:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:58:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:58:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:58:	UseAssertSameInsteadOfAssertTrue: Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+test/ReportTest.java:58:	UseAssertSameInsteadOfAssertTrue: Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+test/ReportTest.java:59:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:59:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:59:	UseAssertSameInsteadOfAssertTrue: Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+test/ReportTest.java:59:	UseAssertSameInsteadOfAssertTrue: Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+test/ReportTest.java:60:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:60:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:60:	UseAssertSameInsteadOfAssertTrue: Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+test/ReportTest.java:60:	UseAssertSameInsteadOfAssertTrue: Use assertSame(x, y) instead of assertTrue(x==y), or assertNotSame(x,y) vs assertFalse(x==y)
+test/ReportTest.java:64:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:64:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:64:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:64:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:65:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:65:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:66:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:66:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:70:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:70:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:70:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:70:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:71:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:71:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:72:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:72:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:73:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:73:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:77:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:77:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:79:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+test/ReportTest.java:79:	IfStmtsMustUseBraces: Avoid using if statements without curly braces
+test/ReportTest.java:80:	ControlStatementBraces: This statement should have braces
+test/ReportTest.java:80:	ControlStatementBraces: This statement should have braces
+test/ReportTest.java:80:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:80:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:84:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:84:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:84:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:84:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:85:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+test/ReportTest.java:85:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+test/ReportTest.java:86:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:86:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:87:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:87:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:87:	LocalVariableCouldBeFinal: Local variable 'reportMcdc' could be declared final
+test/ReportTest.java:87:	LocalVariableCouldBeFinal: Local variable 'reportMcdc' could be declared final
+test/ReportTest.java:88:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:88:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:92:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:92:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:95:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:95:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:98:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:98:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:102:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:102:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:103:	CommentSize: Comment is too large: Line too long
+test/ReportTest.java:103:	CommentSize: Comment is too large: Line too long
+test/ReportTest.java:105:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:105:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:106:	CommentSize: Comment is too large: Line too long
+test/ReportTest.java:106:	CommentSize: Comment is too large: Line too long
+test/ReportTest.java:108:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:108:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:112:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:112:	CommentRequired: Public method and constructor comments are required
+test/ReportTest.java:112:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:112:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/ReportTest.java:113:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+test/ReportTest.java:113:	LocalVariableCouldBeFinal: Local variable 'cal' could be declared final
+test/ReportTest.java:114:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:114:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:115:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:115:	LawOfDemeter: Potential violation of Law of Demeter (object not created locally)
+test/ReportTest.java:115:	LocalVariableCouldBeFinal: Local variable 'reportMcdc' could be declared final
+test/ReportTest.java:115:	LocalVariableCouldBeFinal: Local variable 'reportMcdc' could be declared final
+test/ReportTest.java:116:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:116:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:120:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:120:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:123:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:123:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:128:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:128:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:131:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:131:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:134:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/ReportTest.java:134:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message

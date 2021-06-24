@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ReportTest" time="0.007" tests="10" errors="0" skipped="0" failures="5">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\tesi\tools_x_tvsw_2021\workspace\TestingProj\target\test-classes;D:\tesi\tools_x_tvsw_2021\workspace\TestingProj\target\classes;C:\Users\Leonardo\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\Leonardo\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="IT"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\Leonardo\AppData\Local\Temp\surefire7498800399345212025\surefirebooter3745034550648437894.jar C:\Users\Leonardo\AppData\Local\Temp\surefire7498800399345212025 2021-06-12T08-14-30_983-jvmRun1 surefire3489644699673362044tmp surefire_03569850247455527041tmp"/>
+    <property name="surefire.test.class.path" value="D:\tesi\tools_x_tvsw_2021\workspace\TestingProj\target\test-classes;D:\tesi\tools_x_tvsw_2021\workspace\TestingProj\target\classes;C:\Users\Leonardo\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\Leonardo\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Leonardo"/>
+    <property name="user.language" value="it"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre"/>
+    <property name="basedir" value="D:\tesi\tools_x_tvsw_2021\workspace\TestingProj"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Leonardo\AppData\Local\Temp\surefire7498800399345212025\surefirebooter3745034550648437894.jar"/>
+    <property name="sun.boot.class.path" value="D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\resources.jar;D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\rt.jar;D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\sunrsasign.jar;D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\jsse.jar;D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\jce.jar;D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\charsets.jar;D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\jfr.jar;D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0-adoptopenjdk-_2018_05_19_00_59-b00"/>
+    <property name="user.name" value="Leonardo"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Leonardo\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Leonardo\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0-adoptopenjdk"/>
+    <property name="user.dir" value="D:\tesi\tools_x_tvsw_2021\workspace\TestingProj"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:/tesi/tools_x_tvsw_2021/OpenJDK64/bin/../jre/bin/server;D:/tesi/tools_x_tvsw_2021/OpenJDK64/bin/../jre/bin;D:/tesi/tools_x_tvsw_2021/OpenJDK64/bin/../jre/lib/amd64;D:\tesi\tools_x_tvsw_2021\NuSMV-2.6.0-win64\bin;D:\tesi\tools_x_tvsw_2021\OpenJDK64\bin;C:\Program Files\Java\jdk-11.0.9\bin;D:\tesi\apache-maven-3.6.3\bin;C:\Program Files\Java\jdk-11.0.9\bin;D:\tesi\tools_x_tvsw_2021\NuSMV-2.6.0-win64\bin;C:\Program Files\Java\jdk-11.0.9\jre\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Leonardo\AppData\Local\Microsoft\WindowsApps;C:\Users\Leonardo\AppData\Local\GitHubDesktop\bin;;D:\tesi\tools_x_tvsw_2021;;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.71-b00"/>
+    <property name="java.ext.dirs" value="D:\tesi\tools_x_tvsw_2021\OpenJDK64\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="testSuper" classname="ReportTest" time="0"/>
+  <testcase name="testSwarm" classname="ReportTest" time="0">
+    <failure type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError
+	at ReportTest.testSwarm(ReportTest.java:60)
+]]></failure>
+  </testcase>
+  <testcase name="testConstruction" classname="ReportTest" time="0">
+    <failure type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError
+	at ReportTest.testConstruction(ReportTest.java:51)
+]]></failure>
+  </testcase>
+  <testcase name="testSwarmMCDC" classname="ReportTest" time="0"/>
+  <testcase name="testSuperNeedCtWedge" classname="ReportTest" time="0">
+    <failure message=" Errore if" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError:  Errore if
+	at ReportTest.testSuperNeedCtWedge(ReportTest.java:170)
+]]></failure>
+  </testcase>
+  <testcase name="testStarveCtWedge" classname="ReportTest" time="0"/>
+  <testcase name="testStarve" classname="ReportTest" time="0">
+    <failure message="expected:&lt;5&gt; but was:&lt;0&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<5> but was:<0>
+	at ReportTest.testStarve(ReportTest.java:65)
+]]></failure>
+  </testcase>
+  <testcase name="testConstructor" classname="ReportTest" time="0"/>
+  <testcase name="testStarveMcdc" classname="ReportTest" time="0">
+    <failure message="expected:&lt;4&gt; but was:&lt;2&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<4> but was:<2>
+	at ReportTest.testStarveMcdc(ReportTest.java:131)
+]]></failure>
+  </testcase>
+  <testcase name="testSuperPercentage" classname="ReportTest" time="0"/>
+</testsuite>

@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: ReportTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in ReportTest
+ReportTest.testSwarm  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at ReportTest.testSwarm(ReportTest.java:60)
+
+ReportTest.testConstruction  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at ReportTest.testConstruction(ReportTest.java:51)
+
+ReportTest.testSuperNeedCtWedge  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError:  Errore if
+	at ReportTest.testSuperNeedCtWedge(ReportTest.java:170)
+
+ReportTest.testStarve  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<5> but was:<0>
+	at ReportTest.testStarve(ReportTest.java:65)
+
+ReportTest.testStarveMcdc  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<4> but was:<2>
+	at ReportTest.testStarveMcdc(ReportTest.java:131)
+
